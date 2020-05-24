@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,203 @@
 		0461D7CD247B1DE700F2447D /* Landon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461D7C6247B1DE700F2447D /* Landon.framework */; };
 		0461D7CE247B1DE700F2447D /* Landon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0461D7C6247B1DE700F2447D /* Landon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0461D7DC247B220500F2447D /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461D7DB247B220500F2447D /* CaptureViewController.swift */; };
+		0461D8E7247B2B3D00F2447D /* libdraco.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461D8E5247B2B1800F2447D /* libdraco.a */; platformFilter = ios; };
+		0461D9CB247B2C8A00F2447D /* attribute_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8ED247B2C8900F2447D /* attribute_transform.h */; };
+		0461D9CC247B2C8A00F2447D /* geometry_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8EE247B2C8900F2447D /* geometry_attribute.h */; };
+		0461D9CD247B2C8A00F2447D /* attribute_quantization_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8EF247B2C8900F2447D /* attribute_quantization_transform.h */; };
+		0461D9CE247B2C8A00F2447D /* attribute_transform_type.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8F0247B2C8900F2447D /* attribute_transform_type.h */; };
+		0461D9CF247B2C8A00F2447D /* point_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8F1247B2C8900F2447D /* point_attribute.h */; };
+		0461D9D0247B2C8A00F2447D /* attribute_transform_data.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8F2247B2C8900F2447D /* attribute_transform_data.h */; };
+		0461D9D1247B2C8A00F2447D /* geometry_indices.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8F3247B2C8900F2447D /* geometry_indices.h */; };
+		0461D9D2247B2C8A00F2447D /* attribute_octahedron_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8F4247B2C8900F2447D /* attribute_octahedron_transform.h */; };
+		0461D9D3247B2C8A00F2447D /* parser_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8F6247B2C8900F2447D /* parser_utils.h */; };
+		0461D9D4247B2C8A00F2447D /* file_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8F7247B2C8900F2447D /* file_utils.h */; };
+		0461D9D5247B2C8A00F2447D /* ply_property_writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8F8247B2C8900F2447D /* ply_property_writer.h */; };
+		0461D9D6247B2C8A00F2447D /* stdio_file_reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8F9247B2C8900F2447D /* stdio_file_reader.h */; };
+		0461D9D7247B2C8A00F2447D /* file_reader_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8FA247B2C8900F2447D /* file_reader_interface.h */; };
+		0461D9D8247B2C8A00F2447D /* point_cloud_io.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8FB247B2C8900F2447D /* point_cloud_io.h */; };
+		0461D9D9247B2C8A00F2447D /* obj_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8FC247B2C8900F2447D /* obj_decoder.h */; };
+		0461D9DA247B2C8A00F2447D /* ply_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8FD247B2C8900F2447D /* ply_encoder.h */; };
+		0461D9DB247B2C8A00F2447D /* file_reader_test_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8FE247B2C8900F2447D /* file_reader_test_common.h */; };
+		0461D9DC247B2C8A00F2447D /* file_writer_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8FF247B2C8900F2447D /* file_writer_interface.h */; };
+		0461D9DD247B2C8A00F2447D /* ply_reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D900247B2C8900F2447D /* ply_reader.h */; };
+		0461D9DE247B2C8A00F2447D /* mesh_io.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D901247B2C8900F2447D /* mesh_io.h */; };
+		0461D9DF247B2C8A00F2447D /* ply_property_reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D902247B2C8900F2447D /* ply_property_reader.h */; };
+		0461D9E0247B2C8A00F2447D /* stdio_file_writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D903247B2C8900F2447D /* stdio_file_writer.h */; };
+		0461D9E1247B2C8A00F2447D /* ply_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D904247B2C8900F2447D /* ply_decoder.h */; };
+		0461D9E2247B2C8A00F2447D /* obj_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D905247B2C8900F2447D /* obj_encoder.h */; };
+		0461D9E3247B2C8A00F2447D /* file_writer_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D906247B2C8900F2447D /* file_writer_factory.h */; };
+		0461D9E4247B2C8A00F2447D /* file_reader_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D907247B2C8900F2447D /* file_reader_factory.h */; };
+		0461D9E5247B2C8A00F2447D /* keyframe_animation_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D909247B2C8900F2447D /* keyframe_animation_decoder.h */; };
+		0461D9E6247B2C8A00F2447D /* keyframe_animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D90A247B2C8900F2447D /* keyframe_animation.h */; };
+		0461D9E7247B2C8A00F2447D /* keyframe_animation_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D90B247B2C8900F2447D /* keyframe_animation_encoder.h */; };
+		0461D9E8247B2C8A00F2447D /* geometry_metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D90D247B2C8900F2447D /* geometry_metadata.h */; };
+		0461D9E9247B2C8A00F2447D /* metadata_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D90E247B2C8900F2447D /* metadata_encoder.h */; };
+		0461D9EA247B2C8A00F2447D /* metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D90F247B2C8900F2447D /* metadata.h */; };
+		0461D9EB247B2C8A00F2447D /* metadata_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D910247B2C8900F2447D /* metadata_decoder.h */; };
+		0461D9ED247B2C8A00F2447D /* mesh_cleanup.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D914247B2C8900F2447D /* mesh_cleanup.h */; };
+		0461D9EE247B2C8A00F2447D /* mesh_are_equivalent.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D915247B2C8900F2447D /* mesh_are_equivalent.h */; };
+		0461D9EF247B2C8A00F2447D /* triangle_soup_mesh_builder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D916247B2C8900F2447D /* triangle_soup_mesh_builder.h */; };
+		0461D9F0247B2C8A00F2447D /* corner_table_iterators.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D917247B2C8900F2447D /* corner_table_iterators.h */; };
+		0461D9F1247B2C8A00F2447D /* mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D918247B2C8900F2447D /* mesh.h */; };
+		0461D9F2247B2C8A00F2447D /* mesh_attribute_corner_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D919247B2C8900F2447D /* mesh_attribute_corner_table.h */; };
+		0461D9F3247B2C8A00F2447D /* valence_cache.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D91A247B2C8900F2447D /* valence_cache.h */; };
+		0461D9F4247B2C8A00F2447D /* mesh_stripifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D91B247B2C8900F2447D /* mesh_stripifier.h */; };
+		0461D9F5247B2C8A00F2447D /* mesh_misc_functions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D91C247B2C8900F2447D /* mesh_misc_functions.h */; };
+		0461D9F6247B2C8A00F2447D /* corner_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D91D247B2C8900F2447D /* corner_table.h */; };
+		0461D9F7247B2C8A00F2447D /* vector_d.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D920247B2C8900F2447D /* vector_d.h */; };
+		0461D9F8247B2C8A00F2447D /* bit_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D921247B2C8900F2447D /* bit_utils.h */; };
+		0461D9F9247B2C8A00F2447D /* status.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D922247B2C8900F2447D /* status.h */; };
+		0461D9FA247B2C8A00F2447D /* divide.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D923247B2C8900F2447D /* divide.h */; };
+		0461D9FB247B2C8A00F2447D /* draco_test_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D924247B2C8900F2447D /* draco_test_base.h */; };
+		0461D9FC247B2C8A00F2447D /* encoder_buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D925247B2C8900F2447D /* encoder_buffer.h */; };
+		0461D9FD247B2C8A00F2447D /* quantization_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D926247B2C8900F2447D /* quantization_utils.h */; };
+		0461D9FE247B2C8A00F2447D /* draco_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D927247B2C8900F2447D /* draco_types.h */; };
+		0461D9FF247B2C8A00F2447D /* options.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D928247B2C8900F2447D /* options.h */; };
+		0461DA00247B2C8A00F2447D /* draco_test_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D929247B2C8900F2447D /* draco_test_utils.h */; };
+		0461DA01247B2C8A00F2447D /* data_buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D92A247B2C8900F2447D /* data_buffer.h */; };
+		0461DA02247B2C8A00F2447D /* draco_index_type.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D92B247B2C8900F2447D /* draco_index_type.h */; };
+		0461DA03247B2C8A00F2447D /* status_or.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D92C247B2C8900F2447D /* status_or.h */; };
+		0461DA04247B2C8A00F2447D /* math_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D92D247B2C8900F2447D /* math_utils.h */; };
+		0461DA05247B2C8A00F2447D /* macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D92E247B2C8900F2447D /* macros.h */; };
+		0461DA06247B2C8A00F2447D /* draco_version.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D92F247B2C8900F2447D /* draco_version.h */; };
+		0461DA07247B2C8A00F2447D /* varint_encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D930247B2C8900F2447D /* varint_encoding.h */; };
+		0461DA08247B2C8A00F2447D /* hash_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D931247B2C8900F2447D /* hash_utils.h */; };
+		0461DA09247B2C8A00F2447D /* draco_index_type_vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D932247B2C8900F2447D /* draco_index_type_vector.h */; };
+		0461DA0A247B2C8A00F2447D /* varint_decoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D933247B2C8900F2447D /* varint_decoding.h */; };
+		0461DA0B247B2C8A00F2447D /* decoder_buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D934247B2C8900F2447D /* decoder_buffer.h */; };
+		0461DA0C247B2C8A00F2447D /* bounding_box.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D935247B2C8900F2447D /* bounding_box.h */; };
+		0461DA0D247B2C8A00F2447D /* cycle_timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D936247B2C8900F2447D /* cycle_timer.h */; };
+		0461DA12247B2C8A00F2447D /* expert_encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D93E247B2C8A00F2447D /* expert_encode.h */; };
+		0461DA13247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D940247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl_interface.h */; };
+		0461DA14247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D941247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl.h */; };
+		0461DA15247B2C8A00F2447D /* mesh_sequential_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D942247B2C8A00F2447D /* mesh_sequential_encoder.h */; };
+		0461DA16247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D943247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_decoder.h */; };
+		0461DA17247B2C8A00F2447D /* mesh_edgebreaker_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D944247B2C8A00F2447D /* mesh_edgebreaker_encoder.h */; };
+		0461DA18247B2C8A00F2447D /* max_prediction_degree_traverser.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D946247B2C8A00F2447D /* max_prediction_degree_traverser.h */; };
+		0461DA19247B2C8A00F2447D /* mesh_attribute_indices_encoding_observer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D947247B2C8A00F2447D /* mesh_attribute_indices_encoding_observer.h */; };
+		0461DA1A247B2C8A00F2447D /* mesh_traversal_sequencer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D948247B2C8A00F2447D /* mesh_traversal_sequencer.h */; };
+		0461DA1B247B2C8A00F2447D /* depth_first_traverser.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D949247B2C8A00F2447D /* depth_first_traverser.h */; };
+		0461DA1C247B2C8A00F2447D /* traverser_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D94A247B2C8A00F2447D /* traverser_base.h */; };
+		0461DA1D247B2C8A00F2447D /* mesh_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D94B247B2C8A00F2447D /* mesh_decoder.h */; };
+		0461DA1E247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D94C247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_decoder.h */; };
+		0461DA1F247B2C8A00F2447D /* mesh_edgebreaker_traversal_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D94D247B2C8A00F2447D /* mesh_edgebreaker_traversal_encoder.h */; };
+		0461DA20247B2C8A00F2447D /* mesh_edgebreaker_traversal_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D94E247B2C8A00F2447D /* mesh_edgebreaker_traversal_decoder.h */; };
+		0461DA21247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D94F247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_encoder.h */; };
+		0461DA22247B2C8A00F2447D /* mesh_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D950247B2C8A00F2447D /* mesh_encoder.h */; };
+		0461DA23247B2C8A00F2447D /* mesh_edgebreaker_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D951247B2C8A00F2447D /* mesh_edgebreaker_decoder.h */; };
+		0461DA24247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D952247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_encoder.h */; };
+		0461DA25247B2C8A00F2447D /* mesh_sequential_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D953247B2C8A00F2447D /* mesh_sequential_decoder.h */; };
+		0461DA26247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D954247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl_interface.h */; };
+		0461DA27247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D955247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl.h */; };
+		0461DA28247B2C8A00F2447D /* mesh_edgebreaker_shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D956247B2C8A00F2447D /* mesh_edgebreaker_shared.h */; };
+		0461DA29247B2C8A00F2447D /* point_cloud_kd_tree_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D958247B2C8A00F2447D /* point_cloud_kd_tree_decoder.h */; };
+		0461DA2A247B2C8A00F2447D /* float_points_tree_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D95A247B2C8A00F2447D /* float_points_tree_encoder.h */; };
+		0461DA2B247B2C8A00F2447D /* quantize_points_3.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D95B247B2C8A00F2447D /* quantize_points_3.h */; };
+		0461DA2C247B2C8A00F2447D /* integer_points_kd_tree_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D95C247B2C8A00F2447D /* integer_points_kd_tree_decoder.h */; };
+		0461DA2D247B2C8A00F2447D /* point_cloud_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D95D247B2C8A00F2447D /* point_cloud_types.h */; };
+		0461DA2E247B2C8A00F2447D /* point_cloud_compression_method.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D95E247B2C8A00F2447D /* point_cloud_compression_method.h */; };
+		0461DA2F247B2C8A00F2447D /* dynamic_integer_points_kd_tree_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D95F247B2C8A00F2447D /* dynamic_integer_points_kd_tree_decoder.h */; };
+		0461DA30247B2C8A00F2447D /* queuing_policy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D960247B2C8A00F2447D /* queuing_policy.h */; };
+		0461DA31247B2C8A00F2447D /* dynamic_integer_points_kd_tree_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D961247B2C8A00F2447D /* dynamic_integer_points_kd_tree_encoder.h */; };
+		0461DA32247B2C8A00F2447D /* integer_points_kd_tree_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D962247B2C8A00F2447D /* integer_points_kd_tree_encoder.h */; };
+		0461DA33247B2C8A00F2447D /* float_points_tree_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D963247B2C8A00F2447D /* float_points_tree_decoder.h */; };
+		0461DA34247B2C8A00F2447D /* point_cloud_sequential_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D964247B2C8A00F2447D /* point_cloud_sequential_decoder.h */; };
+		0461DA35247B2C8A00F2447D /* point_cloud_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D965247B2C8A00F2447D /* point_cloud_encoder.h */; };
+		0461DA36247B2C8A00F2447D /* point_cloud_sequential_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D966247B2C8A00F2447D /* point_cloud_sequential_encoder.h */; };
+		0461DA37247B2C8A00F2447D /* point_cloud_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D967247B2C8A00F2447D /* point_cloud_decoder.h */; };
+		0461DA38247B2C8A00F2447D /* point_cloud_kd_tree_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D968247B2C8A00F2447D /* point_cloud_kd_tree_encoder.h */; };
+		0461DA39247B2C8A00F2447D /* encoding_features.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D96A247B2C8A00F2447D /* encoding_features.h */; };
+		0461DA3A247B2C8A00F2447D /* encoder_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D96B247B2C8A00F2447D /* encoder_options.h */; };
+		0461DA3B247B2C8A00F2447D /* compression_shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D96C247B2C8A00F2447D /* compression_shared.h */; };
+		0461DA3C247B2C8A00F2447D /* decoder_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D96D247B2C8A00F2447D /* decoder_options.h */; };
+		0461DA3D247B2C8A00F2447D /* draco_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D96E247B2C8A00F2447D /* draco_options.h */; };
+		0461DA3E247B2C8A00F2447D /* encode_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D96F247B2C8A00F2447D /* encode_base.h */; };
+		0461DA3F247B2C8A00F2447D /* shannon_entropy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D971247B2C8A00F2447D /* shannon_entropy.h */; };
+		0461DA40247B2C8A00F2447D /* rans_symbol_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D972247B2C8A00F2447D /* rans_symbol_encoder.h */; };
+		0461DA41247B2C8A00F2447D /* symbol_encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D973247B2C8A00F2447D /* symbol_encoding.h */; };
+		0461DA42247B2C8A00F2447D /* rans_symbol_coding.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D974247B2C8A00F2447D /* rans_symbol_coding.h */; };
+		0461DA43247B2C8A00F2447D /* symbol_decoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D975247B2C8A00F2447D /* symbol_decoding.h */; };
+		0461DA44247B2C8A00F2447D /* ans.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D976247B2C8A00F2447D /* ans.h */; };
+		0461DA45247B2C8A00F2447D /* rans_symbol_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D977247B2C8A00F2447D /* rans_symbol_decoder.h */; };
+		0461DA46247B2C8A00F2447D /* direct_bit_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D979247B2C8A00F2447D /* direct_bit_encoder.h */; };
+		0461DA47247B2C8A00F2447D /* folded_integer_bit_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D97A247B2C8A00F2447D /* folded_integer_bit_decoder.h */; };
+		0461DA48247B2C8A00F2447D /* rans_bit_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D97B247B2C8A00F2447D /* rans_bit_decoder.h */; };
+		0461DA49247B2C8A00F2447D /* symbol_bit_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D97C247B2C8A00F2447D /* symbol_bit_decoder.h */; };
+		0461DA4A247B2C8A00F2447D /* adaptive_rans_bit_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D97D247B2C8A00F2447D /* adaptive_rans_bit_encoder.h */; };
+		0461DA4B247B2C8A00F2447D /* adaptive_rans_bit_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D97E247B2C8A00F2447D /* adaptive_rans_bit_decoder.h */; };
+		0461DA4C247B2C8A00F2447D /* adaptive_rans_bit_coding_shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D97F247B2C8A00F2447D /* adaptive_rans_bit_coding_shared.h */; };
+		0461DA4D247B2C8A00F2447D /* symbol_bit_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D980247B2C8A00F2447D /* symbol_bit_encoder.h */; };
+		0461DA4E247B2C8A00F2447D /* folded_integer_bit_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D981247B2C8A00F2447D /* folded_integer_bit_encoder.h */; };
+		0461DA4F247B2C8A00F2447D /* rans_bit_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D982247B2C8A00F2447D /* rans_bit_encoder.h */; };
+		0461DA50247B2C8A00F2447D /* direct_bit_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D983247B2C8A00F2447D /* direct_bit_decoder.h */; };
+		0461DA51247B2C8A00F2447D /* attributes_decoder_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D985247B2C8A00F2447D /* attributes_decoder_interface.h */; };
+		0461DA52247B2C8A00F2447D /* sequential_integer_attribute_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D986247B2C8A00F2447D /* sequential_integer_attribute_encoder.h */; };
+		0461DA53247B2C8A00F2447D /* attributes_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D987247B2C8A00F2447D /* attributes_encoder.h */; };
+		0461DA54247B2C8A00F2447D /* sequential_quantization_attribute_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D988247B2C8A00F2447D /* sequential_quantization_attribute_decoder.h */; };
+		0461DA55247B2C8A00F2447D /* sequential_attribute_encoders_controller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D989247B2C8A00F2447D /* sequential_attribute_encoders_controller.h */; };
+		0461DA56247B2C8A00F2447D /* sequential_normal_attribute_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D98A247B2C8A00F2447D /* sequential_normal_attribute_decoder.h */; };
+		0461DA57247B2C8A00F2447D /* linear_sequencer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D98B247B2C8A00F2447D /* linear_sequencer.h */; };
+		0461DA58247B2C8A00F2447D /* sequential_attribute_decoders_controller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D98C247B2C8A00F2447D /* sequential_attribute_decoders_controller.h */; };
+		0461DA59247B2C8A00F2447D /* kd_tree_attributes_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D98D247B2C8A00F2447D /* kd_tree_attributes_encoder.h */; };
+		0461DA5A247B2C8A00F2447D /* sequential_attribute_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D98E247B2C8A00F2447D /* sequential_attribute_decoder.h */; };
+		0461DA5B247B2C8A00F2447D /* points_sequencer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D98F247B2C8A00F2447D /* points_sequencer.h */; };
+		0461DA5C247B2C8A00F2447D /* kd_tree_attributes_shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D990247B2C8A00F2447D /* kd_tree_attributes_shared.h */; };
+		0461DA5D247B2C8A00F2447D /* sequential_attribute_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D991247B2C8A00F2447D /* sequential_attribute_encoder.h */; };
+		0461DA5E247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D993247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_decoder.h */; };
+		0461DA5F247B2C8A00F2447D /* prediction_scheme_delta_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D994247B2C8A00F2447D /* prediction_scheme_delta_encoder.h */; };
+		0461DA60247B2C8A00F2447D /* prediction_scheme_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D995247B2C8A00F2447D /* prediction_scheme_factory.h */; };
+		0461DA61247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_transform_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D996247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_transform_base.h */; };
+		0461DA62247B2C8A00F2447D /* prediction_scheme_normal_octahedron_transform_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D997247B2C8A00F2447D /* prediction_scheme_normal_octahedron_transform_base.h */; };
+		0461DA63247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_predictor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D998247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_predictor.h */; };
+		0461DA64247B2C8A00F2447D /* prediction_scheme_wrap_decoding_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D999247B2C8A00F2447D /* prediction_scheme_wrap_decoding_transform.h */; };
+		0461DA65247B2C8A00F2447D /* prediction_scheme_wrap_transform_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D99A247B2C8A00F2447D /* prediction_scheme_wrap_transform_base.h */; };
+		0461DA66247B2C8A00F2447D /* mesh_prediction_scheme_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D99B247B2C8A00F2447D /* mesh_prediction_scheme_encoder.h */; };
+		0461DA67247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D99C247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_decoder.h */; };
+		0461DA68247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D99D247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_base.h */; };
+		0461DA69247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D99E247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_decoder.h */; };
+		0461DA6A247B2C8A00F2447D /* prediction_scheme_decoder_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D99F247B2C8A00F2447D /* prediction_scheme_decoder_interface.h */; };
+		0461DA6B247B2C8A00F2447D /* prediction_scheme_wrap_encoding_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A0247B2C8A00F2447D /* prediction_scheme_wrap_encoding_transform.h */; };
+		0461DA6C247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A1247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_encoder.h */; };
+		0461DA6D247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A2247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_encoder.h */; };
+		0461DA6E247B2C8A00F2447D /* prediction_scheme_encoder_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A3247B2C8A00F2447D /* prediction_scheme_encoder_interface.h */; };
+		0461DA6F247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A4247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_encoder.h */; };
+		0461DA70247B2C8A00F2447D /* prediction_scheme_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A5247B2C8A00F2447D /* prediction_scheme_encoder.h */; };
+		0461DA71247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A6247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_decoder.h */; };
+		0461DA72247B2C8A00F2447D /* prediction_scheme_encoding_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A7247B2C8A00F2447D /* prediction_scheme_encoding_transform.h */; };
+		0461DA73247B2C8A00F2447D /* prediction_scheme_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A8247B2C8A00F2447D /* prediction_scheme_decoder.h */; };
+		0461DA74247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9A9247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_shared.h */; };
+		0461DA75247B2C8A00F2447D /* prediction_scheme_decoder_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9AA247B2C8A00F2447D /* prediction_scheme_decoder_factory.h */; };
+		0461DA76247B2C8A00F2447D /* mesh_prediction_scheme_data.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9AB247B2C8A00F2447D /* mesh_prediction_scheme_data.h */; };
+		0461DA77247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9AC247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_decoder.h */; };
+		0461DA78247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9AD247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_decoder.h */; };
+		0461DA79247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9AE247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_encoder.h */; };
+		0461DA7A247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9AF247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h */; };
+		0461DA7B247B2C8A00F2447D /* prediction_scheme_encoder_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B0247B2C8A00F2447D /* prediction_scheme_encoder_factory.h */; };
+		0461DA7C247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B1247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_encoder.h */; };
+		0461DA7D247B2C8A00F2447D /* prediction_scheme_normal_octahedron_encoding_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B2247B2C8A00F2447D /* prediction_scheme_normal_octahedron_encoding_transform.h */; };
+		0461DA7E247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_area.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B3247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_area.h */; };
+		0461DA7F247B2C8A00F2447D /* mesh_prediction_scheme_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B4247B2C8A00F2447D /* mesh_prediction_scheme_decoder.h */; };
+		0461DA80247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B5247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_shared.h */; };
+		0461DA81247B2C8A00F2447D /* prediction_scheme_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B6247B2C8A00F2447D /* prediction_scheme_interface.h */; };
+		0461DA82247B2C8A00F2447D /* prediction_scheme_decoding_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B7247B2C8A00F2447D /* prediction_scheme_decoding_transform.h */; };
+		0461DA83247B2C8A00F2447D /* prediction_scheme_normal_octahedron_decoding_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B8247B2C8A00F2447D /* prediction_scheme_normal_octahedron_decoding_transform.h */; };
+		0461DA84247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9B9247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_encoder.h */; };
+		0461DA85247B2C8A00F2447D /* prediction_scheme_delta_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9BA247B2C8A00F2447D /* prediction_scheme_delta_decoder.h */; };
+		0461DA86247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_decoding_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9BB247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_decoding_transform.h */; };
+		0461DA87247B2C8A00F2447D /* kd_tree_attributes_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9BC247B2C8A00F2447D /* kd_tree_attributes_decoder.h */; };
+		0461DA88247B2C8A00F2447D /* normal_compression_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9BD247B2C8A00F2447D /* normal_compression_utils.h */; };
+		0461DA89247B2C8A00F2447D /* point_d_vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9BE247B2C8A00F2447D /* point_d_vector.h */; };
+		0461DA8A247B2C8A00F2447D /* mesh_attribute_indices_encoding_data.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9BF247B2C8A00F2447D /* mesh_attribute_indices_encoding_data.h */; };
+		0461DA8B247B2C8A00F2447D /* sequential_normal_attribute_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9C0247B2C8A00F2447D /* sequential_normal_attribute_encoder.h */; };
+		0461DA8C247B2C8A00F2447D /* sequential_integer_attribute_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9C1247B2C8A00F2447D /* sequential_integer_attribute_decoder.h */; };
+		0461DA8D247B2C8A00F2447D /* sequential_quantization_attribute_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9C2247B2C8A00F2447D /* sequential_quantization_attribute_encoder.h */; };
+		0461DA8E247B2C8A00F2447D /* attributes_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9C3247B2C8A00F2447D /* attributes_decoder.h */; };
+		0461DA8F247B2C8A00F2447D /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9C4247B2C8A00F2447D /* encode.h */; };
+		0461DA90247B2C8A00F2447D /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9C5247B2C8A00F2447D /* decode.h */; };
+		0461DA91247B2C8A00F2447D /* point_cloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9C7247B2C8A00F2447D /* point_cloud.h */; };
+		0461DA92247B2C8A00F2447D /* point_cloud_builder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D9C8247B2C8A00F2447D /* point_cloud_builder.h */; };
+		0461DA95247B2DB500F2447D /* draco_features.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DA94247B2DB500F2447D /* draco_features.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +254,203 @@
 		0461D7C9247B1DE700F2447D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0461D7DA247B220500F2447D /* Landon Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Landon Demo-Bridging-Header.h"; path = "Capture/Landon Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		0461D7DB247B220500F2447D /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		0461D8E5247B2B1800F2447D /* libdraco.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdraco.a; sourceTree = "<group>"; };
+		0461D8ED247B2C8900F2447D /* attribute_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attribute_transform.h; sourceTree = "<group>"; };
+		0461D8EE247B2C8900F2447D /* geometry_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry_attribute.h; sourceTree = "<group>"; };
+		0461D8EF247B2C8900F2447D /* attribute_quantization_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attribute_quantization_transform.h; sourceTree = "<group>"; };
+		0461D8F0247B2C8900F2447D /* attribute_transform_type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attribute_transform_type.h; sourceTree = "<group>"; };
+		0461D8F1247B2C8900F2447D /* point_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_attribute.h; sourceTree = "<group>"; };
+		0461D8F2247B2C8900F2447D /* attribute_transform_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attribute_transform_data.h; sourceTree = "<group>"; };
+		0461D8F3247B2C8900F2447D /* geometry_indices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry_indices.h; sourceTree = "<group>"; };
+		0461D8F4247B2C8900F2447D /* attribute_octahedron_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attribute_octahedron_transform.h; sourceTree = "<group>"; };
+		0461D8F6247B2C8900F2447D /* parser_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser_utils.h; sourceTree = "<group>"; };
+		0461D8F7247B2C8900F2447D /* file_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_utils.h; sourceTree = "<group>"; };
+		0461D8F8247B2C8900F2447D /* ply_property_writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ply_property_writer.h; sourceTree = "<group>"; };
+		0461D8F9247B2C8900F2447D /* stdio_file_reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdio_file_reader.h; sourceTree = "<group>"; };
+		0461D8FA247B2C8900F2447D /* file_reader_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_reader_interface.h; sourceTree = "<group>"; };
+		0461D8FB247B2C8900F2447D /* point_cloud_io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_io.h; sourceTree = "<group>"; };
+		0461D8FC247B2C8900F2447D /* obj_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj_decoder.h; sourceTree = "<group>"; };
+		0461D8FD247B2C8900F2447D /* ply_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ply_encoder.h; sourceTree = "<group>"; };
+		0461D8FE247B2C8900F2447D /* file_reader_test_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_reader_test_common.h; sourceTree = "<group>"; };
+		0461D8FF247B2C8900F2447D /* file_writer_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_writer_interface.h; sourceTree = "<group>"; };
+		0461D900247B2C8900F2447D /* ply_reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ply_reader.h; sourceTree = "<group>"; };
+		0461D901247B2C8900F2447D /* mesh_io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_io.h; sourceTree = "<group>"; };
+		0461D902247B2C8900F2447D /* ply_property_reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ply_property_reader.h; sourceTree = "<group>"; };
+		0461D903247B2C8900F2447D /* stdio_file_writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdio_file_writer.h; sourceTree = "<group>"; };
+		0461D904247B2C8900F2447D /* ply_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ply_decoder.h; sourceTree = "<group>"; };
+		0461D905247B2C8900F2447D /* obj_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj_encoder.h; sourceTree = "<group>"; };
+		0461D906247B2C8900F2447D /* file_writer_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_writer_factory.h; sourceTree = "<group>"; };
+		0461D907247B2C8900F2447D /* file_reader_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_reader_factory.h; sourceTree = "<group>"; };
+		0461D909247B2C8900F2447D /* keyframe_animation_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyframe_animation_decoder.h; sourceTree = "<group>"; };
+		0461D90A247B2C8900F2447D /* keyframe_animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyframe_animation.h; sourceTree = "<group>"; };
+		0461D90B247B2C8900F2447D /* keyframe_animation_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyframe_animation_encoder.h; sourceTree = "<group>"; };
+		0461D90D247B2C8900F2447D /* geometry_metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry_metadata.h; sourceTree = "<group>"; };
+		0461D90E247B2C8900F2447D /* metadata_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metadata_encoder.h; sourceTree = "<group>"; };
+		0461D90F247B2C8900F2447D /* metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metadata.h; sourceTree = "<group>"; };
+		0461D910247B2C8900F2447D /* metadata_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metadata_decoder.h; sourceTree = "<group>"; };
+		0461D914247B2C8900F2447D /* mesh_cleanup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_cleanup.h; sourceTree = "<group>"; };
+		0461D915247B2C8900F2447D /* mesh_are_equivalent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_are_equivalent.h; sourceTree = "<group>"; };
+		0461D916247B2C8900F2447D /* triangle_soup_mesh_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle_soup_mesh_builder.h; sourceTree = "<group>"; };
+		0461D917247B2C8900F2447D /* corner_table_iterators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = corner_table_iterators.h; sourceTree = "<group>"; };
+		0461D918247B2C8900F2447D /* mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh.h; sourceTree = "<group>"; };
+		0461D919247B2C8900F2447D /* mesh_attribute_corner_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_attribute_corner_table.h; sourceTree = "<group>"; };
+		0461D91A247B2C8900F2447D /* valence_cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = valence_cache.h; sourceTree = "<group>"; };
+		0461D91B247B2C8900F2447D /* mesh_stripifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_stripifier.h; sourceTree = "<group>"; };
+		0461D91C247B2C8900F2447D /* mesh_misc_functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_misc_functions.h; sourceTree = "<group>"; };
+		0461D91D247B2C8900F2447D /* corner_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = corner_table.h; sourceTree = "<group>"; };
+		0461D920247B2C8900F2447D /* vector_d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector_d.h; sourceTree = "<group>"; };
+		0461D921247B2C8900F2447D /* bit_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bit_utils.h; sourceTree = "<group>"; };
+		0461D922247B2C8900F2447D /* status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = status.h; sourceTree = "<group>"; };
+		0461D923247B2C8900F2447D /* divide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = divide.h; sourceTree = "<group>"; };
+		0461D924247B2C8900F2447D /* draco_test_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draco_test_base.h; sourceTree = "<group>"; };
+		0461D925247B2C8900F2447D /* encoder_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encoder_buffer.h; sourceTree = "<group>"; };
+		0461D926247B2C8900F2447D /* quantization_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quantization_utils.h; sourceTree = "<group>"; };
+		0461D927247B2C8900F2447D /* draco_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draco_types.h; sourceTree = "<group>"; };
+		0461D928247B2C8900F2447D /* options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
+		0461D929247B2C8900F2447D /* draco_test_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draco_test_utils.h; sourceTree = "<group>"; };
+		0461D92A247B2C8900F2447D /* data_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = data_buffer.h; sourceTree = "<group>"; };
+		0461D92B247B2C8900F2447D /* draco_index_type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draco_index_type.h; sourceTree = "<group>"; };
+		0461D92C247B2C8900F2447D /* status_or.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = status_or.h; sourceTree = "<group>"; };
+		0461D92D247B2C8900F2447D /* math_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math_utils.h; sourceTree = "<group>"; };
+		0461D92E247B2C8900F2447D /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
+		0461D92F247B2C8900F2447D /* draco_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draco_version.h; sourceTree = "<group>"; };
+		0461D930247B2C8900F2447D /* varint_encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = varint_encoding.h; sourceTree = "<group>"; };
+		0461D931247B2C8900F2447D /* hash_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash_utils.h; sourceTree = "<group>"; };
+		0461D932247B2C8900F2447D /* draco_index_type_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draco_index_type_vector.h; sourceTree = "<group>"; };
+		0461D933247B2C8900F2447D /* varint_decoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = varint_decoding.h; sourceTree = "<group>"; };
+		0461D934247B2C8900F2447D /* decoder_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decoder_buffer.h; sourceTree = "<group>"; };
+		0461D935247B2C8900F2447D /* bounding_box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bounding_box.h; sourceTree = "<group>"; };
+		0461D936247B2C8900F2447D /* cycle_timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cycle_timer.h; sourceTree = "<group>"; };
+		0461D93E247B2C8A00F2447D /* expert_encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = expert_encode.h; sourceTree = "<group>"; };
+		0461D940247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_encoder_impl_interface.h; sourceTree = "<group>"; };
+		0461D941247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_encoder_impl.h; sourceTree = "<group>"; };
+		0461D942247B2C8A00F2447D /* mesh_sequential_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_sequential_encoder.h; sourceTree = "<group>"; };
+		0461D943247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_traversal_predictive_decoder.h; sourceTree = "<group>"; };
+		0461D944247B2C8A00F2447D /* mesh_edgebreaker_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_encoder.h; sourceTree = "<group>"; };
+		0461D946247B2C8A00F2447D /* max_prediction_degree_traverser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = max_prediction_degree_traverser.h; sourceTree = "<group>"; };
+		0461D947247B2C8A00F2447D /* mesh_attribute_indices_encoding_observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_attribute_indices_encoding_observer.h; sourceTree = "<group>"; };
+		0461D948247B2C8A00F2447D /* mesh_traversal_sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_traversal_sequencer.h; sourceTree = "<group>"; };
+		0461D949247B2C8A00F2447D /* depth_first_traverser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = depth_first_traverser.h; sourceTree = "<group>"; };
+		0461D94A247B2C8A00F2447D /* traverser_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = traverser_base.h; sourceTree = "<group>"; };
+		0461D94B247B2C8A00F2447D /* mesh_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_decoder.h; sourceTree = "<group>"; };
+		0461D94C247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_traversal_valence_decoder.h; sourceTree = "<group>"; };
+		0461D94D247B2C8A00F2447D /* mesh_edgebreaker_traversal_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_traversal_encoder.h; sourceTree = "<group>"; };
+		0461D94E247B2C8A00F2447D /* mesh_edgebreaker_traversal_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_traversal_decoder.h; sourceTree = "<group>"; };
+		0461D94F247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_traversal_valence_encoder.h; sourceTree = "<group>"; };
+		0461D950247B2C8A00F2447D /* mesh_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_encoder.h; sourceTree = "<group>"; };
+		0461D951247B2C8A00F2447D /* mesh_edgebreaker_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_decoder.h; sourceTree = "<group>"; };
+		0461D952247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_traversal_predictive_encoder.h; sourceTree = "<group>"; };
+		0461D953247B2C8A00F2447D /* mesh_sequential_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_sequential_decoder.h; sourceTree = "<group>"; };
+		0461D954247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_decoder_impl_interface.h; sourceTree = "<group>"; };
+		0461D955247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_decoder_impl.h; sourceTree = "<group>"; };
+		0461D956247B2C8A00F2447D /* mesh_edgebreaker_shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_edgebreaker_shared.h; sourceTree = "<group>"; };
+		0461D958247B2C8A00F2447D /* point_cloud_kd_tree_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_kd_tree_decoder.h; sourceTree = "<group>"; };
+		0461D95A247B2C8A00F2447D /* float_points_tree_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float_points_tree_encoder.h; sourceTree = "<group>"; };
+		0461D95B247B2C8A00F2447D /* quantize_points_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quantize_points_3.h; sourceTree = "<group>"; };
+		0461D95C247B2C8A00F2447D /* integer_points_kd_tree_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integer_points_kd_tree_decoder.h; sourceTree = "<group>"; };
+		0461D95D247B2C8A00F2447D /* point_cloud_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_types.h; sourceTree = "<group>"; };
+		0461D95E247B2C8A00F2447D /* point_cloud_compression_method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_compression_method.h; sourceTree = "<group>"; };
+		0461D95F247B2C8A00F2447D /* dynamic_integer_points_kd_tree_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamic_integer_points_kd_tree_decoder.h; sourceTree = "<group>"; };
+		0461D960247B2C8A00F2447D /* queuing_policy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = queuing_policy.h; sourceTree = "<group>"; };
+		0461D961247B2C8A00F2447D /* dynamic_integer_points_kd_tree_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamic_integer_points_kd_tree_encoder.h; sourceTree = "<group>"; };
+		0461D962247B2C8A00F2447D /* integer_points_kd_tree_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integer_points_kd_tree_encoder.h; sourceTree = "<group>"; };
+		0461D963247B2C8A00F2447D /* float_points_tree_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float_points_tree_decoder.h; sourceTree = "<group>"; };
+		0461D964247B2C8A00F2447D /* point_cloud_sequential_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_sequential_decoder.h; sourceTree = "<group>"; };
+		0461D965247B2C8A00F2447D /* point_cloud_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_encoder.h; sourceTree = "<group>"; };
+		0461D966247B2C8A00F2447D /* point_cloud_sequential_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_sequential_encoder.h; sourceTree = "<group>"; };
+		0461D967247B2C8A00F2447D /* point_cloud_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_decoder.h; sourceTree = "<group>"; };
+		0461D968247B2C8A00F2447D /* point_cloud_kd_tree_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_kd_tree_encoder.h; sourceTree = "<group>"; };
+		0461D96A247B2C8A00F2447D /* encoding_features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encoding_features.h; sourceTree = "<group>"; };
+		0461D96B247B2C8A00F2447D /* encoder_options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encoder_options.h; sourceTree = "<group>"; };
+		0461D96C247B2C8A00F2447D /* compression_shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compression_shared.h; sourceTree = "<group>"; };
+		0461D96D247B2C8A00F2447D /* decoder_options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decoder_options.h; sourceTree = "<group>"; };
+		0461D96E247B2C8A00F2447D /* draco_options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draco_options.h; sourceTree = "<group>"; };
+		0461D96F247B2C8A00F2447D /* encode_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encode_base.h; sourceTree = "<group>"; };
+		0461D971247B2C8A00F2447D /* shannon_entropy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shannon_entropy.h; sourceTree = "<group>"; };
+		0461D972247B2C8A00F2447D /* rans_symbol_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rans_symbol_encoder.h; sourceTree = "<group>"; };
+		0461D973247B2C8A00F2447D /* symbol_encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symbol_encoding.h; sourceTree = "<group>"; };
+		0461D974247B2C8A00F2447D /* rans_symbol_coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rans_symbol_coding.h; sourceTree = "<group>"; };
+		0461D975247B2C8A00F2447D /* symbol_decoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symbol_decoding.h; sourceTree = "<group>"; };
+		0461D976247B2C8A00F2447D /* ans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ans.h; sourceTree = "<group>"; };
+		0461D977247B2C8A00F2447D /* rans_symbol_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rans_symbol_decoder.h; sourceTree = "<group>"; };
+		0461D979247B2C8A00F2447D /* direct_bit_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = direct_bit_encoder.h; sourceTree = "<group>"; };
+		0461D97A247B2C8A00F2447D /* folded_integer_bit_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = folded_integer_bit_decoder.h; sourceTree = "<group>"; };
+		0461D97B247B2C8A00F2447D /* rans_bit_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rans_bit_decoder.h; sourceTree = "<group>"; };
+		0461D97C247B2C8A00F2447D /* symbol_bit_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symbol_bit_decoder.h; sourceTree = "<group>"; };
+		0461D97D247B2C8A00F2447D /* adaptive_rans_bit_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adaptive_rans_bit_encoder.h; sourceTree = "<group>"; };
+		0461D97E247B2C8A00F2447D /* adaptive_rans_bit_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adaptive_rans_bit_decoder.h; sourceTree = "<group>"; };
+		0461D97F247B2C8A00F2447D /* adaptive_rans_bit_coding_shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adaptive_rans_bit_coding_shared.h; sourceTree = "<group>"; };
+		0461D980247B2C8A00F2447D /* symbol_bit_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symbol_bit_encoder.h; sourceTree = "<group>"; };
+		0461D981247B2C8A00F2447D /* folded_integer_bit_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = folded_integer_bit_encoder.h; sourceTree = "<group>"; };
+		0461D982247B2C8A00F2447D /* rans_bit_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rans_bit_encoder.h; sourceTree = "<group>"; };
+		0461D983247B2C8A00F2447D /* direct_bit_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = direct_bit_decoder.h; sourceTree = "<group>"; };
+		0461D985247B2C8A00F2447D /* attributes_decoder_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attributes_decoder_interface.h; sourceTree = "<group>"; };
+		0461D986247B2C8A00F2447D /* sequential_integer_attribute_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_integer_attribute_encoder.h; sourceTree = "<group>"; };
+		0461D987247B2C8A00F2447D /* attributes_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attributes_encoder.h; sourceTree = "<group>"; };
+		0461D988247B2C8A00F2447D /* sequential_quantization_attribute_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_quantization_attribute_decoder.h; sourceTree = "<group>"; };
+		0461D989247B2C8A00F2447D /* sequential_attribute_encoders_controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_attribute_encoders_controller.h; sourceTree = "<group>"; };
+		0461D98A247B2C8A00F2447D /* sequential_normal_attribute_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_normal_attribute_decoder.h; sourceTree = "<group>"; };
+		0461D98B247B2C8A00F2447D /* linear_sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linear_sequencer.h; sourceTree = "<group>"; };
+		0461D98C247B2C8A00F2447D /* sequential_attribute_decoders_controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_attribute_decoders_controller.h; sourceTree = "<group>"; };
+		0461D98D247B2C8A00F2447D /* kd_tree_attributes_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kd_tree_attributes_encoder.h; sourceTree = "<group>"; };
+		0461D98E247B2C8A00F2447D /* sequential_attribute_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_attribute_decoder.h; sourceTree = "<group>"; };
+		0461D98F247B2C8A00F2447D /* points_sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = points_sequencer.h; sourceTree = "<group>"; };
+		0461D990247B2C8A00F2447D /* kd_tree_attributes_shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kd_tree_attributes_shared.h; sourceTree = "<group>"; };
+		0461D991247B2C8A00F2447D /* sequential_attribute_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_attribute_encoder.h; sourceTree = "<group>"; };
+		0461D993247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_tex_coords_portable_decoder.h; sourceTree = "<group>"; };
+		0461D994247B2C8A00F2447D /* prediction_scheme_delta_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_delta_encoder.h; sourceTree = "<group>"; };
+		0461D995247B2C8A00F2447D /* prediction_scheme_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_factory.h; sourceTree = "<group>"; };
+		0461D996247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_transform_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_normal_octahedron_canonicalized_transform_base.h; sourceTree = "<group>"; };
+		0461D997247B2C8A00F2447D /* prediction_scheme_normal_octahedron_transform_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_normal_octahedron_transform_base.h; sourceTree = "<group>"; };
+		0461D998247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_predictor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_tex_coords_portable_predictor.h; sourceTree = "<group>"; };
+		0461D999247B2C8A00F2447D /* prediction_scheme_wrap_decoding_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_wrap_decoding_transform.h; sourceTree = "<group>"; };
+		0461D99A247B2C8A00F2447D /* prediction_scheme_wrap_transform_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_wrap_transform_base.h; sourceTree = "<group>"; };
+		0461D99B247B2C8A00F2447D /* mesh_prediction_scheme_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_encoder.h; sourceTree = "<group>"; };
+		0461D99C247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_constrained_multi_parallelogram_decoder.h; sourceTree = "<group>"; };
+		0461D99D247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_geometric_normal_predictor_base.h; sourceTree = "<group>"; };
+		0461D99E247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_multi_parallelogram_decoder.h; sourceTree = "<group>"; };
+		0461D99F247B2C8A00F2447D /* prediction_scheme_decoder_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_decoder_interface.h; sourceTree = "<group>"; };
+		0461D9A0247B2C8A00F2447D /* prediction_scheme_wrap_encoding_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_wrap_encoding_transform.h; sourceTree = "<group>"; };
+		0461D9A1247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_parallelogram_encoder.h; sourceTree = "<group>"; };
+		0461D9A2247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_geometric_normal_encoder.h; sourceTree = "<group>"; };
+		0461D9A3247B2C8A00F2447D /* prediction_scheme_encoder_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_encoder_interface.h; sourceTree = "<group>"; };
+		0461D9A4247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_tex_coords_encoder.h; sourceTree = "<group>"; };
+		0461D9A5247B2C8A00F2447D /* prediction_scheme_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_encoder.h; sourceTree = "<group>"; };
+		0461D9A6247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_tex_coords_decoder.h; sourceTree = "<group>"; };
+		0461D9A7247B2C8A00F2447D /* prediction_scheme_encoding_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_encoding_transform.h; sourceTree = "<group>"; };
+		0461D9A8247B2C8A00F2447D /* prediction_scheme_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_decoder.h; sourceTree = "<group>"; };
+		0461D9A9247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_parallelogram_shared.h; sourceTree = "<group>"; };
+		0461D9AA247B2C8A00F2447D /* prediction_scheme_decoder_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_decoder_factory.h; sourceTree = "<group>"; };
+		0461D9AB247B2C8A00F2447D /* mesh_prediction_scheme_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_data.h; sourceTree = "<group>"; };
+		0461D9AC247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_parallelogram_decoder.h; sourceTree = "<group>"; };
+		0461D9AD247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_geometric_normal_decoder.h; sourceTree = "<group>"; };
+		0461D9AE247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_multi_parallelogram_encoder.h; sourceTree = "<group>"; };
+		0461D9AF247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h; sourceTree = "<group>"; };
+		0461D9B0247B2C8A00F2447D /* prediction_scheme_encoder_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_encoder_factory.h; sourceTree = "<group>"; };
+		0461D9B1247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_constrained_multi_parallelogram_encoder.h; sourceTree = "<group>"; };
+		0461D9B2247B2C8A00F2447D /* prediction_scheme_normal_octahedron_encoding_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_normal_octahedron_encoding_transform.h; sourceTree = "<group>"; };
+		0461D9B3247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_geometric_normal_predictor_area.h; sourceTree = "<group>"; };
+		0461D9B4247B2C8A00F2447D /* mesh_prediction_scheme_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_decoder.h; sourceTree = "<group>"; };
+		0461D9B5247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_constrained_multi_parallelogram_shared.h; sourceTree = "<group>"; };
+		0461D9B6247B2C8A00F2447D /* prediction_scheme_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_interface.h; sourceTree = "<group>"; };
+		0461D9B7247B2C8A00F2447D /* prediction_scheme_decoding_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_decoding_transform.h; sourceTree = "<group>"; };
+		0461D9B8247B2C8A00F2447D /* prediction_scheme_normal_octahedron_decoding_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_normal_octahedron_decoding_transform.h; sourceTree = "<group>"; };
+		0461D9B9247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_prediction_scheme_tex_coords_portable_encoder.h; sourceTree = "<group>"; };
+		0461D9BA247B2C8A00F2447D /* prediction_scheme_delta_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_delta_decoder.h; sourceTree = "<group>"; };
+		0461D9BB247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_decoding_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prediction_scheme_normal_octahedron_canonicalized_decoding_transform.h; sourceTree = "<group>"; };
+		0461D9BC247B2C8A00F2447D /* kd_tree_attributes_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kd_tree_attributes_decoder.h; sourceTree = "<group>"; };
+		0461D9BD247B2C8A00F2447D /* normal_compression_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = normal_compression_utils.h; sourceTree = "<group>"; };
+		0461D9BE247B2C8A00F2447D /* point_d_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_d_vector.h; sourceTree = "<group>"; };
+		0461D9BF247B2C8A00F2447D /* mesh_attribute_indices_encoding_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh_attribute_indices_encoding_data.h; sourceTree = "<group>"; };
+		0461D9C0247B2C8A00F2447D /* sequential_normal_attribute_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_normal_attribute_encoder.h; sourceTree = "<group>"; };
+		0461D9C1247B2C8A00F2447D /* sequential_integer_attribute_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_integer_attribute_decoder.h; sourceTree = "<group>"; };
+		0461D9C2247B2C8A00F2447D /* sequential_quantization_attribute_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequential_quantization_attribute_encoder.h; sourceTree = "<group>"; };
+		0461D9C3247B2C8A00F2447D /* attributes_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attributes_decoder.h; sourceTree = "<group>"; };
+		0461D9C4247B2C8A00F2447D /* encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encode.h; sourceTree = "<group>"; };
+		0461D9C5247B2C8A00F2447D /* decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decode.h; sourceTree = "<group>"; };
+		0461D9C7247B2C8A00F2447D /* point_cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud.h; sourceTree = "<group>"; };
+		0461D9C8247B2C8A00F2447D /* point_cloud_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_builder.h; sourceTree = "<group>"; };
+		0461DA94247B2DB500F2447D /* draco_features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draco_features.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +466,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0461D8E7247B2B3D00F2447D /* libdraco.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +479,7 @@
 				0461D7A6247B1D4F00F2447D /* Landon Demo */,
 				0461D7C7247B1DE700F2447D /* Landon */,
 				0461D7A5247B1D4F00F2447D /* Products */,
+				0461D8E6247B2B3D00F2447D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +509,7 @@
 			children = (
 				0461D7C9247B1DE700F2447D /* Info.plist */,
 				0461D7C8247B1DE700F2447D /* Landon.h */,
+				0461D7DD247B2AB700F2447D /* draco */,
 			);
 			path = Landon;
 			sourceTree = "<group>";
@@ -146,6 +543,353 @@
 			path = Capture;
 			sourceTree = "<group>";
 		};
+		0461D7DD247B2AB700F2447D /* draco */ = {
+			isa = PBXGroup;
+			children = (
+				0461DA94247B2DB500F2447D /* draco_features.h */,
+				0461D8E5247B2B1800F2447D /* libdraco.a */,
+				0461D908247B2C8900F2447D /* animation */,
+				0461D8EC247B2C8900F2447D /* attributes */,
+				0461D93D247B2C8A00F2447D /* compression */,
+				0461D91F247B2C8900F2447D /* core */,
+				0461D8F5247B2C8900F2447D /* io */,
+				0461D913247B2C8900F2447D /* mesh */,
+				0461D90C247B2C8900F2447D /* metadata */,
+				0461D9C6247B2C8A00F2447D /* point_cloud */,
+			);
+			path = draco;
+			sourceTree = "<group>";
+		};
+		0461D8E6247B2B3D00F2447D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0461D8EC247B2C8900F2447D /* attributes */ = {
+			isa = PBXGroup;
+			children = (
+				0461D8ED247B2C8900F2447D /* attribute_transform.h */,
+				0461D8EE247B2C8900F2447D /* geometry_attribute.h */,
+				0461D8EF247B2C8900F2447D /* attribute_quantization_transform.h */,
+				0461D8F0247B2C8900F2447D /* attribute_transform_type.h */,
+				0461D8F1247B2C8900F2447D /* point_attribute.h */,
+				0461D8F2247B2C8900F2447D /* attribute_transform_data.h */,
+				0461D8F3247B2C8900F2447D /* geometry_indices.h */,
+				0461D8F4247B2C8900F2447D /* attribute_octahedron_transform.h */,
+			);
+			path = attributes;
+			sourceTree = "<group>";
+		};
+		0461D8F5247B2C8900F2447D /* io */ = {
+			isa = PBXGroup;
+			children = (
+				0461D8F6247B2C8900F2447D /* parser_utils.h */,
+				0461D8F7247B2C8900F2447D /* file_utils.h */,
+				0461D8F8247B2C8900F2447D /* ply_property_writer.h */,
+				0461D8F9247B2C8900F2447D /* stdio_file_reader.h */,
+				0461D8FA247B2C8900F2447D /* file_reader_interface.h */,
+				0461D8FB247B2C8900F2447D /* point_cloud_io.h */,
+				0461D8FC247B2C8900F2447D /* obj_decoder.h */,
+				0461D8FD247B2C8900F2447D /* ply_encoder.h */,
+				0461D8FE247B2C8900F2447D /* file_reader_test_common.h */,
+				0461D8FF247B2C8900F2447D /* file_writer_interface.h */,
+				0461D900247B2C8900F2447D /* ply_reader.h */,
+				0461D901247B2C8900F2447D /* mesh_io.h */,
+				0461D902247B2C8900F2447D /* ply_property_reader.h */,
+				0461D903247B2C8900F2447D /* stdio_file_writer.h */,
+				0461D904247B2C8900F2447D /* ply_decoder.h */,
+				0461D905247B2C8900F2447D /* obj_encoder.h */,
+				0461D906247B2C8900F2447D /* file_writer_factory.h */,
+				0461D907247B2C8900F2447D /* file_reader_factory.h */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
+		0461D908247B2C8900F2447D /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				0461D909247B2C8900F2447D /* keyframe_animation_decoder.h */,
+				0461D90A247B2C8900F2447D /* keyframe_animation.h */,
+				0461D90B247B2C8900F2447D /* keyframe_animation_encoder.h */,
+			);
+			path = animation;
+			sourceTree = "<group>";
+		};
+		0461D90C247B2C8900F2447D /* metadata */ = {
+			isa = PBXGroup;
+			children = (
+				0461D90D247B2C8900F2447D /* geometry_metadata.h */,
+				0461D90E247B2C8900F2447D /* metadata_encoder.h */,
+				0461D90F247B2C8900F2447D /* metadata.h */,
+				0461D910247B2C8900F2447D /* metadata_decoder.h */,
+			);
+			path = metadata;
+			sourceTree = "<group>";
+		};
+		0461D913247B2C8900F2447D /* mesh */ = {
+			isa = PBXGroup;
+			children = (
+				0461D914247B2C8900F2447D /* mesh_cleanup.h */,
+				0461D915247B2C8900F2447D /* mesh_are_equivalent.h */,
+				0461D916247B2C8900F2447D /* triangle_soup_mesh_builder.h */,
+				0461D917247B2C8900F2447D /* corner_table_iterators.h */,
+				0461D918247B2C8900F2447D /* mesh.h */,
+				0461D919247B2C8900F2447D /* mesh_attribute_corner_table.h */,
+				0461D91A247B2C8900F2447D /* valence_cache.h */,
+				0461D91B247B2C8900F2447D /* mesh_stripifier.h */,
+				0461D91C247B2C8900F2447D /* mesh_misc_functions.h */,
+				0461D91D247B2C8900F2447D /* corner_table.h */,
+			);
+			path = mesh;
+			sourceTree = "<group>";
+		};
+		0461D91F247B2C8900F2447D /* core */ = {
+			isa = PBXGroup;
+			children = (
+				0461D920247B2C8900F2447D /* vector_d.h */,
+				0461D921247B2C8900F2447D /* bit_utils.h */,
+				0461D922247B2C8900F2447D /* status.h */,
+				0461D923247B2C8900F2447D /* divide.h */,
+				0461D924247B2C8900F2447D /* draco_test_base.h */,
+				0461D925247B2C8900F2447D /* encoder_buffer.h */,
+				0461D926247B2C8900F2447D /* quantization_utils.h */,
+				0461D927247B2C8900F2447D /* draco_types.h */,
+				0461D928247B2C8900F2447D /* options.h */,
+				0461D929247B2C8900F2447D /* draco_test_utils.h */,
+				0461D92A247B2C8900F2447D /* data_buffer.h */,
+				0461D92B247B2C8900F2447D /* draco_index_type.h */,
+				0461D92C247B2C8900F2447D /* status_or.h */,
+				0461D92D247B2C8900F2447D /* math_utils.h */,
+				0461D92E247B2C8900F2447D /* macros.h */,
+				0461D92F247B2C8900F2447D /* draco_version.h */,
+				0461D930247B2C8900F2447D /* varint_encoding.h */,
+				0461D931247B2C8900F2447D /* hash_utils.h */,
+				0461D932247B2C8900F2447D /* draco_index_type_vector.h */,
+				0461D933247B2C8900F2447D /* varint_decoding.h */,
+				0461D934247B2C8900F2447D /* decoder_buffer.h */,
+				0461D935247B2C8900F2447D /* bounding_box.h */,
+				0461D936247B2C8900F2447D /* cycle_timer.h */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		0461D93D247B2C8A00F2447D /* compression */ = {
+			isa = PBXGroup;
+			children = (
+				0461D93E247B2C8A00F2447D /* expert_encode.h */,
+				0461D93F247B2C8A00F2447D /* mesh */,
+				0461D957247B2C8A00F2447D /* point_cloud */,
+				0461D969247B2C8A00F2447D /* config */,
+				0461D96F247B2C8A00F2447D /* encode_base.h */,
+				0461D970247B2C8A00F2447D /* entropy */,
+				0461D978247B2C8A00F2447D /* bit_coders */,
+				0461D984247B2C8A00F2447D /* attributes */,
+				0461D9C4247B2C8A00F2447D /* encode.h */,
+				0461D9C5247B2C8A00F2447D /* decode.h */,
+			);
+			path = compression;
+			sourceTree = "<group>";
+		};
+		0461D93F247B2C8A00F2447D /* mesh */ = {
+			isa = PBXGroup;
+			children = (
+				0461D940247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl_interface.h */,
+				0461D941247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl.h */,
+				0461D942247B2C8A00F2447D /* mesh_sequential_encoder.h */,
+				0461D943247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_decoder.h */,
+				0461D944247B2C8A00F2447D /* mesh_edgebreaker_encoder.h */,
+				0461D945247B2C8A00F2447D /* traverser */,
+				0461D94B247B2C8A00F2447D /* mesh_decoder.h */,
+				0461D94C247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_decoder.h */,
+				0461D94D247B2C8A00F2447D /* mesh_edgebreaker_traversal_encoder.h */,
+				0461D94E247B2C8A00F2447D /* mesh_edgebreaker_traversal_decoder.h */,
+				0461D94F247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_encoder.h */,
+				0461D950247B2C8A00F2447D /* mesh_encoder.h */,
+				0461D951247B2C8A00F2447D /* mesh_edgebreaker_decoder.h */,
+				0461D952247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_encoder.h */,
+				0461D953247B2C8A00F2447D /* mesh_sequential_decoder.h */,
+				0461D954247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl_interface.h */,
+				0461D955247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl.h */,
+				0461D956247B2C8A00F2447D /* mesh_edgebreaker_shared.h */,
+			);
+			path = mesh;
+			sourceTree = "<group>";
+		};
+		0461D945247B2C8A00F2447D /* traverser */ = {
+			isa = PBXGroup;
+			children = (
+				0461D946247B2C8A00F2447D /* max_prediction_degree_traverser.h */,
+				0461D947247B2C8A00F2447D /* mesh_attribute_indices_encoding_observer.h */,
+				0461D948247B2C8A00F2447D /* mesh_traversal_sequencer.h */,
+				0461D949247B2C8A00F2447D /* depth_first_traverser.h */,
+				0461D94A247B2C8A00F2447D /* traverser_base.h */,
+			);
+			path = traverser;
+			sourceTree = "<group>";
+		};
+		0461D957247B2C8A00F2447D /* point_cloud */ = {
+			isa = PBXGroup;
+			children = (
+				0461D958247B2C8A00F2447D /* point_cloud_kd_tree_decoder.h */,
+				0461D959247B2C8A00F2447D /* algorithms */,
+				0461D964247B2C8A00F2447D /* point_cloud_sequential_decoder.h */,
+				0461D965247B2C8A00F2447D /* point_cloud_encoder.h */,
+				0461D966247B2C8A00F2447D /* point_cloud_sequential_encoder.h */,
+				0461D967247B2C8A00F2447D /* point_cloud_decoder.h */,
+				0461D968247B2C8A00F2447D /* point_cloud_kd_tree_encoder.h */,
+			);
+			path = point_cloud;
+			sourceTree = "<group>";
+		};
+		0461D959247B2C8A00F2447D /* algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				0461D95A247B2C8A00F2447D /* float_points_tree_encoder.h */,
+				0461D95B247B2C8A00F2447D /* quantize_points_3.h */,
+				0461D95C247B2C8A00F2447D /* integer_points_kd_tree_decoder.h */,
+				0461D95D247B2C8A00F2447D /* point_cloud_types.h */,
+				0461D95E247B2C8A00F2447D /* point_cloud_compression_method.h */,
+				0461D95F247B2C8A00F2447D /* dynamic_integer_points_kd_tree_decoder.h */,
+				0461D960247B2C8A00F2447D /* queuing_policy.h */,
+				0461D961247B2C8A00F2447D /* dynamic_integer_points_kd_tree_encoder.h */,
+				0461D962247B2C8A00F2447D /* integer_points_kd_tree_encoder.h */,
+				0461D963247B2C8A00F2447D /* float_points_tree_decoder.h */,
+			);
+			path = algorithms;
+			sourceTree = "<group>";
+		};
+		0461D969247B2C8A00F2447D /* config */ = {
+			isa = PBXGroup;
+			children = (
+				0461D96A247B2C8A00F2447D /* encoding_features.h */,
+				0461D96B247B2C8A00F2447D /* encoder_options.h */,
+				0461D96C247B2C8A00F2447D /* compression_shared.h */,
+				0461D96D247B2C8A00F2447D /* decoder_options.h */,
+				0461D96E247B2C8A00F2447D /* draco_options.h */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		0461D970247B2C8A00F2447D /* entropy */ = {
+			isa = PBXGroup;
+			children = (
+				0461D971247B2C8A00F2447D /* shannon_entropy.h */,
+				0461D972247B2C8A00F2447D /* rans_symbol_encoder.h */,
+				0461D973247B2C8A00F2447D /* symbol_encoding.h */,
+				0461D974247B2C8A00F2447D /* rans_symbol_coding.h */,
+				0461D975247B2C8A00F2447D /* symbol_decoding.h */,
+				0461D976247B2C8A00F2447D /* ans.h */,
+				0461D977247B2C8A00F2447D /* rans_symbol_decoder.h */,
+			);
+			path = entropy;
+			sourceTree = "<group>";
+		};
+		0461D978247B2C8A00F2447D /* bit_coders */ = {
+			isa = PBXGroup;
+			children = (
+				0461D979247B2C8A00F2447D /* direct_bit_encoder.h */,
+				0461D97A247B2C8A00F2447D /* folded_integer_bit_decoder.h */,
+				0461D97B247B2C8A00F2447D /* rans_bit_decoder.h */,
+				0461D97C247B2C8A00F2447D /* symbol_bit_decoder.h */,
+				0461D97D247B2C8A00F2447D /* adaptive_rans_bit_encoder.h */,
+				0461D97E247B2C8A00F2447D /* adaptive_rans_bit_decoder.h */,
+				0461D97F247B2C8A00F2447D /* adaptive_rans_bit_coding_shared.h */,
+				0461D980247B2C8A00F2447D /* symbol_bit_encoder.h */,
+				0461D981247B2C8A00F2447D /* folded_integer_bit_encoder.h */,
+				0461D982247B2C8A00F2447D /* rans_bit_encoder.h */,
+				0461D983247B2C8A00F2447D /* direct_bit_decoder.h */,
+			);
+			path = bit_coders;
+			sourceTree = "<group>";
+		};
+		0461D984247B2C8A00F2447D /* attributes */ = {
+			isa = PBXGroup;
+			children = (
+				0461D985247B2C8A00F2447D /* attributes_decoder_interface.h */,
+				0461D986247B2C8A00F2447D /* sequential_integer_attribute_encoder.h */,
+				0461D987247B2C8A00F2447D /* attributes_encoder.h */,
+				0461D988247B2C8A00F2447D /* sequential_quantization_attribute_decoder.h */,
+				0461D989247B2C8A00F2447D /* sequential_attribute_encoders_controller.h */,
+				0461D98A247B2C8A00F2447D /* sequential_normal_attribute_decoder.h */,
+				0461D98B247B2C8A00F2447D /* linear_sequencer.h */,
+				0461D98C247B2C8A00F2447D /* sequential_attribute_decoders_controller.h */,
+				0461D98D247B2C8A00F2447D /* kd_tree_attributes_encoder.h */,
+				0461D98E247B2C8A00F2447D /* sequential_attribute_decoder.h */,
+				0461D98F247B2C8A00F2447D /* points_sequencer.h */,
+				0461D990247B2C8A00F2447D /* kd_tree_attributes_shared.h */,
+				0461D991247B2C8A00F2447D /* sequential_attribute_encoder.h */,
+				0461D992247B2C8A00F2447D /* prediction_schemes */,
+				0461D9BC247B2C8A00F2447D /* kd_tree_attributes_decoder.h */,
+				0461D9BD247B2C8A00F2447D /* normal_compression_utils.h */,
+				0461D9BE247B2C8A00F2447D /* point_d_vector.h */,
+				0461D9BF247B2C8A00F2447D /* mesh_attribute_indices_encoding_data.h */,
+				0461D9C0247B2C8A00F2447D /* sequential_normal_attribute_encoder.h */,
+				0461D9C1247B2C8A00F2447D /* sequential_integer_attribute_decoder.h */,
+				0461D9C2247B2C8A00F2447D /* sequential_quantization_attribute_encoder.h */,
+				0461D9C3247B2C8A00F2447D /* attributes_decoder.h */,
+			);
+			path = attributes;
+			sourceTree = "<group>";
+		};
+		0461D992247B2C8A00F2447D /* prediction_schemes */ = {
+			isa = PBXGroup;
+			children = (
+				0461D993247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_decoder.h */,
+				0461D994247B2C8A00F2447D /* prediction_scheme_delta_encoder.h */,
+				0461D995247B2C8A00F2447D /* prediction_scheme_factory.h */,
+				0461D996247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_transform_base.h */,
+				0461D997247B2C8A00F2447D /* prediction_scheme_normal_octahedron_transform_base.h */,
+				0461D998247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_predictor.h */,
+				0461D999247B2C8A00F2447D /* prediction_scheme_wrap_decoding_transform.h */,
+				0461D99A247B2C8A00F2447D /* prediction_scheme_wrap_transform_base.h */,
+				0461D99B247B2C8A00F2447D /* mesh_prediction_scheme_encoder.h */,
+				0461D99C247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_decoder.h */,
+				0461D99D247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_base.h */,
+				0461D99E247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_decoder.h */,
+				0461D99F247B2C8A00F2447D /* prediction_scheme_decoder_interface.h */,
+				0461D9A0247B2C8A00F2447D /* prediction_scheme_wrap_encoding_transform.h */,
+				0461D9A1247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_encoder.h */,
+				0461D9A2247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_encoder.h */,
+				0461D9A3247B2C8A00F2447D /* prediction_scheme_encoder_interface.h */,
+				0461D9A4247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_encoder.h */,
+				0461D9A5247B2C8A00F2447D /* prediction_scheme_encoder.h */,
+				0461D9A6247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_decoder.h */,
+				0461D9A7247B2C8A00F2447D /* prediction_scheme_encoding_transform.h */,
+				0461D9A8247B2C8A00F2447D /* prediction_scheme_decoder.h */,
+				0461D9A9247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_shared.h */,
+				0461D9AA247B2C8A00F2447D /* prediction_scheme_decoder_factory.h */,
+				0461D9AB247B2C8A00F2447D /* mesh_prediction_scheme_data.h */,
+				0461D9AC247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_decoder.h */,
+				0461D9AD247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_decoder.h */,
+				0461D9AE247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_encoder.h */,
+				0461D9AF247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h */,
+				0461D9B0247B2C8A00F2447D /* prediction_scheme_encoder_factory.h */,
+				0461D9B1247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_encoder.h */,
+				0461D9B2247B2C8A00F2447D /* prediction_scheme_normal_octahedron_encoding_transform.h */,
+				0461D9B3247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_area.h */,
+				0461D9B4247B2C8A00F2447D /* mesh_prediction_scheme_decoder.h */,
+				0461D9B5247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_shared.h */,
+				0461D9B6247B2C8A00F2447D /* prediction_scheme_interface.h */,
+				0461D9B7247B2C8A00F2447D /* prediction_scheme_decoding_transform.h */,
+				0461D9B8247B2C8A00F2447D /* prediction_scheme_normal_octahedron_decoding_transform.h */,
+				0461D9B9247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_encoder.h */,
+				0461D9BA247B2C8A00F2447D /* prediction_scheme_delta_decoder.h */,
+				0461D9BB247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_decoding_transform.h */,
+			);
+			path = prediction_schemes;
+			sourceTree = "<group>";
+		};
+		0461D9C6247B2C8A00F2447D /* point_cloud */ = {
+			isa = PBXGroup;
+			children = (
+				0461D9C7247B2C8A00F2447D /* point_cloud.h */,
+				0461D9C8247B2C8A00F2447D /* point_cloud_builder.h */,
+			);
+			path = point_cloud;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -153,7 +897,203 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0461DA01247B2C8A00F2447D /* data_buffer.h in Headers */,
+				0461D9F8247B2C8A00F2447D /* bit_utils.h in Headers */,
+				0461DA5D247B2C8A00F2447D /* sequential_attribute_encoder.h in Headers */,
+				0461DA05247B2C8A00F2447D /* macros.h in Headers */,
+				0461DA7F247B2C8A00F2447D /* mesh_prediction_scheme_decoder.h in Headers */,
+				0461DA73247B2C8A00F2447D /* prediction_scheme_decoder.h in Headers */,
+				0461DA6D247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_encoder.h in Headers */,
+				0461D9D7247B2C8A00F2447D /* file_reader_interface.h in Headers */,
+				0461DA1D247B2C8A00F2447D /* mesh_decoder.h in Headers */,
+				0461DA3E247B2C8A00F2447D /* encode_base.h in Headers */,
+				0461D9EB247B2C8A00F2447D /* metadata_decoder.h in Headers */,
+				0461D9FA247B2C8A00F2447D /* divide.h in Headers */,
+				0461DA1A247B2C8A00F2447D /* mesh_traversal_sequencer.h in Headers */,
+				0461DA66247B2C8A00F2447D /* mesh_prediction_scheme_encoder.h in Headers */,
+				0461D9F1247B2C8A00F2447D /* mesh.h in Headers */,
+				0461DA84247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_encoder.h in Headers */,
+				0461DA21247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_encoder.h in Headers */,
+				0461D9DA247B2C8A00F2447D /* ply_encoder.h in Headers */,
+				0461DA03247B2C8A00F2447D /* status_or.h in Headers */,
+				0461DA79247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_encoder.h in Headers */,
+				0461D9FF247B2C8A00F2447D /* options.h in Headers */,
+				0461DA4B247B2C8A00F2447D /* adaptive_rans_bit_decoder.h in Headers */,
+				0461D9D0247B2C8A00F2447D /* attribute_transform_data.h in Headers */,
+				0461DA00247B2C8A00F2447D /* draco_test_utils.h in Headers */,
+				0461D9E7247B2C8A00F2447D /* keyframe_animation_encoder.h in Headers */,
+				0461DA6E247B2C8A00F2447D /* prediction_scheme_encoder_interface.h in Headers */,
+				0461DA44247B2C8A00F2447D /* ans.h in Headers */,
+				0461DA7A247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h in Headers */,
+				0461D9D6247B2C8A00F2447D /* stdio_file_reader.h in Headers */,
+				0461D9E1247B2C8A00F2447D /* ply_decoder.h in Headers */,
+				0461D9E6247B2C8A00F2447D /* keyframe_animation.h in Headers */,
+				0461DA29247B2C8A00F2447D /* point_cloud_kd_tree_decoder.h in Headers */,
+				0461D9CE247B2C8A00F2447D /* attribute_transform_type.h in Headers */,
+				0461D9F3247B2C8A00F2447D /* valence_cache.h in Headers */,
+				0461DA5A247B2C8A00F2447D /* sequential_attribute_decoder.h in Headers */,
+				0461D9D4247B2C8A00F2447D /* file_utils.h in Headers */,
+				0461D9F0247B2C8A00F2447D /* corner_table_iterators.h in Headers */,
+				0461D9D9247B2C8A00F2447D /* obj_decoder.h in Headers */,
+				0461DA42247B2C8A00F2447D /* rans_symbol_coding.h in Headers */,
+				0461DA20247B2C8A00F2447D /* mesh_edgebreaker_traversal_decoder.h in Headers */,
+				0461D9E0247B2C8A00F2447D /* stdio_file_writer.h in Headers */,
+				0461DA08247B2C8A00F2447D /* hash_utils.h in Headers */,
+				0461D9DB247B2C8A00F2447D /* file_reader_test_common.h in Headers */,
+				0461DA49247B2C8A00F2447D /* symbol_bit_decoder.h in Headers */,
+				0461DA22247B2C8A00F2447D /* mesh_encoder.h in Headers */,
+				0461DA8D247B2C8A00F2447D /* sequential_quantization_attribute_encoder.h in Headers */,
+				0461DA4F247B2C8A00F2447D /* rans_bit_encoder.h in Headers */,
+				0461D9CD247B2C8A00F2447D /* attribute_quantization_transform.h in Headers */,
+				0461DA14247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl.h in Headers */,
+				0461DA65247B2C8A00F2447D /* prediction_scheme_wrap_transform_base.h in Headers */,
+				0461DA4D247B2C8A00F2447D /* symbol_bit_encoder.h in Headers */,
+				0461DA82247B2C8A00F2447D /* prediction_scheme_decoding_transform.h in Headers */,
+				0461DA0B247B2C8A00F2447D /* decoder_buffer.h in Headers */,
+				0461DA40247B2C8A00F2447D /* rans_symbol_encoder.h in Headers */,
+				0461DA16247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_decoder.h in Headers */,
+				0461DA28247B2C8A00F2447D /* mesh_edgebreaker_shared.h in Headers */,
+				0461DA1C247B2C8A00F2447D /* traverser_base.h in Headers */,
+				0461D9F2247B2C8A00F2447D /* mesh_attribute_corner_table.h in Headers */,
+				0461DA54247B2C8A00F2447D /* sequential_quantization_attribute_decoder.h in Headers */,
+				0461D9DC247B2C8A00F2447D /* file_writer_interface.h in Headers */,
+				0461DA62247B2C8A00F2447D /* prediction_scheme_normal_octahedron_transform_base.h in Headers */,
+				0461D9E4247B2C8A00F2447D /* file_reader_factory.h in Headers */,
+				0461DA55247B2C8A00F2447D /* sequential_attribute_encoders_controller.h in Headers */,
+				0461DA87247B2C8A00F2447D /* kd_tree_attributes_decoder.h in Headers */,
+				0461DA47247B2C8A00F2447D /* folded_integer_bit_decoder.h in Headers */,
+				0461DA1B247B2C8A00F2447D /* depth_first_traverser.h in Headers */,
+				0461D9F5247B2C8A00F2447D /* mesh_misc_functions.h in Headers */,
+				0461DA48247B2C8A00F2447D /* rans_bit_decoder.h in Headers */,
+				0461DA8C247B2C8A00F2447D /* sequential_integer_attribute_decoder.h in Headers */,
+				0461DA32247B2C8A00F2447D /* integer_points_kd_tree_encoder.h in Headers */,
+				0461DA35247B2C8A00F2447D /* point_cloud_encoder.h in Headers */,
+				0461DA69247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_decoder.h in Headers */,
+				0461DA15247B2C8A00F2447D /* mesh_sequential_encoder.h in Headers */,
+				0461DA33247B2C8A00F2447D /* float_points_tree_decoder.h in Headers */,
 				0461D7CA247B1DE700F2447D /* Landon.h in Headers */,
+				0461D9D3247B2C8A00F2447D /* parser_utils.h in Headers */,
+				0461D9EA247B2C8A00F2447D /* metadata.h in Headers */,
+				0461DA02247B2C8A00F2447D /* draco_index_type.h in Headers */,
+				0461D9FE247B2C8A00F2447D /* draco_types.h in Headers */,
+				0461DA4E247B2C8A00F2447D /* folded_integer_bit_encoder.h in Headers */,
+				0461D9F6247B2C8A00F2447D /* corner_table.h in Headers */,
+				0461DA4C247B2C8A00F2447D /* adaptive_rans_bit_coding_shared.h in Headers */,
+				0461D9CC247B2C8A00F2447D /* geometry_attribute.h in Headers */,
+				0461DA07247B2C8A00F2447D /* varint_encoding.h in Headers */,
+				0461DA7E247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_area.h in Headers */,
+				0461DA2E247B2C8A00F2447D /* point_cloud_compression_method.h in Headers */,
+				0461DA45247B2C8A00F2447D /* rans_symbol_decoder.h in Headers */,
+				0461DA2B247B2C8A00F2447D /* quantize_points_3.h in Headers */,
+				0461DA12247B2C8A00F2447D /* expert_encode.h in Headers */,
+				0461DA89247B2C8A00F2447D /* point_d_vector.h in Headers */,
+				0461DA3B247B2C8A00F2447D /* compression_shared.h in Headers */,
+				0461DA88247B2C8A00F2447D /* normal_compression_utils.h in Headers */,
+				0461DA56247B2C8A00F2447D /* sequential_normal_attribute_decoder.h in Headers */,
+				0461D9ED247B2C8A00F2447D /* mesh_cleanup.h in Headers */,
+				0461D9E2247B2C8A00F2447D /* obj_encoder.h in Headers */,
+				0461DA70247B2C8A00F2447D /* prediction_scheme_encoder.h in Headers */,
+				0461DA90247B2C8A00F2447D /* decode.h in Headers */,
+				0461DA86247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_decoding_transform.h in Headers */,
+				0461DA23247B2C8A00F2447D /* mesh_edgebreaker_decoder.h in Headers */,
+				0461DA51247B2C8A00F2447D /* attributes_decoder_interface.h in Headers */,
+				0461DA18247B2C8A00F2447D /* max_prediction_degree_traverser.h in Headers */,
+				0461DA38247B2C8A00F2447D /* point_cloud_kd_tree_encoder.h in Headers */,
+				0461DA5C247B2C8A00F2447D /* kd_tree_attributes_shared.h in Headers */,
+				0461DA71247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_decoder.h in Headers */,
+				0461DA60247B2C8A00F2447D /* prediction_scheme_factory.h in Headers */,
+				0461DA52247B2C8A00F2447D /* sequential_integer_attribute_encoder.h in Headers */,
+				0461D9DD247B2C8A00F2447D /* ply_reader.h in Headers */,
+				0461DA24247B2C8A00F2447D /* mesh_edgebreaker_traversal_predictive_encoder.h in Headers */,
+				0461DA78247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_decoder.h in Headers */,
+				0461DA43247B2C8A00F2447D /* symbol_decoding.h in Headers */,
+				0461DA75247B2C8A00F2447D /* prediction_scheme_decoder_factory.h in Headers */,
+				0461DA83247B2C8A00F2447D /* prediction_scheme_normal_octahedron_decoding_transform.h in Headers */,
+				0461DA3C247B2C8A00F2447D /* decoder_options.h in Headers */,
+				0461DA59247B2C8A00F2447D /* kd_tree_attributes_encoder.h in Headers */,
+				0461DA53247B2C8A00F2447D /* attributes_encoder.h in Headers */,
+				0461DA1E247B2C8A00F2447D /* mesh_edgebreaker_traversal_valence_decoder.h in Headers */,
+				0461DA0A247B2C8A00F2447D /* varint_decoding.h in Headers */,
+				0461D9F4247B2C8A00F2447D /* mesh_stripifier.h in Headers */,
+				0461DA8B247B2C8A00F2447D /* sequential_normal_attribute_encoder.h in Headers */,
+				0461DA7B247B2C8A00F2447D /* prediction_scheme_encoder_factory.h in Headers */,
+				0461DA3A247B2C8A00F2447D /* encoder_options.h in Headers */,
+				0461D9E8247B2C8A00F2447D /* geometry_metadata.h in Headers */,
+				0461DA50247B2C8A00F2447D /* direct_bit_decoder.h in Headers */,
+				0461DA8F247B2C8A00F2447D /* encode.h in Headers */,
+				0461DA5B247B2C8A00F2447D /* points_sequencer.h in Headers */,
+				0461DA57247B2C8A00F2447D /* linear_sequencer.h in Headers */,
+				0461DA5F247B2C8A00F2447D /* prediction_scheme_delta_encoder.h in Headers */,
+				0461DA77247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_decoder.h in Headers */,
+				0461DA68247B2C8A00F2447D /* mesh_prediction_scheme_geometric_normal_predictor_base.h in Headers */,
+				0461DA4A247B2C8A00F2447D /* adaptive_rans_bit_encoder.h in Headers */,
+				0461DA2A247B2C8A00F2447D /* float_points_tree_encoder.h in Headers */,
+				0461DA04247B2C8A00F2447D /* math_utils.h in Headers */,
+				0461DA0C247B2C8A00F2447D /* bounding_box.h in Headers */,
+				0461DA17247B2C8A00F2447D /* mesh_edgebreaker_encoder.h in Headers */,
+				0461D9D1247B2C8A00F2447D /* geometry_indices.h in Headers */,
+				0461DA5E247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_decoder.h in Headers */,
+				0461DA34247B2C8A00F2447D /* point_cloud_sequential_decoder.h in Headers */,
+				0461D9EE247B2C8A00F2447D /* mesh_are_equivalent.h in Headers */,
+				0461D9D5247B2C8A00F2447D /* ply_property_writer.h in Headers */,
+				0461DA58247B2C8A00F2447D /* sequential_attribute_decoders_controller.h in Headers */,
+				0461DA19247B2C8A00F2447D /* mesh_attribute_indices_encoding_observer.h in Headers */,
+				0461DA6F247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_encoder.h in Headers */,
+				0461D9E3247B2C8A00F2447D /* file_writer_factory.h in Headers */,
+				0461DA91247B2C8A00F2447D /* point_cloud.h in Headers */,
+				0461DA0D247B2C8A00F2447D /* cycle_timer.h in Headers */,
+				0461DA8E247B2C8A00F2447D /* attributes_decoder.h in Headers */,
+				0461DA26247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl_interface.h in Headers */,
+				0461D9F7247B2C8A00F2447D /* vector_d.h in Headers */,
+				0461D9E9247B2C8A00F2447D /* metadata_encoder.h in Headers */,
+				0461DA6B247B2C8A00F2447D /* prediction_scheme_wrap_encoding_transform.h in Headers */,
+				0461D9DF247B2C8A00F2447D /* ply_property_reader.h in Headers */,
+				0461DA63247B2C8A00F2447D /* mesh_prediction_scheme_tex_coords_portable_predictor.h in Headers */,
+				0461DA6A247B2C8A00F2447D /* prediction_scheme_decoder_interface.h in Headers */,
+				0461DA3F247B2C8A00F2447D /* shannon_entropy.h in Headers */,
+				0461DA7C247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_encoder.h in Headers */,
+				0461DA92247B2C8A00F2447D /* point_cloud_builder.h in Headers */,
+				0461DA95247B2DB500F2447D /* draco_features.h in Headers */,
+				0461DA80247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_shared.h in Headers */,
+				0461D9F9247B2C8A00F2447D /* status.h in Headers */,
+				0461D9CB247B2C8A00F2447D /* attribute_transform.h in Headers */,
+				0461DA30247B2C8A00F2447D /* queuing_policy.h in Headers */,
+				0461DA09247B2C8A00F2447D /* draco_index_type_vector.h in Headers */,
+				0461DA25247B2C8A00F2447D /* mesh_sequential_decoder.h in Headers */,
+				0461DA2C247B2C8A00F2447D /* integer_points_kd_tree_decoder.h in Headers */,
+				0461DA37247B2C8A00F2447D /* point_cloud_decoder.h in Headers */,
+				0461DA41247B2C8A00F2447D /* symbol_encoding.h in Headers */,
+				0461D9EF247B2C8A00F2447D /* triangle_soup_mesh_builder.h in Headers */,
+				0461DA31247B2C8A00F2447D /* dynamic_integer_points_kd_tree_encoder.h in Headers */,
+				0461DA61247B2C8A00F2447D /* prediction_scheme_normal_octahedron_canonicalized_transform_base.h in Headers */,
+				0461DA7D247B2C8A00F2447D /* prediction_scheme_normal_octahedron_encoding_transform.h in Headers */,
+				0461D9FB247B2C8A00F2447D /* draco_test_base.h in Headers */,
+				0461DA74247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_shared.h in Headers */,
+				0461DA6C247B2C8A00F2447D /* mesh_prediction_scheme_parallelogram_encoder.h in Headers */,
+				0461DA3D247B2C8A00F2447D /* draco_options.h in Headers */,
+				0461DA46247B2C8A00F2447D /* direct_bit_encoder.h in Headers */,
+				0461DA64247B2C8A00F2447D /* prediction_scheme_wrap_decoding_transform.h in Headers */,
+				0461D9D8247B2C8A00F2447D /* point_cloud_io.h in Headers */,
+				0461DA85247B2C8A00F2447D /* prediction_scheme_delta_decoder.h in Headers */,
+				0461DA67247B2C8A00F2447D /* mesh_prediction_scheme_constrained_multi_parallelogram_decoder.h in Headers */,
+				0461D9FD247B2C8A00F2447D /* quantization_utils.h in Headers */,
+				0461D9D2247B2C8A00F2447D /* attribute_octahedron_transform.h in Headers */,
+				0461DA2D247B2C8A00F2447D /* point_cloud_types.h in Headers */,
+				0461DA72247B2C8A00F2447D /* prediction_scheme_encoding_transform.h in Headers */,
+				0461D9FC247B2C8A00F2447D /* encoder_buffer.h in Headers */,
+				0461DA8A247B2C8A00F2447D /* mesh_attribute_indices_encoding_data.h in Headers */,
+				0461DA27247B2C8A00F2447D /* mesh_edgebreaker_decoder_impl.h in Headers */,
+				0461DA06247B2C8A00F2447D /* draco_version.h in Headers */,
+				0461DA76247B2C8A00F2447D /* mesh_prediction_scheme_data.h in Headers */,
+				0461DA2F247B2C8A00F2447D /* dynamic_integer_points_kd_tree_decoder.h in Headers */,
+				0461D9E5247B2C8A00F2447D /* keyframe_animation_decoder.h in Headers */,
+				0461DA1F247B2C8A00F2447D /* mesh_edgebreaker_traversal_encoder.h in Headers */,
+				0461D9CF247B2C8A00F2447D /* point_attribute.h in Headers */,
+				0461DA13247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl_interface.h in Headers */,
+				0461DA36247B2C8A00F2447D /* point_cloud_sequential_encoder.h in Headers */,
+				0461D9DE247B2C8A00F2447D /* mesh_io.h in Headers */,
+				0461DA39247B2C8A00F2447D /* encoding_features.h in Headers */,
+				0461DA81247B2C8A00F2447D /* prediction_scheme_interface.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,12 +1395,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Landon";
 				INFOPLIST_FILE = Landon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Landon/draco",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmousseau.Landon;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -481,12 +1426,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Landon";
 				INFOPLIST_FILE = Landon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Landon/draco",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmousseau.Landon;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

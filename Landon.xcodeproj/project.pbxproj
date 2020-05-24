@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,6 @@
 		0461D7CD247B1DE700F2447D /* Landon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461D7C6247B1DE700F2447D /* Landon.framework */; };
 		0461D7CE247B1DE700F2447D /* Landon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0461D7C6247B1DE700F2447D /* Landon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0461D7DC247B220500F2447D /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461D7DB247B220500F2447D /* CaptureViewController.swift */; };
-		0461D8E7247B2B3D00F2447D /* libdraco.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461D8E5247B2B1800F2447D /* libdraco.a */; platformFilter = ios; };
 		0461D9CB247B2C8A00F2447D /* attribute_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8ED247B2C8900F2447D /* attribute_transform.h */; };
 		0461D9CC247B2C8A00F2447D /* geometry_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8EE247B2C8900F2447D /* geometry_attribute.h */; };
 		0461D9CD247B2C8A00F2447D /* attribute_quantization_transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D8EF247B2C8900F2447D /* attribute_quantization_transform.h */; };
@@ -216,6 +215,7 @@
 		0461DA9C247B32B700F2447D /* LDNDracoEncoderStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DA9A247B32B700F2447D /* LDNDracoEncoderStatus.h */; };
 		0461DA9D247B32B700F2447D /* LDNDracoEncoderStatus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0461DA9B247B32B700F2447D /* LDNDracoEncoderStatus.mm */; };
 		0461DAA0247B34A400F2447D /* LDNDracoEncoderStatus+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DA9E247B34A400F2447D /* LDNDracoEncoderStatus+Private.h */; };
+		0461DAAD247B3C9100F2447D /* libdraco.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461DAAC247B3C9100F2447D /* libdraco.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,7 +257,6 @@
 		0461D7C9247B1DE700F2447D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0461D7DA247B220500F2447D /* Landon Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Landon Demo-Bridging-Header.h"; path = "Capture/Landon Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		0461D7DB247B220500F2447D /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
-		0461D8E5247B2B1800F2447D /* libdraco.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdraco.a; sourceTree = "<group>"; };
 		0461D8ED247B2C8900F2447D /* attribute_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attribute_transform.h; sourceTree = "<group>"; };
 		0461D8EE247B2C8900F2447D /* geometry_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry_attribute.h; sourceTree = "<group>"; };
 		0461D8EF247B2C8900F2447D /* attribute_quantization_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attribute_quantization_transform.h; sourceTree = "<group>"; };
@@ -457,6 +456,7 @@
 		0461DA9A247B32B700F2447D /* LDNDracoEncoderStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderStatus.h; sourceTree = "<group>"; };
 		0461DA9B247B32B700F2447D /* LDNDracoEncoderStatus.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LDNDracoEncoderStatus.mm; sourceTree = "<group>"; };
 		0461DA9E247B34A400F2447D /* LDNDracoEncoderStatus+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDNDracoEncoderStatus+Private.h"; sourceTree = "<group>"; };
+		0461DAAC247B3C9100F2447D /* libdraco.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdraco.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,7 +472,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0461D8E7247B2B3D00F2447D /* libdraco.a in Frameworks */,
+				0461DAAD247B3C9100F2447D /* libdraco.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,7 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				0461DA94247B2DB500F2447D /* draco_features.h */,
-				0461D8E5247B2B1800F2447D /* libdraco.a */,
+				0461DAAC247B3C9100F2447D /* libdraco.a */,
 				0461D908247B2C8900F2447D /* animation */,
 				0461D8EC247B2C8900F2447D /* attributes */,
 				0461D93D247B2C8A00F2447D /* compression */,

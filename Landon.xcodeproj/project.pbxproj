@@ -244,7 +244,7 @@
 
 /* Begin PBXFileReference section */
 		0461D7A4247B1D4F00F2447D /* LandonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0461D7A7247B1D4F00F2447D /* LNDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNDAppDelegate.h; sourceTree = "<group>"; };
+		0461D7A7247B1D4F00F2447D /* LDNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNAppDelegate.h; sourceTree = "<group>"; };
 		0461D7A8247B1D4F00F2447D /* LDNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNAppDelegate.m; sourceTree = "<group>"; };
 		0461D7AA247B1D4F00F2447D /* LDNSceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNSceneDelegate.h; sourceTree = "<group>"; };
 		0461D7AB247B1D4F00F2447D /* LDNSceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNSceneDelegate.m; sourceTree = "<group>"; };
@@ -527,7 +527,7 @@
 			isa = PBXGroup;
 			children = (
 				0461D7B9247B1D5000F2447D /* main.m */,
-				0461D7A7247B1D4F00F2447D /* LNDAppDelegate.h */,
+				0461D7A7247B1D4F00F2447D /* LDNAppDelegate.h */,
 				0461D7A8247B1D4F00F2447D /* LDNAppDelegate.m */,
 				0461D7AA247B1D4F00F2447D /* LDNSceneDelegate.h */,
 				0461D7AB247B1D4F00F2447D /* LDNSceneDelegate.m */,

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /// The application delegate.
-@interface LNDAppDelegate : UIResponder <
+@interface LDNAppDelegate : UIResponder <
     UIApplicationDelegate
 >
 

@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "LNDAppDelegate.h"
+#import "LDNAppDelegate.h"
 
 int main(int argc, char * argv[]) {
     NSString *appDelegateClassName;
 
     @autoreleasepool {
-        appDelegateClassName = NSStringFromClass([LNDAppDelegate class]);
+        appDelegateClassName = NSStringFromClass([LDNAppDelegate class]);
     }
 
     return UIApplicationMain(argc, argv, nil, appDelegateClassName);

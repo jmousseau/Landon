@@ -1,14 +1,14 @@
 //
-//  LNDAppDelegate.m
+//  LDNAppDelegate.m
 //  LandonDemo
 //
 //  Created by Jack Mousseau on 5/24/20.
 //  Copyright © 2020 Jack Mousseau. All rights reserved.
 //
 
-#import "LNDAppDelegate.h"
+#import "LDNAppDelegate.h"
 
-@implementation LNDAppDelegate
+@implementation LDNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return YES;

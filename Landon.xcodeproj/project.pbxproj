@@ -15,6 +15,7 @@
 		0461D7CA247B1DE700F2447D /* Landon.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461D7C8247B1DE700F2447D /* Landon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0461D7CD247B1DE700F2447D /* Landon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461D7C6247B1DE700F2447D /* Landon.framework */; };
 		0461D7CE247B1DE700F2447D /* Landon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0461D7C6247B1DE700F2447D /* Landon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0461D7DC247B220500F2447D /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461D7DB247B220500F2447D /* CaptureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0461D7A4247B1D4F00F2447D /* Landon Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Landon Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0461D7A4247B1D4F00F2447D /* LandonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0461D7A7247B1D4F00F2447D /* LNDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNDAppDelegate.h; sourceTree = "<group>"; };
 		0461D7A8247B1D4F00F2447D /* LDNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNAppDelegate.m; sourceTree = "<group>"; };
 		0461D7AA247B1D4F00F2447D /* LDNSceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNSceneDelegate.h; sourceTree = "<group>"; };
@@ -54,6 +55,8 @@
 		0461D7C6247B1DE700F2447D /* Landon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Landon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0461D7C8247B1DE700F2447D /* Landon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Landon.h; sourceTree = "<group>"; };
 		0461D7C9247B1DE700F2447D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0461D7DA247B220500F2447D /* Landon Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Landon Demo-Bridging-Header.h"; path = "Capture/Landon Demo-Bridging-Header.h"; sourceTree = "<group>"; };
+		0461D7DB247B220500F2447D /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +90,7 @@
 		0461D7A5247B1D4F00F2447D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0461D7A4247B1D4F00F2447D /* Landon Demo.app */,
+				0461D7A4247B1D4F00F2447D /* LandonDemo.app */,
 				0461D7C6247B1DE700F2447D /* Landon.framework */,
 			);
 			name = Products;
@@ -97,7 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				0461D7B8247B1D5000F2447D /* Info.plist */,
+				0461D7DA247B220500F2447D /* Landon Demo-Bridging-Header.h */,
 				0461D7D3247B1E0B00F2447D /* Main */,
+				0461D7D9247B21F400F2447D /* Capture */,
 				0461D7D4247B1E1A00F2447D /* Assets */,
 			);
 			path = "Landon Demo";
@@ -133,6 +138,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		0461D7D9247B21F400F2447D /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				0461D7DB247B220500F2447D /* CaptureViewController.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -147,9 +160,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0461D7A3247B1D4F00F2447D /* Landon Demo */ = {
+		0461D7A3247B1D4F00F2447D /* LandonDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0461D7BD247B1D5000F2447D /* Build configuration list for PBXNativeTarget "Landon Demo" */;
+			buildConfigurationList = 0461D7BD247B1D5000F2447D /* Build configuration list for PBXNativeTarget "LandonDemo" */;
 			buildPhases = (
 				0461D7A0247B1D4F00F2447D /* Sources */,
 				0461D7A1247B1D4F00F2447D /* Frameworks */,
@@ -161,9 +174,9 @@
 			dependencies = (
 				0461D7CC247B1DE700F2447D /* PBXTargetDependency */,
 			);
-			name = "Landon Demo";
+			name = LandonDemo;
 			productName = Landon;
-			productReference = 0461D7A4247B1D4F00F2447D /* Landon Demo.app */;
+			productReference = 0461D7A4247B1D4F00F2447D /* LandonDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0461D7C5247B1DE700F2447D /* Landon */ = {
@@ -195,6 +208,7 @@
 				TargetAttributes = {
 					0461D7A3247B1D4F00F2447D = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 					0461D7C5247B1DE700F2447D = {
 						CreatedOnToolsVersion = 11.4;
@@ -214,7 +228,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0461D7A3247B1D4F00F2447D /* Landon Demo */,
+				0461D7A3247B1D4F00F2447D /* LandonDemo */,
 				0461D7C5247B1DE700F2447D /* Landon */,
 			);
 		};
@@ -245,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0461D7A9247B1D4F00F2447D /* LDNAppDelegate.m in Sources */,
+				0461D7DC247B220500F2447D /* CaptureViewController.swift in Sources */,
 				0461D7BA247B1D5000F2447D /* main.m in Sources */,
 				0461D7AC247B1D4F00F2447D /* LDNSceneDelegate.m in Sources */,
 			);
@@ -393,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVFKAL5KFM;
 				INFOPLIST_FILE = "Landon Demo/Info.plist";
@@ -402,6 +418,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jmousseau.Landon-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Landon Demo/Landon Demo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -410,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVFKAL5KFM;
 				INFOPLIST_FILE = "Landon Demo/Info.plist";
@@ -419,6 +439,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jmousseau.Landon-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Landon Demo/Landon Demo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -487,7 +509,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0461D7BD247B1D5000F2447D /* Build configuration list for PBXNativeTarget "Landon Demo" */ = {
+		0461D7BD247B1D5000F2447D /* Build configuration list for PBXNativeTarget "LandonDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0461D7BE247B1D5000F2447D /* Debug */,

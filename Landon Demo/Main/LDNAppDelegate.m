@@ -1,6 +1,6 @@
 //
 //  LNDAppDelegate.m
-//  Landon
+//  LandonDemo
 //
 //  Created by Jack Mousseau on 5/24/20.
 //  Copyright © 2020 Jack Mousseau. All rights reserved.

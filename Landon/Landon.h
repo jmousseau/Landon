@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double LandonVersionNumber;
 //! Landon project version string.
 FOUNDATION_EXPORT const unsigned char LandonVersionString[];
 
+#import "LDNDracoEncoder.h"
 #import "LDNDracoEncoderResult.h"
 #import "LDNDracoEncoderStatus.h"
-#import "LDNDracoMesh.h"

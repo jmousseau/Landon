@@ -6,19 +6,25 @@
 //  Copyright © 2020 Jack Mousseau. All rights reserved.
 //
 
+#import <ARKit/ARKit.h>
 #import <Foundation/Foundation.h>
 
 #import "LDNDracoEncoderResult.h"
-#import "LDNDracoMesh.h"
 
 /// A draco encoder.
+NS_SWIFT_NAME(DracoEncoder)
 @interface LDNDracoEncoder : NSObject
 
-/// Encode a given Draco mesh.
+/// Encode a given set of mesh anchors into a single Draco mesh.
 ///
-/// @param mesh The Draco mesh to encode.
-/// @return A Draco encoder result that contains the encoded data, if the encode
-/// was successful.
-+ (nonnull LDNDracoEncoderResult *)encodeMesh:(nonnull LDNDracoMesh *)mesh;
+/// TODO: Convert each mesh anchor's vertices to world space.
+///
+/// @param meshAnchors The mesh anchors to encode.
+/// @return An encoder result that contains the encoded Draco data, if the
+/// encode was successful.
++ (nonnull LDNDracoEncoderResult *)encodeMeshAnchors:(nonnull NSArray<ARMeshAnchor *> *)meshAnchors NS_SWIFT_NAME(encode(meshAnchors:));
+
+/// The default initialize is unavailable.
+- (nonnull instancetype)init NS_UNAVAILABLE;
 
 @end

@@ -113,8 +113,7 @@ import UIKit
             return
         }
 
-        let mesh = LDNDracoMesh(meshGeometry: meshAnchor.geometry)
-        let result = mesh.encode()
+        let result = DracoEncoder.encode(meshAnchors: [meshAnchor])
 
         guard result.status.code == .OK,
             let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory,

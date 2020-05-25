@@ -215,15 +215,12 @@
 		0461DA9C247B32B700F2447D /* LDNDracoEncoderStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DA9A247B32B700F2447D /* LDNDracoEncoderStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0461DA9D247B32B700F2447D /* LDNDracoEncoderStatus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0461DA9B247B32B700F2447D /* LDNDracoEncoderStatus.mm */; };
 		0461DAA0247B34A400F2447D /* LDNDracoEncoderStatus+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DA9E247B34A400F2447D /* LDNDracoEncoderStatus+Private.h */; };
-		0461DAA8247B394100F2447D /* LDNDracoMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DAA6247B394100F2447D /* LDNDracoMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0461DAA9247B394100F2447D /* LDNDracoMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0461DAA7247B394100F2447D /* LDNDracoMesh.mm */; };
 		0461DAAD247B3C9100F2447D /* libdraco.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461DAAC247B3C9100F2447D /* libdraco.a */; };
-		0461DAB0247B57AE00F2447D /* LDNDracoEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DAAE247B57AE00F2447D /* LDNDracoEncoder.h */; };
+		0461DAB0247B57AE00F2447D /* LDNDracoEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DAAE247B57AE00F2447D /* LDNDracoEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0461DAB1247B57AE00F2447D /* LDNDracoEncoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0461DAAF247B57AE00F2447D /* LDNDracoEncoder.mm */; };
 		0461DAB4247B581700F2447D /* LDNDracoEncoderResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DAB2247B581700F2447D /* LDNDracoEncoderResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0461DAB5247B581700F2447D /* LDNDracoEncoderResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461DAB3247B581700F2447D /* LDNDracoEncoderResult.m */; };
 		0461DAB8247B58AE00F2447D /* LDNDracoEncoderResult+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DAB6247B58AE00F2447D /* LDNDracoEncoderResult+Private.h */; };
-		0461DABC247B59F100F2447D /* LDNDracoMesh+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DABA247B59F100F2447D /* LDNDracoMesh+Private.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -464,15 +461,12 @@
 		0461DA9A247B32B700F2447D /* LDNDracoEncoderStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderStatus.h; sourceTree = "<group>"; };
 		0461DA9B247B32B700F2447D /* LDNDracoEncoderStatus.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LDNDracoEncoderStatus.mm; sourceTree = "<group>"; };
 		0461DA9E247B34A400F2447D /* LDNDracoEncoderStatus+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDNDracoEncoderStatus+Private.h"; sourceTree = "<group>"; };
-		0461DAA6247B394100F2447D /* LDNDracoMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoMesh.h; sourceTree = "<group>"; };
-		0461DAA7247B394100F2447D /* LDNDracoMesh.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LDNDracoMesh.mm; sourceTree = "<group>"; };
 		0461DAAC247B3C9100F2447D /* libdraco.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdraco.a; sourceTree = "<group>"; };
 		0461DAAE247B57AE00F2447D /* LDNDracoEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoder.h; sourceTree = "<group>"; };
 		0461DAAF247B57AE00F2447D /* LDNDracoEncoder.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LDNDracoEncoder.mm; sourceTree = "<group>"; };
 		0461DAB2247B581700F2447D /* LDNDracoEncoderResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderResult.h; sourceTree = "<group>"; };
 		0461DAB3247B581700F2447D /* LDNDracoEncoderResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNDracoEncoderResult.m; sourceTree = "<group>"; };
 		0461DAB6247B58AE00F2447D /* LDNDracoEncoderResult+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDNDracoEncoderResult+Private.h"; sourceTree = "<group>"; };
-		0461DABA247B59F100F2447D /* LDNDracoMesh+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDNDracoMesh+Private.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -539,9 +533,6 @@
 				0461DA9A247B32B700F2447D /* LDNDracoEncoderStatus.h */,
 				0461DA9B247B32B700F2447D /* LDNDracoEncoderStatus.mm */,
 				0461DA9E247B34A400F2447D /* LDNDracoEncoderStatus+Private.h */,
-				0461DAA6247B394100F2447D /* LDNDracoMesh.h */,
-				0461DAA7247B394100F2447D /* LDNDracoMesh.mm */,
-				0461DABA247B59F100F2447D /* LDNDracoMesh+Private.h */,
 				0461D7DD247B2AB700F2447D /* draco */,
 			);
 			path = Landon;
@@ -930,11 +921,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0461DAB0247B57AE00F2447D /* LDNDracoEncoder.h in Headers */,
 				0461DAB4247B581700F2447D /* LDNDracoEncoderResult.h in Headers */,
 				0461DA9C247B32B700F2447D /* LDNDracoEncoderStatus.h in Headers */,
-				0461DAA8247B394100F2447D /* LDNDracoMesh.h in Headers */,
 				0461DA01247B2C8A00F2447D /* data_buffer.h in Headers */,
-				0461DAB0247B57AE00F2447D /* LDNDracoEncoder.h in Headers */,
 				0461D9F8247B2C8A00F2447D /* bit_utils.h in Headers */,
 				0461DA5D247B2C8A00F2447D /* sequential_attribute_encoder.h in Headers */,
 				0461DA05247B2C8A00F2447D /* macros.h in Headers */,
@@ -1009,7 +999,6 @@
 				0461DA35247B2C8A00F2447D /* point_cloud_encoder.h in Headers */,
 				0461DA69247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_decoder.h in Headers */,
 				0461DA15247B2C8A00F2447D /* mesh_sequential_encoder.h in Headers */,
-				0461DABC247B59F100F2447D /* LDNDracoMesh+Private.h in Headers */,
 				0461DA33247B2C8A00F2447D /* float_points_tree_decoder.h in Headers */,
 				0461D7CA247B1DE700F2447D /* Landon.h in Headers */,
 				0461D9D3247B2C8A00F2447D /* parser_utils.h in Headers */,
@@ -1252,7 +1241,6 @@
 				0461DAB5247B581700F2447D /* LDNDracoEncoderResult.m in Sources */,
 				0461DAB1247B57AE00F2447D /* LDNDracoEncoder.mm in Sources */,
 				0461DA9D247B32B700F2447D /* LDNDracoEncoderStatus.mm in Sources */,
-				0461DAA9247B394100F2447D /* LDNDracoMesh.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

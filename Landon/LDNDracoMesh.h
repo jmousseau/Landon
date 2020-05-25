@@ -9,6 +9,8 @@
 #import <ARKit/ARKit.h>
 #import <Foundation/Foundation.h>
 
+#import "LDNDracoEncoderResult.h"
+
 /// A Draco mesh.
 @interface LDNDracoMesh : NSObject
 
@@ -21,5 +23,8 @@
 /// mesh.
 /// @return A new Draco mesh instance.
 - (nonnull instancetype)initWithMeshGeometry:(nonnull ARMeshGeometry *)meshGeometry;
+
+/// Encode the mesh to the Draco file format.
+- (nonnull LDNDracoEncoderResult *)encode;
 
 @end

@@ -11,9 +11,9 @@
 
 @implementation LDNDracoEncoderStatus
 
-- (instancetype)initWithStatus:(draco::Status *)status {
+- (instancetype)initWithStatus:(const draco::Status &)status {
     if (self = [super init]) {
-        switch (status->code()) {
+        switch (status.code()) {
             case draco::Status::OK:
                 _code = LDNDracoEncoderStatusCodeOK;
                 break;
@@ -43,7 +43,7 @@
                 break;
         }
 
-        _errorMessage = [NSString stringWithUTF8String:status->error_msg()];
+        _errorMessage = [NSString stringWithUTF8String:status.error_msg()];
     }
     return self;
 }

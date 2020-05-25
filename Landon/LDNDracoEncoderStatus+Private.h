@@ -16,6 +16,6 @@
 /// @param status The Draco encoder status with which to initialize the Draco
 /// encoder status.
 /// @return A new Draco encoder status instance.
-- (nonnull instancetype)initWithStatus:(nonnull draco::Status *)status;
+- (nonnull instancetype)initWithStatus:(const draco::Status &)status;
 
 @end

@@ -7,12 +7,13 @@
 //
 
 #import "draco/mesh/mesh.h"
+#import "LDNDracoEncoder.h"
 #import "LDNDracoMesh.h"
 
 /// A Draco mesh.
 @interface LDNDracoMesh ()
 
-/// The Draco mesh's mesh.
+/// The Draco mesh's backing mesh.
 @property (nonatomic) std::shared_ptr<draco::Mesh> mesh;
 
 @end
@@ -84,6 +85,10 @@
 
 - (void)dealloc {
     self.mesh.reset();
+}
+
+- (LDNDracoEncoderResult *)encode {
+    return [LDNDracoEncoder encodeMesh:self];
 }
 
 @end

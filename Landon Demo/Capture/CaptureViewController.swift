@@ -112,7 +112,9 @@ import UIKit
         }
 
         let mesh = LDNDracoMesh(meshGeometry: meshAnchor.geometry)
+        let result = mesh.encode()
         print(mesh)
+        print(result.status.code)
     }
 
 }

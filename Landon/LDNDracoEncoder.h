@@ -17,8 +17,6 @@ NS_SWIFT_NAME(DracoEncoder)
 
 /// Encode a given set of mesh anchors into a single Draco mesh.
 ///
-/// TODO: Convert each mesh anchor's vertices to world space.
-///
 /// @param meshAnchors The mesh anchors to encode.
 /// @return An encoder result that contains the encoded Draco data, if the
 /// encode was successful.

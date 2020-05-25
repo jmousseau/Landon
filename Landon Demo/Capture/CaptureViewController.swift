@@ -105,15 +105,15 @@ import UIKit
     // MARK: - Mesh Capture
 
     @objc private func captureMesh() {
-        guard let meshAnchor = self.arView?.session.currentFrame?.anchors.compactMap({ anchor in
+        guard let meshAnchors = self.arView?.session.currentFrame?.anchors.compactMap({ anchor in
             anchor as? ARMeshAnchor
         }).sorted(by: { lhs, rhs in
             lhs.geometry.faces.count > rhs.geometry.faces.count
-        }).first else {
+        }) else {
             return
         }
 
-        let result = DracoEncoder.encode(meshAnchors: [meshAnchor])
+        let result = DracoEncoder.encode(meshAnchors: meshAnchors)
 
         guard result.status.code == .OK,
             let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory,

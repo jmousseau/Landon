@@ -17,6 +17,12 @@
 @implementation LDNDracoEncoder
 
 + (LDNDracoEncoderResult *)encodeMeshAnchors:(NSArray<ARMeshAnchor *> *)meshAnchors {
+    return [self encodeMeshAnchors:meshAnchors
+                           options:[[LDNDracoEncoderOptions alloc] init]];
+}
+
++ (LDNDracoEncoderResult *)encodeMeshAnchors:(NSArray<ARMeshAnchor *> *)meshAnchors
+                                     options:(LDNDracoEncoderOptions *)options {
     draco::Mesh mesh;
 
     // Allocate space for vertices and faces.
@@ -111,11 +117,10 @@
         }
     }
 
-
     draco::Encoder encoder;
     draco::EncoderBuffer buffer;
 
-    encoder.SetSpeedOptions(5, 5);
+    encoder.SetSpeedOptions(options.encodingSpeed, options.decodingSpeed);
 
     draco::Status status = encoder.EncodeMeshToBuffer(mesh, &buffer);
     NSData *data = [NSData dataWithBytes:buffer.buffer()->data()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0418AAC2247C7F6500CFC07E /* LDNDracoEncoderOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0418AAC3247C7F6500CFC07E /* LDNDracoEncoderOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */; };
 		0461D7A9247B1D4F00F2447D /* LDNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461D7A8247B1D4F00F2447D /* LDNAppDelegate.m */; };
 		0461D7AC247B1D4F00F2447D /* LDNSceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461D7AB247B1D4F00F2447D /* LDNSceneDelegate.m */; };
 		0461D7B4247B1D5000F2447D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0461D7B3247B1D5000F2447D /* Assets.xcassets */; };
@@ -248,6 +250,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderOptions.h; sourceTree = "<group>"; };
+		0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNDracoEncoderOptions.m; sourceTree = "<group>"; };
 		0461D7A4247B1D4F00F2447D /* LandonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0461D7A7247B1D4F00F2447D /* LDNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNAppDelegate.h; sourceTree = "<group>"; };
 		0461D7A8247B1D4F00F2447D /* LDNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNAppDelegate.m; sourceTree = "<group>"; };
@@ -527,6 +531,8 @@
 				0461D7C8247B1DE700F2447D /* Landon.h */,
 				0461DAAE247B57AE00F2447D /* LDNDracoEncoder.h */,
 				0461DAAF247B57AE00F2447D /* LDNDracoEncoder.mm */,
+				0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */,
+				0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */,
 				0461DAB2247B581700F2447D /* LDNDracoEncoderResult.h */,
 				0461DAB3247B581700F2447D /* LDNDracoEncoderResult.m */,
 				0461DAB6247B58AE00F2447D /* LDNDracoEncoderResult+Private.h */,
@@ -922,6 +928,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0461DAB0247B57AE00F2447D /* LDNDracoEncoder.h in Headers */,
+				0418AAC2247C7F6500CFC07E /* LDNDracoEncoderOptions.h in Headers */,
 				0461DAB4247B581700F2447D /* LDNDracoEncoderResult.h in Headers */,
 				0461DA9C247B32B700F2447D /* LDNDracoEncoderStatus.h in Headers */,
 				0461DA01247B2C8A00F2447D /* data_buffer.h in Headers */,
@@ -1240,6 +1247,7 @@
 			files = (
 				0461DAB5247B581700F2447D /* LDNDracoEncoderResult.m in Sources */,
 				0461DAB1247B57AE00F2447D /* LDNDracoEncoder.mm in Sources */,
+				0418AAC3247C7F6500CFC07E /* LDNDracoEncoderOptions.m in Sources */,
 				0461DA9D247B32B700F2447D /* LDNDracoEncoderStatus.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

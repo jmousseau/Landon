@@ -8,6 +8,7 @@
 
 import ARKit
 import Foundation
+import Landon
 import RealityKit
 import UIKit
 
@@ -36,6 +37,7 @@ import UIKit
 
         view.translatesAutoresizingMaskIntoConstraints = false
         setUpARView()
+        setUpCaptureButton()
 
         runConfiguration()
     }
@@ -58,6 +60,36 @@ import UIKit
         ])
     }
 
+    func setUpCaptureButton() {
+        let captureButton = UIButton(frame: .zero)
+        captureButton.setTitle("Capture", for: .normal)
+        captureButton.setTitleColor(.black, for: .normal)
+        captureButton.backgroundColor = .systemYellow
+        captureButton.layer.cornerRadius = 8
+
+        captureButton.addTarget(
+            self,
+            action: #selector(captureMesh),
+            for: .touchUpInside
+        )
+
+        captureButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(captureButton)
+
+        NSLayoutConstraint.activate([
+            captureButton.trailingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                constant: -20
+            ),
+            captureButton.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                constant: -20
+            ),
+            captureButton.widthAnchor.constraint(equalToConstant: 200),
+            captureButton.heightAnchor.constraint(equalToConstant: 100),
+        ])
+    }
+
     // MARK: - Session Lifecycle
 
     private func runConfiguration() {
@@ -68,6 +100,19 @@ import UIKit
             .resetSceneReconstruction,
             .resetTracking
         ])
+    }
+
+    // MARK: - Mesh Capture
+
+    @objc private func captureMesh() {
+        guard let meshAnchor = self.arView?.session.currentFrame?.anchors.compactMap({ anchor in
+            anchor as? ARMeshAnchor
+        }).first else {
+            return
+        }
+
+        let mesh = LDNDracoMesh(meshGeometry: meshAnchor.geometry)
+        print(mesh)
     }
 
 }

@@ -107,6 +107,8 @@ import UIKit
     @objc private func captureMesh() {
         guard let meshAnchor = self.arView?.session.currentFrame?.anchors.compactMap({ anchor in
             anchor as? ARMeshAnchor
+        }).sorted(by: { lhs, rhs in
+            lhs.geometry.faces.count > rhs.geometry.faces.count
         }).first else {
             return
         }

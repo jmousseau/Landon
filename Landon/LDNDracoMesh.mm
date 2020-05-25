@@ -66,16 +66,13 @@
                                               length:faces.buffer.length];
 
             draco::Mesh::Face face;
+            NSUInteger faceStride = 3 * faces.bytesPerIndex;
+
             for (draco::FaceIndex faceIndex = draco::FaceIndex(0);
                  faceIndex < self.mesh->num_faces();
                  faceIndex++) {
-                for (uint32_t faceVertex = 0; faceVertex < 3; faceVertex++) {
-                    uint32_t pointIndex;
-                    [faceData getBytes:&pointIndex
-                                 range:NSMakeRange(faceVertex, faces.bytesPerIndex)];
-                    face[faceVertex] = static_cast<draco::PointIndex>(pointIndex);
-                }
-
+                [faceData getBytes:face.data()
+                             range:NSMakeRange(faceIndex.value() * faceStride, faceStride)];
                 self.mesh->SetFace(faceIndex, face);
             }
         }

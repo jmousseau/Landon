@@ -252,6 +252,7 @@
 /* Begin PBXFileReference section */
 		0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderOptions.h; sourceTree = "<group>"; };
 		0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNDracoEncoderOptions.m; sourceTree = "<group>"; };
+		0418AAC4247C83D000CFC07E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		0461D7A4247B1D4F00F2447D /* LandonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0461D7A7247B1D4F00F2447D /* LDNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNAppDelegate.h; sourceTree = "<group>"; };
 		0461D7A8247B1D4F00F2447D /* LDNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNAppDelegate.m; sourceTree = "<group>"; };
@@ -539,6 +540,7 @@
 				0461DA9A247B32B700F2447D /* LDNDracoEncoderStatus.h */,
 				0461DA9B247B32B700F2447D /* LDNDracoEncoderStatus.mm */,
 				0461DA9E247B34A400F2447D /* LDNDracoEncoderStatus+Private.h */,
+				0418AAC4247C83D000CFC07E /* README.md */,
 				0461D7DD247B2AB700F2447D /* draco */,
 			);
 			path = Landon;

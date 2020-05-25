@@ -35,12 +35,12 @@
 
             draco::GeometryAttribute vertexPostionAttribute;
             vertexPostionAttribute.Init(draco::GeometryAttribute::POSITION,
-                                        nullptr, 3, draco::DT_INT32, false,
-                                        draco::DataTypeLength(draco::DT_INT32) * 3, 0);
+                                        nullptr, 3, draco::DT_FLOAT32, false,
+                                        draco::DataTypeLength(draco::DT_FLOAT32) * 3, 0);
 
             const int attributeId = self.mesh->AddAttribute(vertexPostionAttribute, true, self.mesh->num_points());
 
-            std::vector<uint32_t> vertex(3);
+            std::vector<float32_t> vertex(3);
             for (uint32_t vertexAttributeIndex = 0;
                  vertexAttributeIndex < self.mesh->num_points();
                  vertexAttributeIndex++) {

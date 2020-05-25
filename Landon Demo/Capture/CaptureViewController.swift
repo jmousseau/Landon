@@ -113,8 +113,22 @@ import UIKit
 
         let mesh = LDNDracoMesh(meshGeometry: meshAnchor.geometry)
         let result = mesh.encode()
-        print(mesh)
-        print(result.status.code)
+
+        guard result.status.code == .OK,
+            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                                         .userDomainMask,
+                                                                         true).first else {
+                                                                            return
+        }
+
+        let url = URL(fileURLWithPath: documentsDirectory, isDirectory: true)
+        let path = url.appendingPathComponent("test.drc", isDirectory: false)
+
+        do {
+            try result.data?.write(to: path)
+        } catch {
+            print(error)
+        }
     }
 
 }

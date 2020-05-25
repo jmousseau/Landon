@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /// Draco encoder options.
+NS_SWIFT_NAME(DracoEncoder.Options)
 @interface LDNDracoEncoderOptions : NSObject
 
 /// The encoding speed used by the encoder. Defaults to 0.

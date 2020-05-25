@@ -11,6 +11,7 @@
 #import "LDNDracoEncoderStatus.h"
 
 /// A Draco encoder result.
+NS_SWIFT_NAME(DracoEncoder.Result)
 @interface LDNDracoEncoderResult : NSObject
 
 /// The Draco encoder result's status.

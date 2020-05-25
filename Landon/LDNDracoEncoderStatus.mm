@@ -43,7 +43,11 @@
                 break;
         }
 
-        _errorMessage = [NSString stringWithUTF8String:status.error_msg()];
+        if (status.error_msg_string().length() > 0) {
+            _errorMessage = [NSString stringWithUTF8String:status.error_msg()];
+        } else {
+            _errorMessage = nil;
+        }
     }
     return self;
 }

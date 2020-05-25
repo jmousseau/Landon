@@ -31,6 +31,7 @@ typedef NS_ENUM(NSUInteger, LDNDracoEncoderStatusCode) {
 };
 
 /// A Draco encoder status.
+NS_SWIFT_NAME(DracoEncoder.Status)
 @interface LDNDracoEncoderStatus : NSObject
 
 /// The Draco encoder status's code.

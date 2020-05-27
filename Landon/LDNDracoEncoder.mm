@@ -143,10 +143,10 @@
     NSData *data = [NSData dataWithBytes:buffer.buffer()->data()
                                   length:buffer.buffer()->size()];
 
+    LDNSignpostEnd("Encode Mesh Buffer");
+
     return [[LDNDracoEncoderResult alloc] initWithStatus:[[LDNDracoEncoderStatus alloc] initWithStatus:status]
                                                     data:data];
-
-    LDNSignpostEnd("Encode Mesh Buffer");
 }
 
 @end

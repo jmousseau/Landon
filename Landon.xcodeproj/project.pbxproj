@@ -223,6 +223,7 @@
 		0461DAB4247B581700F2447D /* LDNDracoEncoderResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DAB2247B581700F2447D /* LDNDracoEncoderResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0461DAB5247B581700F2447D /* LDNDracoEncoderResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461DAB3247B581700F2447D /* LDNDracoEncoderResult.m */; };
 		0461DAB8247B58AE00F2447D /* LDNDracoEncoderResult+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DAB6247B58AE00F2447D /* LDNDracoEncoderResult+Private.h */; };
+		04CA5D4B247DEA980051DDE1 /* LDNProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA5D49247DEA980051DDE1 /* LDNProfile.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -472,6 +473,7 @@
 		0461DAB2247B581700F2447D /* LDNDracoEncoderResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderResult.h; sourceTree = "<group>"; };
 		0461DAB3247B581700F2447D /* LDNDracoEncoderResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNDracoEncoderResult.m; sourceTree = "<group>"; };
 		0461DAB6247B58AE00F2447D /* LDNDracoEncoderResult+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDNDracoEncoderResult+Private.h"; sourceTree = "<group>"; };
+		04CA5D49247DEA980051DDE1 /* LDNProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNProfile.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +542,7 @@
 				0461DA9A247B32B700F2447D /* LDNDracoEncoderStatus.h */,
 				0461DA9B247B32B700F2447D /* LDNDracoEncoderStatus.mm */,
 				0461DA9E247B34A400F2447D /* LDNDracoEncoderStatus+Private.h */,
+				04CA5D49247DEA980051DDE1 /* LDNProfile.h */,
 				0418AAC4247C83D000CFC07E /* README.md */,
 				0461D7DD247B2AB700F2447D /* draco */,
 			);
@@ -966,6 +969,7 @@
 				0461DAA0247B34A400F2447D /* LDNDracoEncoderStatus+Private.h in Headers */,
 				0461D9E6247B2C8A00F2447D /* keyframe_animation.h in Headers */,
 				0461DA29247B2C8A00F2447D /* point_cloud_kd_tree_decoder.h in Headers */,
+				04CA5D4B247DEA980051DDE1 /* LDNProfile.h in Headers */,
 				0461D9CE247B2C8A00F2447D /* attribute_transform_type.h in Headers */,
 				0461D9F3247B2C8A00F2447D /* valence_cache.h in Headers */,
 				0461DA5A247B2C8A00F2447D /* sequential_attribute_decoder.h in Headers */,

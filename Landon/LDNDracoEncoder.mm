@@ -13,6 +13,7 @@
 #import "LDNDracoEncoder.h"
 #import "LDNDracoEncoderResult+Private.h"
 #import "LDNDracoEncoderStatus+Private.h"
+#import "LDNProfile.h"
 
 @implementation LDNDracoEncoder
 
@@ -23,10 +24,14 @@
 
 + (LDNDracoEncoderResult *)encodeMeshAnchors:(NSArray<ARMeshAnchor *> *)meshAnchors
                                      options:(LDNDracoEncoderOptions *)options {
+    LDNLogCreate("Draco Encoder");
+
     draco::Mesh mesh;
 
     // Allocate space for vertices and faces.
     {
+        LDNSignpostBegin("Allocate Mesh");
+
         uint32_t vertexCount = 0;
         uint32_t faceCount = 0;
 
@@ -37,11 +42,15 @@
 
         mesh.set_num_points(draco::PointIndex::ValueType(vertexCount));
         mesh.SetNumFaces(draco::PointIndex::ValueType(faceCount));
+
+        LDNSignpostEnd("Allocate Mesh");
     }
 
 
     // Encode vertices.
     {
+        LDNSignpostBegin("Encode Vertices");
+
         uint32_t encodedVertexCount = 0;
 
         draco::GeometryAttribute positionAttribute;
@@ -83,10 +92,14 @@
 
             encodedVertexCount += vertices.count;
         }
+
+        LDNSignpostEnd("Encode Vertices");
     }
 
     // Encode faces.
     {
+        LDNSignpostBegin("Encode Faces");
+
         uint32_t encodedFaceCount = 0;
         uint32_t vertexIndexOffset = 0;
 
@@ -115,7 +128,11 @@
             encodedFaceCount += faces.count;
             vertexIndexOffset += meshAnchor.geometry.vertices.count;
         }
+
+        LDNSignpostEnd("Encode Faces");
     }
+
+    LDNSignpostBegin("Encode Mesh Buffer");
 
     draco::Encoder encoder;
     draco::EncoderBuffer buffer;
@@ -128,6 +145,8 @@
 
     return [[LDNDracoEncoderResult alloc] initWithStatus:[[LDNDracoEncoderStatus alloc] initWithStatus:status]
                                                     data:data];
+
+    LDNSignpostEnd("Encode Mesh Buffer");
 }
 
 @end

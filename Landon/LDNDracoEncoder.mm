@@ -51,16 +51,15 @@
     {
         LDNSignpostBegin("Encode Vertices");
 
-        uint32_t encodedVertexCount = 0;
-
         draco::GeometryAttribute positionAttribute;
         positionAttribute.Init(draco::GeometryAttribute::POSITION,
                                nullptr, 3, draco::DT_FLOAT32, false,
                                draco::DataTypeLength(draco::DT_FLOAT32) * 3, 0);
 
-
         const int positionAttributeId = mesh.AddAttribute(positionAttribute,
                                                           true, mesh.num_points());
+
+        uint32_t encodedVertexCount = 0;
 
         matrix_float4x4 vertexTransform;
         simd_float4 vertexPosition;
@@ -94,6 +93,48 @@
         }
 
         LDNSignpostEnd("Encode Vertices");
+    }
+
+    // Encode normals.
+    {
+        LDNSignpostBegin("Encode Normals");
+
+        draco::GeometryAttribute normalAttribute;
+        normalAttribute.Init(draco::GeometryAttribute::NORMAL,
+                             nullptr, 3, draco::DT_FLOAT32, false,
+                             draco::DataTypeLength(draco::DT_FLOAT32) * 3, 0);
+
+        const int normalAttributeId = mesh.AddAttribute(normalAttribute,
+                                                        true, mesh.num_points());
+
+        uint32_t encodedNormalCount = 0;
+
+        simd_float3 normal;
+
+        for (ARMeshAnchor *meshAnchor in meshAnchors) {
+            ARGeometrySource *normals = meshAnchor.geometry.normals;
+            NSData *normalData = [NSData dataWithBytesNoCopy:normals.buffer.contents
+                                                      length:normals.buffer.length
+                                                freeWhenDone:NO];
+
+            for (uint32_t normalAttributeIndex = 0;
+                 normalAttributeIndex < normals.count;
+                 normalAttributeIndex++) {
+                [normalData getBytes:&normal
+                               range:NSMakeRange(normalAttributeIndex * normals.stride + normals.offset,
+                                                 normals.stride)];
+
+                // Must access the attribute by identifier. Otherwise, attribute
+                // buffer will be uninitialized.
+                uint32_t offsetNormalAttributeIndex = normalAttributeIndex + encodedNormalCount;
+                mesh.attribute(normalAttributeId)->SetAttributeValue(draco::AttributeValueIndex(offsetNormalAttributeIndex),
+                                                                     &normal);
+            }
+
+            encodedNormalCount += normals.count;
+        }
+
+        LDNSignpostEnd("Encode Normals");
     }
 
     // Encode faces.

@@ -223,6 +223,8 @@
 		0461DAB4247B581700F2447D /* LDNDracoEncoderResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DAB2247B581700F2447D /* LDNDracoEncoderResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0461DAB5247B581700F2447D /* LDNDracoEncoderResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461DAB3247B581700F2447D /* LDNDracoEncoderResult.m */; };
 		0461DAB8247B58AE00F2447D /* LDNDracoEncoderResult+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461DAB6247B58AE00F2447D /* LDNDracoEncoderResult+Private.h */; };
+		048255012485553000DE05C5 /* LDNMeshClassificationColoring.h in Headers */ = {isa = PBXBuildFile; fileRef = 048254FF2485553000DE05C5 /* LDNMeshClassificationColoring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		048255022485553000DE05C5 /* LDNMeshClassificationColoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 048255002485553000DE05C5 /* LDNMeshClassificationColoring.m */; };
 		04CA5D4B247DEA980051DDE1 /* LDNProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA5D49247DEA980051DDE1 /* LDNProfile.h */; };
 /* End PBXBuildFile section */
 
@@ -473,6 +475,8 @@
 		0461DAB2247B581700F2447D /* LDNDracoEncoderResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderResult.h; sourceTree = "<group>"; };
 		0461DAB3247B581700F2447D /* LDNDracoEncoderResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNDracoEncoderResult.m; sourceTree = "<group>"; };
 		0461DAB6247B58AE00F2447D /* LDNDracoEncoderResult+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDNDracoEncoderResult+Private.h"; sourceTree = "<group>"; };
+		048254FF2485553000DE05C5 /* LDNMeshClassificationColoring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNMeshClassificationColoring.h; sourceTree = "<group>"; };
+		048255002485553000DE05C5 /* LDNMeshClassificationColoring.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNMeshClassificationColoring.m; sourceTree = "<group>"; };
 		04CA5D49247DEA980051DDE1 /* LDNProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNProfile.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -542,6 +546,8 @@
 				0461DA9A247B32B700F2447D /* LDNDracoEncoderStatus.h */,
 				0461DA9B247B32B700F2447D /* LDNDracoEncoderStatus.mm */,
 				0461DA9E247B34A400F2447D /* LDNDracoEncoderStatus+Private.h */,
+				048254FF2485553000DE05C5 /* LDNMeshClassificationColoring.h */,
+				048255002485553000DE05C5 /* LDNMeshClassificationColoring.m */,
 				04CA5D49247DEA980051DDE1 /* LDNProfile.h */,
 				0418AAC4247C83D000CFC07E /* README.md */,
 				0461D7DD247B2AB700F2447D /* draco */,
@@ -932,10 +938,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0461D7CA247B1DE700F2447D /* Landon.h in Headers */,
 				0461DAB0247B57AE00F2447D /* LDNDracoEncoder.h in Headers */,
 				0418AAC2247C7F6500CFC07E /* LDNDracoEncoderOptions.h in Headers */,
 				0461DAB4247B581700F2447D /* LDNDracoEncoderResult.h in Headers */,
 				0461DA9C247B32B700F2447D /* LDNDracoEncoderStatus.h in Headers */,
+				048255012485553000DE05C5 /* LDNMeshClassificationColoring.h in Headers */,
 				0461DA01247B2C8A00F2447D /* data_buffer.h in Headers */,
 				0461D9F8247B2C8A00F2447D /* bit_utils.h in Headers */,
 				0461DA5D247B2C8A00F2447D /* sequential_attribute_encoder.h in Headers */,
@@ -1013,7 +1021,6 @@
 				0461DA69247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_decoder.h in Headers */,
 				0461DA15247B2C8A00F2447D /* mesh_sequential_encoder.h in Headers */,
 				0461DA33247B2C8A00F2447D /* float_points_tree_decoder.h in Headers */,
-				0461D7CA247B1DE700F2447D /* Landon.h in Headers */,
 				0461D9D3247B2C8A00F2447D /* parser_utils.h in Headers */,
 				0461D9EA247B2C8A00F2447D /* metadata.h in Headers */,
 				0461DA02247B2C8A00F2447D /* draco_index_type.h in Headers */,
@@ -1252,6 +1259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0461DAB5247B581700F2447D /* LDNDracoEncoderResult.m in Sources */,
+				048255022485553000DE05C5 /* LDNMeshClassificationColoring.m in Sources */,
 				0461DAB1247B57AE00F2447D /* LDNDracoEncoder.mm in Sources */,
 				0418AAC3247C7F6500CFC07E /* LDNDracoEncoderOptions.m in Sources */,
 				0461DA9D247B32B700F2447D /* LDNDracoEncoderStatus.mm in Sources */,

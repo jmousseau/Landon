@@ -18,3 +18,4 @@ FOUNDATION_EXPORT const unsigned char LandonVersionString[];
 #import "LDNDracoEncoderOptions.h"
 #import "LDNDracoEncoderResult.h"
 #import "LDNDracoEncoderStatus.h"
+#import "LDNMeshClassificationColoring.h"

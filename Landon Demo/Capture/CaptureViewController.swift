@@ -94,7 +94,7 @@ import UIKit
 
     private func runConfiguration() {
         let configuration = ARWorldTrackingConfiguration()
-        configuration.sceneReconstruction = .mesh
+        configuration.sceneReconstruction = .meshWithClassification
         configuration.environmentTexturing = .automatic
         arView?.session.run(configuration, options: [
             .resetSceneReconstruction,

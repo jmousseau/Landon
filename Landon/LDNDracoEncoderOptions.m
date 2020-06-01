@@ -14,6 +14,7 @@
     if (self = [super init]) {
         _encodingSpeed = 0;
         _decodingSpeed = 0;
+        _meshClassificationColoring = [[LDNDefaultMeshClassificationColoring alloc] init];
     }
     return self;
 }

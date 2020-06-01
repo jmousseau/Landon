@@ -173,6 +173,58 @@
         LDNSignpostEnd("Encode Faces");
     }
 
+    // Encode classification.
+    {
+        LDNSignpostBegin("Encode Classification");
+
+        draco::GeometryAttribute classificationAttribute;
+        classificationAttribute.Init(draco::GeometryAttribute::COLOR,
+                                     nullptr, 3, draco::DT_UINT8, false,
+                                     draco::DataTypeLength(draco::DT_UINT8) * 3, 0);
+
+        const int classificationAttributeId = mesh.AddAttribute(classificationAttribute,
+                                                                true, mesh.num_points());
+
+        uint32_t encodedClassificationCount = 0;
+
+        draco::Mesh::Face face;
+        uint8_t classification;
+
+        for (ARMeshAnchor *meshAnchor in meshAnchors) {
+            ARGeometrySource *classifications = meshAnchor.geometry.classification;
+            NSData *classificationData = [NSData dataWithBytesNoCopy:classifications.buffer.contents
+                                                              length:classifications.buffer.length
+                                                        freeWhenDone:NO];
+
+            for (draco::FaceIndex classificationIndex = draco::FaceIndex(0);
+                 classificationIndex < (uint32_t)classifications.count;
+                 classificationIndex++) {
+                [classificationData getBytes:&classification
+                                       range:NSMakeRange(classificationIndex.value() *
+                                                         classifications.stride +
+                                                         classifications.offset,
+                                                         classifications.stride)];
+
+                // Reuse the face to vertex mapping created above.
+                face = mesh.face(classificationIndex + encodedClassificationCount);
+
+                LDNMeshColor classificationColor = [options.meshClassificationColoring
+                                                    colorForMeshClassification:(ARMeshClassification)classification];
+
+                for (uint32_t vertexIndex = 0; vertexIndex < 3; vertexIndex++) {
+                    // Must access the attribute by identifier. Otherwise,
+                    // attribute buffer will be uninitialized.
+                    mesh.attribute(classificationAttributeId)->SetAttributeValue(draco::AttributeValueIndex(face[vertexIndex].value()),
+                                                                                  &classificationColor);
+                }
+            }
+
+            encodedClassificationCount += classifications.count;
+        }
+
+        LDNSignpostEnd("Encode Classification");
+    }
+
     LDNSignpostBegin("Encode Mesh Buffer");
 
     draco::Encoder encoder;

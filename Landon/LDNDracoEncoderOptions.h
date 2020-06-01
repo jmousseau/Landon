@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "LDNMeshClassificationColoring.h"
+
 /// Draco encoder options.
 NS_SWIFT_NAME(DracoEncoder.Options)
 @interface LDNDracoEncoderOptions : NSObject
@@ -23,5 +25,8 @@ NS_SWIFT_NAME(DracoEncoder.Options)
 /// A value between 0 and 10, where 0 is the slowest, but provides the best
 /// compression.
 @property (nonatomic) int decodingSpeed;
+
+/// The mesh classification coloring used by the encoder.
+@property (nonatomic) id<LDNMeshClassificationColoring> meshClassificationColoring;
 
 @end

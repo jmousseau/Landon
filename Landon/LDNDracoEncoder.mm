@@ -17,6 +17,8 @@
 
 @implementation LDNDracoEncoder
 
+// MARK: - Mesh Anchors
+
 + (LDNDracoEncoderResult *)encodeMeshAnchors:(NSArray<ARMeshAnchor *> *)meshAnchors {
     return [self encodeMeshAnchors:meshAnchors
                            options:[[LDNDracoEncoderOptions alloc] init]];
@@ -24,7 +26,7 @@
 
 + (LDNDracoEncoderResult *)encodeMeshAnchors:(NSArray<ARMeshAnchor *> *)meshAnchors
                                      options:(LDNDracoEncoderOptions *)options {
-    LDNLogCreate("Draco Encoder");
+    LDNLogCreate("Draco Mesh Encoder");
 
     draco::Mesh mesh;
 
@@ -208,8 +210,8 @@
                 // Reuse the face to vertex mapping created above.
                 face = mesh.face(classificationIndex + encodedClassificationCount);
 
-                LDNMeshColor classificationColor = [options.meshClassificationColoring
-                                                    colorForMeshClassification:(ARMeshClassification)classification];
+                LDNSimpleColor classificationColor = [options.classificationColoring
+                                                      colorForMeshClassification:(ARMeshClassification)classification];
 
                 for (uint32_t vertexIndex = 0; vertexIndex < 3; vertexIndex++) {
                     // Must access the attribute by identifier. Otherwise,
@@ -231,6 +233,178 @@
     draco::EncoderBuffer buffer;
 
     encoder.SetSpeedOptions(options.encodingSpeed, options.decodingSpeed);
+
+    draco::Status status = encoder.EncodeMeshToBuffer(mesh, &buffer);
+    NSData *data = [NSData dataWithBytes:buffer.buffer()->data()
+                                  length:buffer.buffer()->size()];
+
+    LDNSignpostEnd("Encode Mesh Buffer");
+
+    return [[LDNDracoEncoderResult alloc] initWithStatus:[[LDNDracoEncoderStatus alloc] initWithStatus:status]
+                                                    data:data];
+}
+
+// MARK: - Plane Anchors
+
++ (LDNDracoEncoderResult *)encodePlaneAnchors:(NSArray<ARPlaneAnchor *> *)planeAnchors {
+    return [self encodePlaneAnchors:planeAnchors
+                            options:[[LDNDracoEncoderOptions alloc] init]];
+}
+
++ (LDNDracoEncoderResult *)encodePlaneAnchors:(NSArray<ARPlaneAnchor *> *)planeAnchors
+                                      options:(LDNDracoEncoderOptions *)options {
+    LDNLogCreate("Draco Plane Encoder");
+
+    draco::Mesh mesh;
+
+    // Allocate space for vertices and faces.
+    {
+        LDNSignpostBegin("Allocate Mesh");
+
+        uint32_t vertexCount = 0;
+        uint32_t faceCount = 0;
+
+        for (ARPlaneAnchor *planeAnchor in planeAnchors) {
+            vertexCount += planeAnchor.geometry.vertexCount;
+            faceCount += planeAnchor.geometry.triangleCount;
+        }
+
+        mesh.set_num_points(draco::PointIndex::ValueType(vertexCount));
+        mesh.SetNumFaces(draco::PointIndex::ValueType(faceCount));
+
+        LDNSignpostEnd("Allocate Mesh");
+    }
+
+    // Encode vertices.
+    {
+        LDNSignpostBegin("Encode Vertices");
+
+        draco::GeometryAttribute positionAttribute;
+        positionAttribute.Init(draco::GeometryAttribute::POSITION,
+                               nullptr, 3, draco::DT_FLOAT32, false,
+                               draco::DataTypeLength(draco::DT_FLOAT32) * 3, 0);
+
+        const int positionAttributeId = mesh.AddAttribute(positionAttribute,
+                                                          true, mesh.num_points());
+
+        uint32_t encodedVertexCount = 0;
+
+        matrix_float4x4 vertexTransform;
+        simd_float4 vertexPosition;
+
+        uint32_t vertexStride = sizeof(simd_float3);
+
+        for (ARPlaneAnchor *planeAnchor in planeAnchors) {
+            ARPlaneGeometry *planeGeometry = planeAnchor.geometry;
+            NSData *vertexData = [NSData dataWithBytesNoCopy:(void *)planeGeometry.vertices
+                                                      length:planeGeometry.vertexCount * vertexStride
+                                                freeWhenDone:NO];
+
+            for (uint32_t vertexAttributeIndex = 0;
+                 vertexAttributeIndex < planeGeometry.vertexCount;
+                 vertexAttributeIndex++) {
+                [vertexData getBytes:&vertexPosition
+                               range:NSMakeRange(vertexAttributeIndex * vertexStride,
+                                                 vertexStride)];
+                vertexTransform = matrix_identity_float4x4;
+                vertexTransform.columns[3] = vertexPosition;
+                vertexTransform.columns[3][3] = 1;
+
+                vertexPosition = simd_mul(planeAnchor.transform, vertexTransform).columns[3];
+
+                // Must access the attribute by identifier. Otherwise, attribute
+                // buffer will be uninitialized.
+                uint32_t offsetVertexAttributeIndex = vertexAttributeIndex + encodedVertexCount;
+                mesh.attribute(positionAttributeId)->SetAttributeValue(draco::AttributeValueIndex(offsetVertexAttributeIndex),
+                                                                       &vertexPosition);
+            }
+
+            encodedVertexCount += planeGeometry.vertexCount;
+        }
+
+        LDNSignpostEnd("Encode Vertices");
+    }
+
+    // Encode faces.
+    {
+        LDNSignpostBegin("Encode Faces");
+
+        uint32_t encodedTriangleCount = 0;
+        uint32_t vertexIndexOffset = 0;
+
+        uint32_t triangleStride = 3 * sizeof(int16_t);
+
+        int16_t triangle[3];
+        draco::Mesh::Face face;
+
+        for (ARPlaneAnchor *planeAnchor in planeAnchors) {
+            ARPlaneGeometry *planeGeometry = planeAnchor.geometry;
+            NSData *faceData = [NSData dataWithBytesNoCopy:(void *)planeGeometry.triangleIndices
+                                                    length:planeGeometry.triangleCount * triangleStride
+                                              freeWhenDone:NO];
+
+            for (draco::FaceIndex faceIndex = draco::FaceIndex(0);
+                 faceIndex < (uint32_t)planeGeometry.triangleCount;
+                 faceIndex++) {
+                [faceData getBytes:&triangle
+                             range:NSMakeRange(faceIndex.value() * triangleStride, triangleStride)];
+
+                face[0] = (uint32_t)triangle[0] + vertexIndexOffset;
+                face[1] = (uint32_t)triangle[1] + vertexIndexOffset;
+                face[2] = (uint32_t)triangle[2] + vertexIndexOffset;
+
+                mesh.SetFace(faceIndex + encodedTriangleCount, face);
+            }
+
+            encodedTriangleCount += planeGeometry.triangleCount;
+            vertexIndexOffset += planeGeometry.vertexCount;
+        }
+
+        LDNSignpostEnd("Encode Faces");
+    }
+
+    // Encode classification.
+    {
+        LDNSignpostBegin("Encode Classification");
+
+        draco::GeometryAttribute classificationAttribute;
+        classificationAttribute.Init(draco::GeometryAttribute::COLOR,
+                                     nullptr, 3, draco::DT_UINT8, false,
+                                     draco::DataTypeLength(draco::DT_UINT8) * 3, 0);
+
+        const int classificationAttributeId = mesh.AddAttribute(classificationAttribute,
+                                                                true, mesh.num_points());
+
+        uint32_t encodedVertexCount = 0;
+
+        for (ARPlaneAnchor *planeAnchor in planeAnchors) {
+            ARPlaneGeometry *planeGeometry = planeAnchor.geometry;
+
+            LDNSimpleColor classificationColor = [options.classificationColoring
+                                                  colorForPlaneClassification:planeAnchor.classification];
+
+            for (uint32_t vertexAttributeIndex = 0;
+                 vertexAttributeIndex < planeGeometry.vertexCount;
+                 vertexAttributeIndex++) {
+                // Must access the attribute by identifier. Otherwise, attribute
+                // buffer will be uninitialized.
+                uint32_t offsetVertexAttributeIndex = vertexAttributeIndex + encodedVertexCount;
+                mesh.attribute(classificationAttributeId)->SetAttributeValue(draco::AttributeValueIndex(offsetVertexAttributeIndex),
+                                                                             &classificationColor);
+            }
+
+            encodedVertexCount += planeGeometry.vertexCount;
+        }
+
+        LDNSignpostEnd("Encode Classification");
+    }
+
+    LDNSignpostBegin("Encode Mesh Buffer");
+
+    draco::Encoder encoder;
+    draco::EncoderBuffer buffer;
+
+    // encoder.SetSpeedOptions(options.encodingSpeed, options.decodingSpeed);
 
     draco::Status status = encoder.EncodeMeshToBuffer(mesh, &buffer);
     NSData *data = [NSData dataWithBytes:buffer.buffer()->data()

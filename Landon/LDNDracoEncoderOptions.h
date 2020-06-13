@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "LDNMeshClassificationColoring.h"
+#import "LDNClassificationColoring.h"
 
 /// Draco encoder options.
 NS_SWIFT_NAME(DracoEncoder.Options)
@@ -26,7 +26,7 @@ NS_SWIFT_NAME(DracoEncoder.Options)
 /// compression.
 @property (nonatomic) int decodingSpeed;
 
-/// The mesh classification coloring used by the encoder.
-@property (nonatomic) id<LDNMeshClassificationColoring> meshClassificationColoring;
+/// The classification coloring used by the encoder.
+@property (nonatomic) id<LDNClassificationColoring> classificationColoring;
 
 @end

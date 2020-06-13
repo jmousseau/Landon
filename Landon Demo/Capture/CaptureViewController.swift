@@ -69,7 +69,7 @@ import UIKit
 
         captureButton.addTarget(
             self,
-            action: #selector(captureMesh),
+            action: #selector(captureAnchors),
             for: .touchUpInside
         )
 
@@ -94,6 +94,7 @@ import UIKit
 
     private func runConfiguration() {
         let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal, .vertical]
         configuration.sceneReconstruction = .meshWithClassification
         configuration.environmentTexturing = .automatic
         arView?.session.run(configuration, options: [
@@ -104,29 +105,59 @@ import UIKit
 
     // MARK: - Mesh Capture
 
-    @objc private func captureMesh() {
+    @objc private func captureAnchors() {
+        captureMeshAnchors()
+        capturePlaneAnchors()
+    }
+
+    private func captureMeshAnchors() {
         guard let meshAnchors = self.arView?.session.currentFrame?.anchors.compactMap({ anchor in
             anchor as? ARMeshAnchor
-        }).sorted(by: { lhs, rhs in
-            lhs.geometry.faces.count > rhs.geometry.faces.count
         }) else {
             return
         }
 
         let result = DracoEncoder.encode(meshAnchors: meshAnchors)
 
-        guard result.status.code == .OK,
-            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory,
-                                                                         .userDomainMask,
-                                                                         true).first else {
-                                                                            return
+        guard result.status.code == .OK, let contents = result.data else {
+            return
+        }
+
+        write(contents: contents, to: "mesh-anchors.drc")
+    }
+
+    private func capturePlaneAnchors() {
+        guard let planeAnchors = self.arView?.session.currentFrame?.anchors.compactMap({ anchor in
+            anchor as? ARPlaneAnchor
+        }) else {
+            return
+        }
+
+        let result = DracoEncoder.encode(planeAnchors: planeAnchors)
+
+        guard result.status.code == .OK, let contents = result.data else {
+            return
+        }
+
+        write(contents: contents, to: "plane-anchors.drc")
+    }
+
+    // MARK: - File System
+
+    func write(contents: Data, to file: String) {
+        guard let documentsDirectory = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory,
+            .userDomainMask,
+            true
+        ).first else {
+            return
         }
 
         let url = URL(fileURLWithPath: documentsDirectory, isDirectory: true)
-        let path = url.appendingPathComponent("test.drc", isDirectory: false)
+        let path = url.appendingPathComponent(file, isDirectory: false)
 
         do {
-            try result.data?.write(to: path)
+            try contents.write(to: path)
         } catch {
             print(error)
         }

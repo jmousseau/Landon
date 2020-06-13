@@ -33,6 +33,23 @@ NS_SWIFT_NAME(DracoEncoder)
 + (nonnull LDNDracoEncoderResult *)encodeMeshAnchors:(nonnull NSArray<ARMeshAnchor *> *)meshAnchors
                                              options:(nonnull LDNDracoEncoderOptions *)options NS_SWIFT_NAME(encode(meshAnchors:options:));
 
+/// Encode a given set of plane anchors into a single Draco mesh using the
+/// default encoder options.
+///
+/// @param planeAnchors The plane anchors to encode.
+/// @return An encoder result that contains the encoded Draco data, if the
+/// encode was successful.
++ (nonnull LDNDracoEncoderResult *)encodePlaneAnchors:(nonnull NSArray<ARPlaneAnchor *> *)planeAnchors NS_SWIFT_NAME(encode(planeAnchors:));
+
+/// Encode a given set of plane anchors into a single Draco mesh.
+///
+/// @param planeAnchors The plane anchors to encode.
+/// @param options Encoder options used for encoding.
+/// @return An encoder result that contains the encoded Draco data, if the
+/// encode was successful.
++ (nonnull LDNDracoEncoderResult *)encodePlaneAnchors:(nonnull NSArray<ARPlaneAnchor *> *)planeAnchors
+                                              options:(nonnull LDNDracoEncoderOptions *)options NS_SWIFT_NAME(encode(planeAnchors:options:));
+
 /// The default initialize is unavailable.
 - (nonnull instancetype)init NS_UNAVAILABLE;
 

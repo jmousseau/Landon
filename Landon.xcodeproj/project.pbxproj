@@ -256,6 +256,7 @@
 		0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderOptions.h; sourceTree = "<group>"; };
 		0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNDracoEncoderOptions.m; sourceTree = "<group>"; };
 		0418AAC4247C83D000CFC07E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		044DA93624A2F38C008BD0B5 /* Landon Demo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Landon Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		0461D7A4247B1D4F00F2447D /* LandonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0461D7A7247B1D4F00F2447D /* LDNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNAppDelegate.h; sourceTree = "<group>"; };
 		0461D7A8247B1D4F00F2447D /* LDNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNAppDelegate.m; sourceTree = "<group>"; };
@@ -268,7 +269,6 @@
 		0461D7C6247B1DE700F2447D /* Landon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Landon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0461D7C8247B1DE700F2447D /* Landon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Landon.h; sourceTree = "<group>"; };
 		0461D7C9247B1DE700F2447D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0461D7DA247B220500F2447D /* Landon Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Landon Demo-Bridging-Header.h"; path = "Capture/Landon Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		0461D7DB247B220500F2447D /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		0461D8ED247B2C8900F2447D /* attribute_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attribute_transform.h; sourceTree = "<group>"; };
 		0461D8EE247B2C8900F2447D /* geometry_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry_attribute.h; sourceTree = "<group>"; };
@@ -523,7 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				0461D7B8247B1D5000F2447D /* Info.plist */,
-				0461D7DA247B220500F2447D /* Landon Demo-Bridging-Header.h */,
+				044DA93624A2F38C008BD0B5 /* Landon Demo-Bridging-Header.h */,
 				0461D7D3247B1E0B00F2447D /* Main */,
 				0461D7D9247B21F400F2447D /* Capture */,
 				0461D7D4247B1E1A00F2447D /* Assets */,

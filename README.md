@@ -1,7 +1,8 @@
 # Landon
 
-Landon can encode ARKit's [`ARMeshAnchor`](https://apple.co/3c0G74T) to the [Draco file
-format](https://github.com/google/draco).
+Landon can encode ARKit anchor geometries to the [Draco file
+format](https://github.com/google/draco). Below is a sample
+[`ARMeshAnchor`](https://apple.co/3c0G74T) encoding.
 
 ```swift
 import Landon

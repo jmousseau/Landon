@@ -17,6 +17,127 @@
 
 @implementation LDNDracoEncoder
 
+// MARK: - Face Anchors
+
++ (LDNDracoEncoderResult *)encodeFaceAnchors:(NSArray<ARFaceAnchor *> *)faceAnchors {
+    return [self encodeFaceAnchors:faceAnchors
+                           options:[[LDNDracoEncoderOptions alloc] init]];
+}
+
++ (LDNDracoEncoderResult *)encodeFaceAnchors:(NSArray<ARFaceAnchor *> *)faceAnchors
+                                     options:(LDNDracoEncoderOptions *)options {
+    LDNLogCreate("Draco Face Encoder");
+
+    draco::Mesh mesh;
+
+    LDNSignpostInterval(LDN_INTERVAL_ALLOCATE_MESH, {
+        uint32_t vertexCount = 0;
+        uint32_t faceCount = 0;
+
+        for (ARFaceAnchor *faceAnchor in faceAnchors) {
+            vertexCount += faceAnchor.geometry.vertexCount;
+            faceCount += faceAnchor.geometry.triangleCount;
+        }
+
+        mesh.set_num_points(draco::PointIndex::ValueType(vertexCount));
+        mesh.SetNumFaces(draco::PointIndex::ValueType(faceCount));
+    });
+
+    LDNSignpostInterval(LDN_INTERVAL_ENCODE_VERTICES, {
+        draco::GeometryAttribute positionAttribute;
+        positionAttribute.Init(draco::GeometryAttribute::POSITION,
+                               nullptr, 3, draco::DT_FLOAT32, false,
+                               draco::DataTypeLength(draco::DT_FLOAT32) * 3, 0);
+
+        const int positionAttributeId = mesh.AddAttribute(positionAttribute,
+                                                          true, mesh.num_points());
+
+        uint32_t encodedVertexCount = 0;
+
+        matrix_float4x4 vertexTransform;
+        simd_float4 vertexPosition;
+
+        uint32_t vertexStride = sizeof(simd_float3);
+
+        for (ARFaceAnchor *faceAnchor in faceAnchors) {
+            ARFaceGeometry *faceGeometry = faceAnchor.geometry;
+            NSData *vertexData = [NSData dataWithBytesNoCopy:(void *)faceGeometry.vertices
+                                                      length:faceGeometry.vertexCount * vertexStride
+                                                freeWhenDone:NO];
+
+            for (uint32_t vertexAttributeIndex = 0;
+                 vertexAttributeIndex < faceGeometry.vertexCount;
+                 vertexAttributeIndex++) {
+                [vertexData getBytes:&vertexPosition
+                               range:NSMakeRange(vertexAttributeIndex * vertexStride,
+                                                 vertexStride)];
+                vertexTransform = matrix_identity_float4x4;
+                vertexTransform.columns[3] = vertexPosition;
+                vertexTransform.columns[3][3] = 1;
+
+                vertexPosition = simd_mul(faceAnchor.transform, vertexTransform).columns[3];
+
+                // Must access the attribute by identifier. Otherwise, attribute
+                // buffer will be uninitialized.
+                uint32_t offsetVertexAttributeIndex = vertexAttributeIndex + encodedVertexCount;
+                mesh.attribute(positionAttributeId)->SetAttributeValue(draco::AttributeValueIndex(offsetVertexAttributeIndex),
+                                                                       &vertexPosition);
+            }
+
+            encodedVertexCount += faceGeometry.vertexCount;
+        }
+    });
+
+    LDNSignpostInterval(LDN_INTERVAL_ENCODE_FACES, {
+        uint32_t encodedTriangleCount = 0;
+        uint32_t vertexIndexOffset = 0;
+
+        uint32_t triangleStride = 3 * sizeof(int16_t);
+
+        int16_t triangle[3];
+        draco::Mesh::Face face;
+
+        for (ARPlaneAnchor *faceAnchor in faceAnchors) {
+            ARPlaneGeometry *faceGeometry = faceAnchor.geometry;
+            NSData *faceData = [NSData dataWithBytesNoCopy:(void *)faceGeometry.triangleIndices
+                                                    length:faceGeometry.triangleCount * triangleStride
+                                              freeWhenDone:NO];
+
+            for (draco::FaceIndex faceIndex = draco::FaceIndex(0);
+                 faceIndex < (uint32_t)faceGeometry.triangleCount;
+                 faceIndex++) {
+                [faceData getBytes:&triangle
+                             range:NSMakeRange(faceIndex.value() * triangleStride, triangleStride)];
+
+                face[0] = (uint32_t)triangle[0] + vertexIndexOffset;
+                face[1] = (uint32_t)triangle[1] + vertexIndexOffset;
+                face[2] = (uint32_t)triangle[2] + vertexIndexOffset;
+
+                mesh.SetFace(faceIndex + encodedTriangleCount, face);
+            }
+
+            encodedTriangleCount += faceGeometry.triangleCount;
+            vertexIndexOffset += faceGeometry.vertexCount;
+        }
+    });
+
+    LDNSignpostBegin(LDN_INTERVAL_ENCODE_MESH_BUFFER);
+
+    draco::Encoder encoder;
+    draco::EncoderBuffer buffer;
+
+    encoder.SetSpeedOptions(options.encodingSpeed, options.decodingSpeed);
+
+    draco::Status status = encoder.EncodeMeshToBuffer(mesh, &buffer);
+    NSData *data = [NSData dataWithBytes:buffer.buffer()->data()
+                                  length:buffer.buffer()->size()];
+
+    LDNSignpostEnd(LDN_INTERVAL_ENCODE_MESH_BUFFER);
+
+    return [[LDNDracoEncoderResult alloc] initWithStatus:[[LDNDracoEncoderStatus alloc] initWithStatus:status]
+                                                    data:data];
+}
+
 // MARK: - Mesh Anchors
 
 + (LDNDracoEncoderResult *)encodeMeshAnchors:(NSArray<ARMeshAnchor *> *)meshAnchors {

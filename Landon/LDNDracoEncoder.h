@@ -16,6 +16,23 @@
 NS_SWIFT_NAME(DracoEncoder)
 @interface LDNDracoEncoder : NSObject
 
+/// Encode a given set of face anchors into a single Draco mesh using the
+/// default encoder options.
+///
+/// @param faceAnchors The face anchors to encode.
+/// @return An encoder result that contains the encoded Draco data, if the
+/// encode was successful.
++ (nonnull LDNDracoEncoderResult *)encodeFaceAnchors:(nonnull NSArray<ARFaceAnchor *> *)faceAnchors NS_SWIFT_NAME(encode(faceAnchors:));
+
+/// Encode a given set of face anchors into a single Draco mesh.
+///
+/// @param faceAnchors The face anchors to encode.
+/// @param options Encoder options used for encoding.
+/// @return An encoder result that contains the encoded Draco data, if the
+/// encode was successful.
++ (nonnull LDNDracoEncoderResult *)encodeFaceAnchors:(nonnull NSArray<ARFaceAnchor *> *)faceAnchors
+                                             options:(nonnull LDNDracoEncoderOptions *)options NS_SWIFT_NAME(encode(faceAnchors:options:));
+
 /// Encode a given set of mesh anchors into a single Draco mesh using the
 /// default encoder options.
 ///

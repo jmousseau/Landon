@@ -43,7 +43,8 @@ import UIKit
         setUpARView()
         setUpCaptureButton()
 
-        runConfiguration()
+        runWorldTrackingConfiguration()
+        // runFaceTrackingConfiguration()
     }
 
     // MARK: - User Interface Setup
@@ -96,11 +97,18 @@ import UIKit
 
     // MARK: - Session Lifecycle
 
-    private func runConfiguration() {
+    private func runWorldTrackingConfiguration() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal, .vertical]
         configuration.sceneReconstruction = .meshWithClassification
-        configuration.environmentTexturing = .automatic
+        run(configuration: configuration)
+    }
+
+    private func runFaceTrackingConfiguration() {
+        run(configuration: ARFaceTrackingConfiguration())
+    }
+
+    private func run(configuration: ARConfiguration) {
         arView?.session.run(configuration, options: [
             .resetSceneReconstruction,
             .resetTracking
@@ -110,16 +118,46 @@ import UIKit
     // MARK: - Mesh Capture
 
     @objc private func captureAnchors() {
+        guard let frame = self.arView?.session.currentFrame,
+              !frame.anchors.isEmpty else {
+            return
+        }
+
+        let faceAnchors = frame.anchors.compactMap({ anchor in
+            anchor as? ARFaceAnchor
+        })
+
+        let meshAnchors = frame.anchors.compactMap({ anchor in
+            anchor as? ARMeshAnchor
+        })
+
+        let planeAnchors = frame.anchors.compactMap({ anchor in
+            anchor as? ARPlaneAnchor
+        })
+
         captureQueue.async { [weak self] in
-            self?.captureMeshAnchors()
-            self?.capturePlaneAnchors()
+            self?.capture(faceAnchors: faceAnchors)
+            self?.capture(meshAnchors: meshAnchors)
+            self?.capture(planeAnchors: planeAnchors)
         }
     }
 
-    private func captureMeshAnchors() {
-        guard let meshAnchors = self.arView?.session.currentFrame?.anchors.compactMap({ anchor in
-            anchor as? ARMeshAnchor
-        }) else {
+    private func capture(faceAnchors: [ARFaceAnchor]) {
+        guard !faceAnchors.isEmpty else {
+            return
+        }
+
+        let result = DracoEncoder.encode(faceAnchors: faceAnchors)
+
+        guard result.status.code == .OK, let contents = result.data else {
+            return
+        }
+
+        write(contents: contents, to: "face-anchors.drc")
+    }
+
+    private func capture(meshAnchors: [ARMeshAnchor]) {
+        guard !meshAnchors.isEmpty else {
             return
         }
 
@@ -132,10 +170,8 @@ import UIKit
         write(contents: contents, to: "mesh-anchors.drc")
     }
 
-    private func capturePlaneAnchors() {
-        guard let planeAnchors = self.arView?.session.currentFrame?.anchors.compactMap({ anchor in
-            anchor as? ARPlaneAnchor
-        }) else {
+    private func capture(planeAnchors: [ARPlaneAnchor]) {
+        guard !planeAnchors.isEmpty else {
             return
         }
 

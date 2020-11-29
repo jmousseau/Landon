@@ -30,10 +30,7 @@
 
     draco::Mesh mesh;
 
-    // Allocate space for vertices and faces.
-    {
-        LDNSignpostBegin("Allocate Mesh");
-
+    LDNSignpostInterval(LDN_INTERVAL_ALLOCATE_MESH, {
         uint32_t vertexCount = 0;
         uint32_t faceCount = 0;
 
@@ -44,15 +41,9 @@
 
         mesh.set_num_points(draco::PointIndex::ValueType(vertexCount));
         mesh.SetNumFaces(draco::PointIndex::ValueType(faceCount));
+    });
 
-        LDNSignpostEnd("Allocate Mesh");
-    }
-
-
-    // Encode vertices.
-    {
-        LDNSignpostBegin("Encode Vertices");
-
+    LDNSignpostInterval(LDN_INTERVAL_ENCODE_VERTICES, {
         draco::GeometryAttribute positionAttribute;
         positionAttribute.Init(draco::GeometryAttribute::POSITION,
                                nullptr, 3, draco::DT_FLOAT32, false,
@@ -93,14 +84,9 @@
 
             encodedVertexCount += vertices.count;
         }
+    });
 
-        LDNSignpostEnd("Encode Vertices");
-    }
-
-    // Encode normals.
-    {
-        LDNSignpostBegin("Encode Normals");
-
+    LDNSignpostInterval(LDN_INTERVAL_ENCODE_NORMALS, {
         draco::GeometryAttribute normalAttribute;
         normalAttribute.Init(draco::GeometryAttribute::NORMAL,
                              nullptr, 3, draco::DT_FLOAT32, false,
@@ -135,14 +121,9 @@
 
             encodedNormalCount += normals.count;
         }
+    });
 
-        LDNSignpostEnd("Encode Normals");
-    }
-
-    // Encode faces.
-    {
-        LDNSignpostBegin("Encode Faces");
-
+    LDNSignpostInterval(LDN_INTERVAL_ENCODE_FACES, {
         uint32_t encodedFaceCount = 0;
         uint32_t vertexIndexOffset = 0;
 
@@ -171,14 +152,9 @@
             encodedFaceCount += faces.count;
             vertexIndexOffset += meshAnchor.geometry.vertices.count;
         }
+    });
 
-        LDNSignpostEnd("Encode Faces");
-    }
-
-    // Encode classification.
-    {
-        LDNSignpostBegin("Encode Classification");
-
+    LDNSignpostInterval(LDN_INTERVAL_ENCODE_CLASSIFICATIONS, {
         draco::GeometryAttribute classificationAttribute;
         classificationAttribute.Init(draco::GeometryAttribute::COLOR,
                                      nullptr, 3, draco::DT_UINT8, false,
@@ -223,11 +199,9 @@
 
             encodedClassificationCount += classifications.count;
         }
+    });
 
-        LDNSignpostEnd("Encode Classification");
-    }
-
-    LDNSignpostBegin("Encode Mesh Buffer");
+    LDNSignpostBegin(LDN_INTERVAL_ENCODE_MESH_BUFFER);
 
     draco::Encoder encoder;
     draco::EncoderBuffer buffer;
@@ -238,7 +212,7 @@
     NSData *data = [NSData dataWithBytes:buffer.buffer()->data()
                                   length:buffer.buffer()->size()];
 
-    LDNSignpostEnd("Encode Mesh Buffer");
+    LDNSignpostEnd(LDN_INTERVAL_ENCODE_MESH_BUFFER);
 
     return [[LDNDracoEncoderResult alloc] initWithStatus:[[LDNDracoEncoderStatus alloc] initWithStatus:status]
                                                     data:data];
@@ -257,10 +231,7 @@
 
     draco::Mesh mesh;
 
-    // Allocate space for vertices and faces.
-    {
-        LDNSignpostBegin("Allocate Mesh");
-
+    LDNSignpostInterval(LDN_INTERVAL_ALLOCATE_MESH, {
         uint32_t vertexCount = 0;
         uint32_t faceCount = 0;
 
@@ -271,14 +242,9 @@
 
         mesh.set_num_points(draco::PointIndex::ValueType(vertexCount));
         mesh.SetNumFaces(draco::PointIndex::ValueType(faceCount));
+    });
 
-        LDNSignpostEnd("Allocate Mesh");
-    }
-
-    // Encode vertices.
-    {
-        LDNSignpostBegin("Encode Vertices");
-
+    LDNSignpostInterval(LDN_INTERVAL_ENCODE_VERTICES, {
         draco::GeometryAttribute positionAttribute;
         positionAttribute.Init(draco::GeometryAttribute::POSITION,
                                nullptr, 3, draco::DT_FLOAT32, false,
@@ -321,14 +287,9 @@
 
             encodedVertexCount += planeGeometry.vertexCount;
         }
+    });
 
-        LDNSignpostEnd("Encode Vertices");
-    }
-
-    // Encode faces.
-    {
-        LDNSignpostBegin("Encode Faces");
-
+    LDNSignpostInterval(LDN_INTERVAL_ENCODE_FACES, {
         uint32_t encodedTriangleCount = 0;
         uint32_t vertexIndexOffset = 0;
 
@@ -359,14 +320,9 @@
             encodedTriangleCount += planeGeometry.triangleCount;
             vertexIndexOffset += planeGeometry.vertexCount;
         }
+    });
 
-        LDNSignpostEnd("Encode Faces");
-    }
-
-    // Encode classification.
-    {
-        LDNSignpostBegin("Encode Classification");
-
+    LDNSignpostInterval(LDN_INTERVAL_ENCODE_CLASSIFICATIONS, {
         draco::GeometryAttribute classificationAttribute;
         classificationAttribute.Init(draco::GeometryAttribute::COLOR,
                                      nullptr, 3, draco::DT_UINT8, false,
@@ -395,22 +351,20 @@
 
             encodedVertexCount += planeGeometry.vertexCount;
         }
+    });
 
-        LDNSignpostEnd("Encode Classification");
-    }
-
-    LDNSignpostBegin("Encode Mesh Buffer");
+    LDNSignpostBegin(LDN_INTERVAL_ENCODE_MESH_BUFFER);
 
     draco::Encoder encoder;
     draco::EncoderBuffer buffer;
 
-    // encoder.SetSpeedOptions(options.encodingSpeed, options.decodingSpeed);
+    encoder.SetSpeedOptions(options.encodingSpeed, options.decodingSpeed);
 
     draco::Status status = encoder.EncodeMeshToBuffer(mesh, &buffer);
     NSData *data = [NSData dataWithBytes:buffer.buffer()->data()
                                   length:buffer.buffer()->size()];
 
-    LDNSignpostEnd("Encode Mesh Buffer");
+    LDNSignpostEnd(LDN_INTERVAL_ENCODE_MESH_BUFFER);
 
     return [[LDNDracoEncoderResult alloc] initWithStatus:[[LDNDracoEncoderStatus alloc] initWithStatus:status]
                                                     data:data];

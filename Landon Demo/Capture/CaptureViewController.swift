@@ -23,7 +23,11 @@ import UIKit
         return arView
     }()
 
+    private let captureQueue: DispatchQueue
+
     public init() {
+        captureQueue = DispatchQueue(label: "Landon Anchor Capture")
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -106,8 +110,10 @@ import UIKit
     // MARK: - Mesh Capture
 
     @objc private func captureAnchors() {
-        captureMeshAnchors()
-        capturePlaneAnchors()
+        captureQueue.async { [weak self] in
+            self?.captureMeshAnchors()
+            self?.capturePlaneAnchors()
+        }
     }
 
     private func captureMeshAnchors() {

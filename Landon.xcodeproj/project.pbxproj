@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0412920325741A0E00ADDFD2 /* CaptureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412920225741A0E00ADDFD2 /* CaptureButton.swift */; };
 		0418AAC2247C7F6500CFC07E /* LDNDracoEncoderOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0418AAC3247C7F6500CFC07E /* LDNDracoEncoderOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */; };
 		0461D7A9247B1D4F00F2447D /* LDNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461D7A8247B1D4F00F2447D /* LDNAppDelegate.m */; };
@@ -253,6 +254,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0412920225741A0E00ADDFD2 /* CaptureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureButton.swift; sourceTree = "<group>"; };
 		0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderOptions.h; sourceTree = "<group>"; };
 		0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNDracoEncoderOptions.m; sourceTree = "<group>"; };
 		0418AAC4247C83D000CFC07E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -579,6 +581,7 @@
 		0461D7D9247B21F400F2447D /* Capture */ = {
 			isa = PBXGroup;
 			children = (
+				0412920225741A0E00ADDFD2 /* CaptureButton.swift */,
 				0461D7DB247B220500F2447D /* CaptureViewController.swift */,
 			);
 			path = Capture;
@@ -1248,6 +1251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0461D7A9247B1D4F00F2447D /* LDNAppDelegate.m in Sources */,
+				0412920325741A0E00ADDFD2 /* CaptureButton.swift in Sources */,
 				0461D7DC247B220500F2447D /* CaptureViewController.swift in Sources */,
 				0461D7BA247B1D5000F2447D /* main.m in Sources */,
 				0461D7AC247B1D4F00F2447D /* LDNSceneDelegate.m in Sources */,

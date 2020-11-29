@@ -66,12 +66,7 @@ import UIKit
     }
 
     func setUpCaptureButton() {
-        let captureButton = UIButton(frame: .zero)
-        captureButton.setTitle("Capture", for: .normal)
-        captureButton.setTitleColor(.black, for: .normal)
-        captureButton.backgroundColor = .systemYellow
-        captureButton.layer.cornerRadius = 8
-
+        let captureButton = CaptureButton(frame: .zero)
         captureButton.addTarget(
             self,
             action: #selector(captureAnchors),
@@ -82,16 +77,13 @@ import UIKit
         view.addSubview(captureButton)
 
         NSLayoutConstraint.activate([
-            captureButton.trailingAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
-                constant: -20
-            ),
             captureButton.bottomAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.bottomAnchor,
                 constant: -20
             ),
-            captureButton.widthAnchor.constraint(equalToConstant: 200),
-            captureButton.heightAnchor.constraint(equalToConstant: 100),
+            captureButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            captureButton.widthAnchor.constraint(equalToConstant: 80),
+            captureButton.heightAnchor.constraint(equalToConstant: 80),
         ])
     }
 

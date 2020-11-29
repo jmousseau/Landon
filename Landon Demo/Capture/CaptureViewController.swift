@@ -41,10 +41,10 @@ import UIKit
 
         view.translatesAutoresizingMaskIntoConstraints = false
         setUpARView()
-        setUpCaptureButton()
+        let captureButton = setUpCaptureButton()
+        setUpFlipCameraButton(captureButton: captureButton)
 
         runWorldTrackingConfiguration()
-        // runFaceTrackingConfiguration()
     }
 
     // MARK: - User Interface Setup
@@ -65,7 +65,7 @@ import UIKit
         ])
     }
 
-    func setUpCaptureButton() {
+    @discardableResult func setUpCaptureButton() -> CaptureButton {
         let captureButton = CaptureButton(frame: .zero)
         captureButton.addTarget(
             self,
@@ -85,9 +85,54 @@ import UIKit
             captureButton.widthAnchor.constraint(equalToConstant: 80),
             captureButton.heightAnchor.constraint(equalToConstant: 80),
         ])
+
+        return captureButton
+    }
+
+    func setUpFlipCameraButton(captureButton: CaptureButton) {
+        let flipCameraButton = UIButton(frame: .zero)
+        flipCameraButton.tintColor = .white
+        flipCameraButton.backgroundColor = .systemGray5
+        flipCameraButton.setImage(UIImage(
+            systemName: "arrow.triangle.2.circlepath",
+            withConfiguration: UIImage.SymbolConfiguration(scale: .large)
+        ), for: .normal)
+
+        flipCameraButton.addTarget(
+            self,
+            action: #selector(toggleConfiguration),
+            for: .touchUpInside
+        )
+
+        flipCameraButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(flipCameraButton)
+
+        let widthConstraint = flipCameraButton.widthAnchor.constraint(equalToConstant: 50)
+
+        NSLayoutConstraint.activate([
+            flipCameraButton.trailingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                constant: -20
+            ),
+            flipCameraButton.centerYAnchor.constraint(equalTo: captureButton.centerYAnchor),
+            widthConstraint,
+            flipCameraButton.heightAnchor.constraint(equalToConstant: widthConstraint.constant),
+        ])
+
+        flipCameraButton.clipsToBounds = true
+        flipCameraButton.layer.cornerCurve = .circular
+        flipCameraButton.layer.cornerRadius = widthConstraint.constant / 2
     }
 
     // MARK: - Session Lifecycle
+
+    @objc private func toggleConfiguration() {
+        if arView?.session.configuration is ARWorldTrackingConfiguration {
+            runFaceTrackingConfiguration()
+        } else {
+            runWorldTrackingConfiguration()
+        }
+    }
 
     private func runWorldTrackingConfiguration() {
         let configuration = ARWorldTrackingConfiguration()

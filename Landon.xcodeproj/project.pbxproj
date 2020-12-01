@@ -10,6 +10,7 @@
 		0412920325741A0E00ADDFD2 /* CaptureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412920225741A0E00ADDFD2 /* CaptureButton.swift */; };
 		0418AAC2247C7F6500CFC07E /* LDNDracoEncoderOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0418AAC3247C7F6500CFC07E /* LDNDracoEncoderOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */; };
+		0446FFEF2575F414009BED71 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446FFEE2575F414009BED71 /* Defaults.swift */; };
 		0461D7A9247B1D4F00F2447D /* LDNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461D7A8247B1D4F00F2447D /* LDNAppDelegate.m */; };
 		0461D7AC247B1D4F00F2447D /* LDNSceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461D7AB247B1D4F00F2447D /* LDNSceneDelegate.m */; };
 		0461D7B4247B1D5000F2447D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0461D7B3247B1D5000F2447D /* Assets.xcassets */; };
@@ -258,6 +259,7 @@
 		0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderOptions.h; sourceTree = "<group>"; };
 		0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNDracoEncoderOptions.m; sourceTree = "<group>"; };
 		0418AAC4247C83D000CFC07E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		0446FFEE2575F414009BED71 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		044DA93624A2F38C008BD0B5 /* Landon Demo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Landon Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		0461D7A4247B1D4F00F2447D /* LandonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0461D7A7247B1D4F00F2447D /* LDNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNAppDelegate.h; sourceTree = "<group>"; };
@@ -502,6 +504,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0446FFED2575F400009BED71 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				0446FFEE2575F414009BED71 /* Defaults.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		0461D79B247B1D4F00F2447D = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +538,7 @@
 				044DA93624A2F38C008BD0B5 /* Landon Demo-Bridging-Header.h */,
 				0461D7D3247B1E0B00F2447D /* Main */,
 				0461D7D9247B21F400F2447D /* Capture */,
+				0446FFED2575F400009BED71 /* Storage */,
 				0461D7D4247B1E1A00F2447D /* Assets */,
 			);
 			path = "Landon Demo";
@@ -1252,6 +1263,7 @@
 			files = (
 				0461D7A9247B1D4F00F2447D /* LDNAppDelegate.m in Sources */,
 				0412920325741A0E00ADDFD2 /* CaptureButton.swift in Sources */,
+				0446FFEF2575F414009BED71 /* Defaults.swift in Sources */,
 				0461D7DC247B220500F2447D /* CaptureViewController.swift in Sources */,
 				0461D7BA247B1D5000F2447D /* main.m in Sources */,
 				0461D7AC247B1D4F00F2447D /* LDNSceneDelegate.m in Sources */,
@@ -1343,7 +1355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1396,7 +1408,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

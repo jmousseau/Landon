@@ -11,6 +11,7 @@ import Foundation
 import Landon
 import RealityKit
 import UIKit
+import UniformTypeIdentifiers
 
 @objc public class CaptureViewController : UIViewController {
 
@@ -21,6 +22,26 @@ import UIKit
         arView.renderOptions = [.disableDepthOfField]
         arView.automaticallyConfigureSession = false
         return arView
+    }()
+
+    private var exportDirectoryButton: UIButton = {
+        let exportDirectoryButton = UIButton(frame: .zero)
+        exportDirectoryButton.backgroundColor = .systemGray5
+        exportDirectoryButton.tintColor = .systemYellow
+        exportDirectoryButton.setTitleColor(.systemYellow, for: .normal)
+        exportDirectoryButton.contentEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 32)
+        exportDirectoryButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: -16)
+        exportDirectoryButton.clipsToBounds = true
+        exportDirectoryButton.layer.cornerCurve = .continuous
+        exportDirectoryButton.layer.cornerRadius = 16
+
+        exportDirectoryButton.addTarget(
+            self,
+            action: #selector(selectExportDirectory),
+            for: .touchUpInside
+        )
+
+        return exportDirectoryButton
     }()
 
     private let captureQueue: DispatchQueue
@@ -43,7 +64,9 @@ import UIKit
         setUpARView()
         let captureButton = setUpCaptureButton()
         setUpFlipCameraButton(captureButton: captureButton)
+        setUpExportDirectoryButton()
 
+        updateExportDirectoryButtonTitle()
         runWorldTrackingConfiguration()
     }
 
@@ -122,6 +145,16 @@ import UIKit
         flipCameraButton.clipsToBounds = true
         flipCameraButton.layer.cornerCurve = .circular
         flipCameraButton.layer.cornerRadius = widthConstraint.constant / 2
+    }
+
+    func setUpExportDirectoryButton() {
+        exportDirectoryButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(exportDirectoryButton)
+
+        NSLayoutConstraint.activate([
+            exportDirectoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            exportDirectoryButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+        ])
     }
 
     // MARK: - Session Lifecycle
@@ -221,25 +254,74 @@ import UIKit
         write(contents: contents, to: "plane-anchors.drc")
     }
 
+    // MARK: - Export Directory
+
+    @objc private func selectExportDirectory() {
+        let picker = UIDocumentPickerViewController(forOpeningContentTypes: [.folder])
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+    }
+
+    private func updateExportDirectoryButtonTitle() {
+        if let exportDirectory = resolveExportDirectory() {
+            exportDirectoryButton.setTitle(exportDirectory.lastPathComponent, for: .normal)
+            exportDirectoryButton.setImage(UIImage(systemName: "folder.fill"), for: .normal)
+        } else {
+            exportDirectoryButton.setTitle("Select Export Folder", for: .normal)
+            exportDirectoryButton.setImage(UIImage(systemName: "questionmark.folder.fill"), for: .normal)
+        }
+    }
+
+    private func resolveExportDirectory() -> URL? {
+        guard let bookmarkData = Defaults.exportDirectory else { return nil }
+        var isStale = false
+        guard let exportDirectory = try? URL(
+            resolvingBookmarkData: bookmarkData,
+            bookmarkDataIsStale: &isStale
+        ), !isStale else { return nil }
+        return exportDirectory
+    }
+
     // MARK: - File System
 
     func write(contents: Data, to file: String) {
-        guard let documentsDirectory = NSSearchPathForDirectoriesInDomains(
-            .documentDirectory,
-            .userDomainMask,
-            true
-        ).first else {
-            return
-        }
+        if let exportDirectory = resolveExportDirectory() {
+            write(contents: contents, to: file, in: exportDirectory)
+        } else {
+            guard let documentsDirectory = NSSearchPathForDirectoriesInDomains(
+                .documentDirectory,
+                .userDomainMask,
+                true
+            ).first else {
+                return
+            }
 
-        let url = URL(fileURLWithPath: documentsDirectory, isDirectory: true)
-        let path = url.appendingPathComponent(file, isDirectory: false)
-
-        do {
-            try contents.write(to: path)
-        } catch {
-            print(error)
+            let url = URL(fileURLWithPath: documentsDirectory, isDirectory: true)
+            write(contents: contents, to: file, in: url)
         }
+    }
+
+    func write(contents: Data, to file: String, in directory: URL) {
+        let path = directory.appendingPathComponent(file, isDirectory: false)
+        try? contents.write(to: path)
+    }
+
+}
+
+extension CaptureViewController : UIDocumentPickerDelegate {
+
+    public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let url = urls.first else { return }
+        guard url.startAccessingSecurityScopedResource() else { return }
+        defer { url.stopAccessingSecurityScopedResource() }
+
+        Defaults.exportDirectory = try? url.bookmarkData(
+            options: .minimalBookmark,
+            includingResourceValuesForKeys: nil,
+            relativeTo: nil
+        )
+
+        updateExportDirectoryButtonTitle()
     }
 
 }

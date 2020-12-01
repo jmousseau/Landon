@@ -10,6 +10,14 @@
 		0412920325741A0E00ADDFD2 /* CaptureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412920225741A0E00ADDFD2 /* CaptureButton.swift */; };
 		0418AAC2247C7F6500CFC07E /* LDNDracoEncoderOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0418AAC3247C7F6500CFC07E /* LDNDracoEncoderOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */; };
+		0446000225760BD4009BED71 /* LDNGeometryEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0446000025760BD4009BED71 /* LDNGeometryEnumerator.h */; };
+		0446000325760BD4009BED71 /* LDNGeometryEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446000125760BD4009BED71 /* LDNGeometryEnumerator.m */; };
+		0446000825760ECA009BED71 /* LDNPlaneAnchorEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0446000625760ECA009BED71 /* LDNPlaneAnchorEnumerator.h */; };
+		0446000925760ECA009BED71 /* LDNPlaneAnchorEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446000725760ECA009BED71 /* LDNPlaneAnchorEnumerator.m */; };
+		0446000F25769432009BED71 /* LDNFaceAnchorEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0446000D25769432009BED71 /* LDNFaceAnchorEnumerator.h */; };
+		0446001025769432009BED71 /* LDNFaceAnchorEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446000E25769432009BED71 /* LDNFaceAnchorEnumerator.m */; };
+		0446001525769831009BED71 /* LDNMeshAnchorEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0446001325769831009BED71 /* LDNMeshAnchorEnumerator.h */; };
+		0446001625769831009BED71 /* LDNMeshAnchorEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446001425769831009BED71 /* LDNMeshAnchorEnumerator.m */; };
 		0446FFEF2575F414009BED71 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446FFEE2575F414009BED71 /* Defaults.swift */; };
 		0446FFF52575F99E009BED71 /* LDNOBJEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0446FFF32575F99E009BED71 /* LDNOBJEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0446FFF62575F99E009BED71 /* LDNOBJEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446FFF42575F99E009BED71 /* LDNOBJEncoder.m */; };
@@ -261,6 +269,14 @@
 		0418AAC0247C7F6500CFC07E /* LDNDracoEncoderOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNDracoEncoderOptions.h; sourceTree = "<group>"; };
 		0418AAC1247C7F6500CFC07E /* LDNDracoEncoderOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNDracoEncoderOptions.m; sourceTree = "<group>"; };
 		0418AAC4247C83D000CFC07E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		0446000025760BD4009BED71 /* LDNGeometryEnumerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNGeometryEnumerator.h; sourceTree = "<group>"; };
+		0446000125760BD4009BED71 /* LDNGeometryEnumerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNGeometryEnumerator.m; sourceTree = "<group>"; };
+		0446000625760ECA009BED71 /* LDNPlaneAnchorEnumerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNPlaneAnchorEnumerator.h; sourceTree = "<group>"; };
+		0446000725760ECA009BED71 /* LDNPlaneAnchorEnumerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNPlaneAnchorEnumerator.m; sourceTree = "<group>"; };
+		0446000D25769432009BED71 /* LDNFaceAnchorEnumerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNFaceAnchorEnumerator.h; sourceTree = "<group>"; };
+		0446000E25769432009BED71 /* LDNFaceAnchorEnumerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNFaceAnchorEnumerator.m; sourceTree = "<group>"; };
+		0446001325769831009BED71 /* LDNMeshAnchorEnumerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNMeshAnchorEnumerator.h; sourceTree = "<group>"; };
+		0446001425769831009BED71 /* LDNMeshAnchorEnumerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNMeshAnchorEnumerator.m; sourceTree = "<group>"; };
 		0446FFEE2575F414009BED71 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		0446FFF32575F99E009BED71 /* LDNOBJEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNOBJEncoder.h; sourceTree = "<group>"; };
 		0446FFF42575F99E009BED71 /* LDNOBJEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNOBJEncoder.m; sourceTree = "<group>"; };
@@ -516,6 +532,21 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		0446FFFA25760665009BED71 /* Enumerators */ = {
+			isa = PBXGroup;
+			children = (
+				0446000D25769432009BED71 /* LDNFaceAnchorEnumerator.h */,
+				0446000E25769432009BED71 /* LDNFaceAnchorEnumerator.m */,
+				0446000025760BD4009BED71 /* LDNGeometryEnumerator.h */,
+				0446000125760BD4009BED71 /* LDNGeometryEnumerator.m */,
+				0446001325769831009BED71 /* LDNMeshAnchorEnumerator.h */,
+				0446001425769831009BED71 /* LDNMeshAnchorEnumerator.m */,
+				0446000625760ECA009BED71 /* LDNPlaneAnchorEnumerator.h */,
+				0446000725760ECA009BED71 /* LDNPlaneAnchorEnumerator.m */,
+			);
+			path = Enumerators;
+			sourceTree = "<group>";
+		};
 		0461D79B247B1D4F00F2447D = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +599,7 @@
 				0446FFF32575F99E009BED71 /* LDNOBJEncoder.h */,
 				0446FFF42575F99E009BED71 /* LDNOBJEncoder.m */,
 				04CA5D49247DEA980051DDE1 /* LDNProfile.h */,
+				0446FFFA25760665009BED71 /* Enumerators */,
 				0418AAC4247C83D000CFC07E /* README.md */,
 				0461D7DD247B2AB700F2447D /* draco */,
 			);
@@ -1008,12 +1040,14 @@
 				0461DA42247B2C8A00F2447D /* rans_symbol_coding.h in Headers */,
 				0461DA20247B2C8A00F2447D /* mesh_edgebreaker_traversal_decoder.h in Headers */,
 				0461DAB8247B58AE00F2447D /* LDNDracoEncoderResult+Private.h in Headers */,
+				0446000825760ECA009BED71 /* LDNPlaneAnchorEnumerator.h in Headers */,
 				0461D9E0247B2C8A00F2447D /* stdio_file_writer.h in Headers */,
 				0461DA08247B2C8A00F2447D /* hash_utils.h in Headers */,
 				0461D9DB247B2C8A00F2447D /* file_reader_test_common.h in Headers */,
 				0461DA49247B2C8A00F2447D /* symbol_bit_decoder.h in Headers */,
 				0461DA22247B2C8A00F2447D /* mesh_encoder.h in Headers */,
 				0461DA8D247B2C8A00F2447D /* sequential_quantization_attribute_encoder.h in Headers */,
+				0446000225760BD4009BED71 /* LDNGeometryEnumerator.h in Headers */,
 				0461DA4F247B2C8A00F2447D /* rans_bit_encoder.h in Headers */,
 				0461D9CD247B2C8A00F2447D /* attribute_quantization_transform.h in Headers */,
 				0461DA14247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl.h in Headers */,
@@ -1038,6 +1072,7 @@
 				0461DA48247B2C8A00F2447D /* rans_bit_decoder.h in Headers */,
 				0461DA8C247B2C8A00F2447D /* sequential_integer_attribute_decoder.h in Headers */,
 				0461DA32247B2C8A00F2447D /* integer_points_kd_tree_encoder.h in Headers */,
+				0446000F25769432009BED71 /* LDNFaceAnchorEnumerator.h in Headers */,
 				0461DA35247B2C8A00F2447D /* point_cloud_encoder.h in Headers */,
 				0461DA69247B2C8A00F2447D /* mesh_prediction_scheme_multi_parallelogram_decoder.h in Headers */,
 				0461DA15247B2C8A00F2447D /* mesh_sequential_encoder.h in Headers */,
@@ -1160,6 +1195,7 @@
 				0461DA1F247B2C8A00F2447D /* mesh_edgebreaker_traversal_encoder.h in Headers */,
 				0461D9CF247B2C8A00F2447D /* point_attribute.h in Headers */,
 				0461DA13247B2C8A00F2447D /* mesh_edgebreaker_encoder_impl_interface.h in Headers */,
+				0446001525769831009BED71 /* LDNMeshAnchorEnumerator.h in Headers */,
 				0461DA36247B2C8A00F2447D /* point_cloud_sequential_encoder.h in Headers */,
 				0461D9DE247B2C8A00F2447D /* mesh_io.h in Headers */,
 				0461DA39247B2C8A00F2447D /* encoding_features.h in Headers */,
@@ -1281,11 +1317,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0446001625769831009BED71 /* LDNMeshAnchorEnumerator.m in Sources */,
 				0461DAB5247B581700F2447D /* LDNDracoEncoderResult.m in Sources */,
 				048255022485553000DE05C5 /* LDNClassificationColoring.m in Sources */,
 				0461DAB1247B57AE00F2447D /* LDNDracoEncoder.mm in Sources */,
 				0446FFF62575F99E009BED71 /* LDNOBJEncoder.m in Sources */,
 				0418AAC3247C7F6500CFC07E /* LDNDracoEncoderOptions.m in Sources */,
+				0446000325760BD4009BED71 /* LDNGeometryEnumerator.m in Sources */,
+				0446001025769432009BED71 /* LDNFaceAnchorEnumerator.m in Sources */,
+				0446000925760ECA009BED71 /* LDNPlaneAnchorEnumerator.m in Sources */,
 				0461DA9D247B32B700F2447D /* LDNDracoEncoderStatus.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,75 +6,61 @@
 //  Copyright © 2020 Jack Mousseau. All rights reserved.
 //
 
+#import "LDNGeometryEnumerator.h"
 #import "LDNOBJEncoder.h"
 #import "LDNProfile.h"
 
+#define LDN_OBJ_STRING_FACE @"f %lu %lu %lu\n"
+#define LDN_OBJ_STRING_VERTEX @"v %.6f %.6f %.6f\n"
+
 @implementation LDNOBJEncoder
 
++ (NSData *)encodeFaceAnchors:(NSArray<ARFaceAnchor *> *)faceAnchors {
+    LDNGeometryEnumerator *enumerator = [LDNGeometryEnumerator enumeratorForFaceAnchors:faceAnchors];
+    return [self encodeGeometryEnumerator:enumerator];
+}
+
++ (NSData *)encodeMeshAnchors:(NSArray<ARMeshAnchor *> *)meshAnchors {
+    LDNGeometryEnumerator *enumerator = [LDNGeometryEnumerator enumeratorForMeshAnchors:meshAnchors];
+    return [self encodeGeometryEnumerator:enumerator];
+}
+
 + (NSData *)encodePlaneAnchors:(NSArray<ARPlaneAnchor *> *)planeAnchors {
-    LDNLogCreate("OBJ Plane Encoder");
+    LDNGeometryEnumerator *enumerator = [LDNGeometryEnumerator enumeratorForPlaneAnchors:planeAnchors];
+    return [self encodeGeometryEnumerator:enumerator];
+}
+
++ (NSData *)encodeGeometryEnumerator:(LDNGeometryEnumerator *)geometryEnumerator {
+    LDNLogCreate("OBJ Encoder");
 
     NSMutableString *obj = [[NSMutableString alloc] init];
 
-    {
+    if (geometryEnumerator.supportedEnumerations & LDNGeometryEnumerationVertex) {
         LDNSignpostBegin(LDN_INTERVAL_ENCODE_VERTICES);
 
-        matrix_float4x4 vertexTransform;
-        simd_float4 vertexPosition;
-
-        uint32_t vertexStride = sizeof(simd_float3);
-
-        for (ARPlaneAnchor *planeAnchor in planeAnchors) {
-            ARPlaneGeometry *planeGeometry = planeAnchor.geometry;
-            NSData *vertexData = [NSData dataWithBytesNoCopy:(void *)planeGeometry.vertices
-                                                      length:planeGeometry.vertexCount * vertexStride
-                                                freeWhenDone:NO];
-
-            for (u_int32_t vertexIndex = 0;
-                 vertexIndex < planeGeometry.vertexCount;
-                 vertexIndex++) {
-                [vertexData getBytes:&vertexPosition
-                               range:NSMakeRange(vertexIndex * vertexStride, vertexStride)];
-                vertexTransform = matrix_identity_float4x4;
-                vertexTransform.columns[3] = vertexPosition;
-                vertexTransform.columns[3][3] = 1;
-
-                vertexPosition = simd_mul(planeAnchor.transform, vertexTransform).columns[3];
-                [obj appendFormat:@"v %.6f %.6f %.6f\n", vertexPosition.x, vertexPosition.y, vertexPosition.z];
-            }
-        }
+        [geometryEnumerator enumerateVerticesUsingBlock:^(LDNVertexIndex *vertexIndex,
+                                                          LDNVertex *vertex) {
+            simd_float4 position = (*vertex).position;
+            [obj appendFormat:LDN_OBJ_STRING_VERTEX,
+             position.x,
+             position.y,
+             position.z];
+        }];
 
         LDNSignpostEnd(LDN_INTERVAL_ENCODE_VERTICES);
     }
 
-    {
+    if (geometryEnumerator.supportedEnumerations & LDNGeometryEnumerationFace) {
         LDNSignpostBegin(LDN_INTERVAL_ENCODE_FACES);
 
-        uint32_t vertexIndexOffset = 0;
-
-        uint32_t triangleStride = 3 * sizeof(int16_t);
-
-        int16_t triangle[3];
-
-        for (ARPlaneAnchor *planeAnchor in planeAnchors) {
-            ARPlaneGeometry *planeGeometry = planeAnchor.geometry;
-            NSData *faceData = [NSData dataWithBytesNoCopy:(void *)planeGeometry.triangleIndices
-                                                    length:planeGeometry.triangleCount * triangleStride
-                                              freeWhenDone:NO];
-
-            for (NSUInteger faceIndex = 0;
-                 faceIndex < planeGeometry.triangleCount;
-                 faceIndex++) {
-                [faceData getBytes:&triangle
-                             range:NSMakeRange(faceIndex * triangleStride, triangleStride)];
-                [obj appendFormat:@"f %u %u %u\n",
-                 (uint32_t)triangle[0] + vertexIndexOffset + 1,
-                 (uint32_t)triangle[1] + vertexIndexOffset + 1,
-                 (uint32_t)triangle[2] + vertexIndexOffset + 1];
-            }
-
-            vertexIndexOffset += planeGeometry.vertexCount;
-        }
+        [geometryEnumerator enumerateFacesUsingBlock:^(LDNFaceIndex *triangleIndex,
+                                                       LDNFace *triangle) {
+            LDNFace _triangle = *triangle;
+            [obj appendFormat:LDN_OBJ_STRING_FACE,
+             _triangle.vertexIndices[0] + 1,
+             _triangle.vertexIndices[1] + 1,
+             _triangle.vertexIndices[2] + 1];
+        }];
 
         LDNSignpostEnd(LDN_INTERVAL_ENCODE_FACES);
     }

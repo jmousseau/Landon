@@ -582,6 +582,7 @@
 		0461D7C7247B1DE700F2447D /* Landon */ = {
 			isa = PBXGroup;
 			children = (
+				0418AAC4247C83D000CFC07E /* README.md */,
 				0461D7C9247B1DE700F2447D /* Info.plist */,
 				0461D7C8247B1DE700F2447D /* Landon.h */,
 				048254FF2485553000DE05C5 /* LDNClassificationColoring.h */,
@@ -600,7 +601,6 @@
 				0446FFF42575F99E009BED71 /* LDNOBJEncoder.m */,
 				04CA5D49247DEA980051DDE1 /* LDNProfile.h */,
 				0446FFFA25760665009BED71 /* Enumerators */,
-				0418AAC4247C83D000CFC07E /* README.md */,
 				0461D7DD247B2AB700F2447D /* draco */,
 			);
 			path = Landon;

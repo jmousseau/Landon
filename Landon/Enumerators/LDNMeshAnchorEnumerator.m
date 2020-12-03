@@ -21,7 +21,8 @@
 
 - (LDNGeometryEnumeration)supportedEnumerations {
     return (LDNGeometryEnumerationVertex |
-            LDNGeometryEnumerationFace);
+            LDNGeometryEnumerationFace |
+            LDNGeometryEnumerationNormal);
 }
 
 - (instancetype)initWithMeshAnchors:(NSArray<ARMeshAnchor *> *)meshAnchors {
@@ -50,7 +51,7 @@
                                                   length:vertices.buffer.length
                                             freeWhenDone:NO];
 
-        for (uint32_t vertexInstanceIndex = 0;
+        for (LDNVertexIndex vertexInstanceIndex = 0;
              vertexInstanceIndex < vertices.count;
              vertexInstanceIndex++) {
             [vertexData getBytes:&vertexPosition
@@ -107,6 +108,37 @@
 
         faceIndexOffset += faces.count;
         vertexIndexOffset += meshAnchor.geometry.vertices.count;
+    }
+}
+
+- (void)enumerateNormalsUsingBlock:(LDNNormalEnumerationBlock)block {
+    if (!block) {
+        return;
+    }
+
+    LDNNormalIndex normalIndex;
+    LDNNormal normal;
+
+    LDNNormalIndex normalIndexOffset = 0;
+
+    for (ARMeshAnchor *meshAnchor in self.meshAnchors) {
+        ARGeometrySource *normals = meshAnchor.geometry.normals;
+        NSData *normalData = [NSData dataWithBytesNoCopy:normals.buffer.contents
+                                                  length:normals.buffer.length
+                                            freeWhenDone:NO];
+
+        for (LDNNormalIndex normalInstanceIndex = 0;
+             normalInstanceIndex < normals.count;
+             normalInstanceIndex++) {
+            [normalData getBytes:&normal
+                           range:NSMakeRange(normalInstanceIndex * normals.stride + normals.offset,
+                                             normals.stride)];
+
+            normalIndex = normalIndexOffset + normalInstanceIndex;
+            block(&normalIndex, &normal);
+        }
+
+        normalIndexOffset += normals.count;
     }
 }
 

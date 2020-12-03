@@ -11,6 +11,9 @@
 #import "LDNMeshAnchorEnumerator.h"
 #import "LDNPlaneAnchorEnumerator.h"
 
+#define LDNAssertUnsupportedEnumeration(enumeration) \
+    NSAssert(NO, @"%@ doesn't support %@ enumeration.", NSStringFromClass([self class]), enumeration)
+
 @implementation LDNGeometryEnumerator
 
 + (LDNGeometryEnumerator *)enumeratorForFaceAnchors:(NSArray<ARFaceAnchor *> *)faceAnchors {
@@ -34,11 +37,21 @@
 }
 
 - (void)enumerateVerticesUsingBlock:(LDNVertexEnumerationBlock)block {
-    // no-op
+    if (~[self supportedEnumerations] & LDNGeometryEnumerationVertex) {
+        LDNAssertUnsupportedEnumeration(@"vertex");
+    }
 }
 
 - (void)enumerateFacesUsingBlock:(LDNFaceEnumerationBlock)block {
-    // no-op
+    if (~[self supportedEnumerations] & LDNGeometryEnumerationFace) {
+        LDNAssertUnsupportedEnumeration(@"face");
+    }
+}
+
+- (void)enumerateNormalsUsingBlock:(LDNNormalEnumerationBlock)block {
+    if (~[self supportedEnumerations] & LDNGeometryEnumerationNormal) {
+        LDNAssertUnsupportedEnumeration(@"normal");
+    }
 }
 
 @end

@@ -13,6 +13,14 @@ import RealityKit
 import UIKit
 import UniformTypeIdentifiers
 
+public enum GeometryFileFormat: String, CaseIterable {
+
+    case draco = "drc"
+
+    case obj = "obj"
+
+}
+
 @objc public class CaptureViewController : UIViewController {
 
     private var arView: ARView? = {
@@ -29,8 +37,8 @@ import UniformTypeIdentifiers
         exportDirectoryButton.backgroundColor = .systemGray5
         exportDirectoryButton.tintColor = .systemYellow
         exportDirectoryButton.setTitleColor(.systemYellow, for: .normal)
-        exportDirectoryButton.contentEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 32)
-        exportDirectoryButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: -16)
+        exportDirectoryButton.contentEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 24)
+        exportDirectoryButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
         exportDirectoryButton.clipsToBounds = true
         exportDirectoryButton.layer.cornerCurve = .continuous
         exportDirectoryButton.layer.cornerRadius = 16
@@ -42,6 +50,35 @@ import UniformTypeIdentifiers
         )
 
         return exportDirectoryButton
+    }()
+
+    private var currentExportFileFormatIndex = 0 {
+        didSet {
+            updateExportFileFormatButtonTitle()
+        }
+    }
+
+    private var currentExportFileFormat: GeometryFileFormat {
+        GeometryFileFormat.allCases[currentExportFileFormatIndex]
+    }
+
+    private var exportFileFormatButton: UIButton = {
+        let exportFileFormatButton = UIButton(frame: .zero)
+        exportFileFormatButton.backgroundColor = .systemGray5
+        exportFileFormatButton.tintColor = .systemYellow
+        exportFileFormatButton.setTitleColor(.systemYellow, for: .normal)
+        exportFileFormatButton.titleLabel?.font = .monospacedSystemFont(ofSize: 17, weight: .regular)
+        exportFileFormatButton.setImage(UIImage(systemName: "cube"), for: .normal)
+        exportFileFormatButton.contentEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 24)
+        exportFileFormatButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
+
+        exportFileFormatButton.addTarget(
+            self,
+            action: #selector(rotateExportFileFormat),
+            for: .touchUpInside
+        )
+
+        return exportFileFormatButton
     }()
 
     private let captureQueue: DispatchQueue
@@ -64,8 +101,10 @@ import UniformTypeIdentifiers
         setUpARView()
         let captureButton = setUpCaptureButton()
         setUpFlipCameraButton(captureButton: captureButton)
+        setUpExportFileFormatButton(captureButton: captureButton)
         setUpExportDirectoryButton()
 
+        updateExportFileFormatButtonTitle()
         updateExportDirectoryButtonTitle()
         runWorldTrackingConfiguration()
     }
@@ -130,16 +169,22 @@ import UniformTypeIdentifiers
         flipCameraButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(flipCameraButton)
 
+        let leadingLayoutGuide = UILayoutGuide()
+        let trailingLayoutGuide = UILayoutGuide()
+        view.addLayoutGuide(leadingLayoutGuide)
+        view.addLayoutGuide(trailingLayoutGuide)
+
         let widthConstraint = flipCameraButton.widthAnchor.constraint(equalToConstant: 50)
 
         NSLayoutConstraint.activate([
-            flipCameraButton.trailingAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
-                constant: -20
-            ),
+            leadingLayoutGuide.leadingAnchor.constraint(equalTo: captureButton.trailingAnchor),
+            leadingLayoutGuide.trailingAnchor.constraint(equalTo: flipCameraButton.leadingAnchor),
+            trailingLayoutGuide.leadingAnchor.constraint(equalTo: flipCameraButton.trailingAnchor),
+            trailingLayoutGuide.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            leadingLayoutGuide.widthAnchor.constraint(equalTo: trailingLayoutGuide.widthAnchor),
             flipCameraButton.centerYAnchor.constraint(equalTo: captureButton.centerYAnchor),
             widthConstraint,
-            flipCameraButton.heightAnchor.constraint(equalToConstant: widthConstraint.constant),
+            flipCameraButton.heightAnchor.constraint(equalToConstant: widthConstraint.constant)
         ])
 
         flipCameraButton.clipsToBounds = true
@@ -156,6 +201,40 @@ import UniformTypeIdentifiers
             exportDirectoryButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
         ])
     }
+
+    func setUpExportFileFormatButton(captureButton: CaptureButton) {
+        exportFileFormatButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(exportFileFormatButton)
+
+        exportFileFormatButton.clipsToBounds = true
+        exportFileFormatButton.layer.cornerCurve = .continuous
+        exportFileFormatButton.layer.cornerRadius = 16
+
+        exportFileFormatButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(exportFileFormatButton)
+
+        let leadingLayoutGuide = UILayoutGuide()
+        let trailingLayoutGuide = UILayoutGuide()
+        view.addLayoutGuide(leadingLayoutGuide)
+        view.addLayoutGuide(trailingLayoutGuide)
+
+        let heightConstraint = exportFileFormatButton.heightAnchor.constraint(equalToConstant: 50)
+
+        NSLayoutConstraint.activate([
+            leadingLayoutGuide.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            leadingLayoutGuide.trailingAnchor.constraint(equalTo: exportFileFormatButton.leadingAnchor),
+            trailingLayoutGuide.leadingAnchor.constraint(equalTo: exportFileFormatButton.trailingAnchor),
+            trailingLayoutGuide.trailingAnchor.constraint(equalTo: captureButton.leadingAnchor),
+            leadingLayoutGuide.widthAnchor.constraint(equalTo: trailingLayoutGuide.widthAnchor),
+            exportFileFormatButton.centerYAnchor.constraint(equalTo: captureButton.centerYAnchor),
+            heightConstraint
+        ])
+
+        exportFileFormatButton.clipsToBounds = true
+        exportFileFormatButton.layer.cornerCurve = .circular
+        exportFileFormatButton.layer.cornerRadius = heightConstraint.constant / 2
+    }
+
 
     // MARK: - Session Lifecycle
 
@@ -217,13 +296,19 @@ import UniformTypeIdentifiers
             return
         }
 
-        let result = DracoEncoder.encode(faceAnchors: faceAnchors)
+        let name = "face-anchors"
 
-        guard result.status.code == .OK, let contents = result.data else {
-            return
+        switch currentExportFileFormat {
+        case .draco:
+            let result = DracoEncoder.encode(faceAnchors: faceAnchors)
+            if result.status.code == .OK, let contents = result.data {
+                write(contents: contents, name: name)
+            }
+        case .obj:
+            if let contents = OBJEncoder.encode(faceAnchors: faceAnchors) {
+                write(contents: contents, name: name)
+            }
         }
-
-        write(contents: contents, to: "face-anchors.drc")
     }
 
     private func capture(meshAnchors: [ARMeshAnchor]) {
@@ -231,13 +316,19 @@ import UniformTypeIdentifiers
             return
         }
 
-        let result = DracoEncoder.encode(meshAnchors: meshAnchors)
+        let name = "mesh-anchors"
 
-        guard result.status.code == .OK, let contents = result.data else {
-            return
+        switch currentExportFileFormat {
+        case .draco:
+            let result = DracoEncoder.encode(meshAnchors: meshAnchors)
+            if result.status.code == .OK, let contents = result.data {
+                write(contents: contents, name: name)
+            }
+        case .obj:
+            if let contents = OBJEncoder.encode(meshAnchors: meshAnchors) {
+                write(contents: contents, name: name)
+            }
         }
-
-        write(contents: contents, to: "mesh-anchors.drc")
     }
 
     private func capture(planeAnchors: [ARPlaneAnchor]) {
@@ -245,13 +336,19 @@ import UniformTypeIdentifiers
             return
         }
 
-        let result = DracoEncoder.encode(planeAnchors: planeAnchors)
+        let name = "plane-anchors"
 
-        guard result.status.code == .OK, let contents = result.data else {
-            return
+        switch currentExportFileFormat {
+        case .draco:
+            let result = DracoEncoder.encode(planeAnchors: planeAnchors)
+            if result.status.code == .OK, let contents = result.data {
+                write(contents: contents, name: name)
+            }
+        case .obj:
+            if let contents = OBJEncoder.encode(planeAnchors: planeAnchors) {
+                write(contents: contents, name: name)
+            }
         }
-
-        write(contents: contents, to: "plane-anchors.drc")
     }
 
     // MARK: - Export Directory
@@ -282,9 +379,23 @@ import UniformTypeIdentifiers
         return exportDirectory
     }
 
+    // MARK: - Export File Format
+
+    @objc private func rotateExportFileFormat() {
+        currentExportFileFormatIndex = (currentExportFileFormatIndex + 1) % GeometryFileFormat.allCases.count
+    }
+
+    private func updateExportFileFormatButtonTitle() {
+        exportFileFormatButton.setTitle(currentExportFileFormat.rawValue.uppercased(), for: .normal)
+    }
+
     // MARK: - File System
 
-    func write(contents: Data, to file: String) {
+    func write(contents: Data, name: String) {
+        write(contents: contents, file: "\(name).\(currentExportFileFormat.rawValue)")
+    }
+
+    func write(contents: Data, file: String) {
         if let exportDirectory = resolveExportDirectory() {
             write(contents: contents, to: file, in: exportDirectory)
         } else {

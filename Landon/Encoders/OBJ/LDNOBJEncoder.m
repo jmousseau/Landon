@@ -10,7 +10,7 @@
 #import "LDNOBJEncoder.h"
 #import "LDNProfile.h"
 
-#define LDN_OBJ_STRING_FACE @"f %lu %lu %lu\n"
+#define LDN_OBJ_STRING_FACE @"f %u %u %u\n"
 #define LDN_OBJ_STRING_VERTEX @"v %.6f %.6f %.6f\n"
 
 @implementation LDNOBJEncoder

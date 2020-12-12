@@ -30,6 +30,26 @@
     return self;
 }
 
+- (LDNInteger)totalVertexCount {
+    LDNInteger totalVertexCount = 0;
+
+    for (ARPlaneAnchor *planeAnchor in self.planeAnchors) {
+        totalVertexCount += planeAnchor.geometry.vertexCount;
+    }
+
+    return totalVertexCount;
+}
+
+- (LDNInteger)totalFaceCount {
+    LDNInteger totalFaceCount = 0;
+
+    for (ARPlaneAnchor *planeAnchor in self.planeAnchors) {
+        totalFaceCount += planeAnchor.geometry.triangleCount;
+    }
+
+    return totalFaceCount;
+}
+
 - (void)enumerateVerticesUsingBlock:(LDNVertexEnumerationBlock)block {
     if (!block) {
         return;

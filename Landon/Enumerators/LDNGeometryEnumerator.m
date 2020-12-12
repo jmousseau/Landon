@@ -36,6 +36,14 @@
     return [[LDNPlaneAnchorEnumerator alloc] initWithPlaneAnchors:planeAnchors];
 }
 
+- (LDNInteger)totalVertexCount {
+    return 0;
+}
+
+- (LDNInteger)totalFaceCount {
+    return 0;
+}
+
 - (void)enumerateVerticesUsingBlock:(LDNVertexEnumerationBlock)block {
     if (~[self supportedEnumerations] & LDNGeometryEnumerationVertex) {
         LDNAssertUnsupportedEnumeration(@"vertex");

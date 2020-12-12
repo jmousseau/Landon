@@ -10,6 +10,9 @@
 #import <Foundation/Foundation.h>
 #import <simd/simd.h>
 
+/// The integer type used by Landon.
+typedef uint32_t LDNInteger;
+
 // MARK: - Enumerations
 
 /// Geometry enumerations.
@@ -27,7 +30,7 @@ typedef NS_OPTIONS(NSUInteger, LDNGeometryEnumeration) {
 // MARK: - Vertex
 
 /// A vertex index.
-typedef NSUInteger LDNVertexIndex;
+typedef LDNInteger LDNVertexIndex;
 
 /// A vertex.
 typedef struct LDNVertex {
@@ -47,7 +50,7 @@ typedef void (^LDNVertexEnumerationBlock)(LDNVertexIndex * _Nonnull vertexIndex,
 // MARK: - Face
 
 /// A face index.
-typedef NSUInteger LDNFaceIndex;
+typedef LDNInteger LDNFaceIndex;
 
 /// A face.
 typedef struct LDNFace {
@@ -67,7 +70,7 @@ typedef void (^LDNFaceEnumerationBlock)(LDNFaceIndex * _Nonnull faceIndex,
 // MARK: - Normal
 
 /// A normal index.
-typedef NSUInteger LDNNormalIndex;
+typedef LDNInteger LDNNormalIndex;
 
 // A normal.
 typedef simd_float3 LDNNormal;
@@ -104,6 +107,16 @@ typedef void (^LDNNormalEnumerationBlock)(LDNNormalIndex * _Nonnull normalIndex,
 
 /// The enumerations supported by the geometry enumerator.
 @property (nonatomic, readonly) LDNGeometryEnumeration supportedEnumerations;
+
+/**
+ The geometry enumerator's total number of vertices.
+ */
+- (LDNInteger)totalVertexCount;
+
+/**
+ The geometry enumerator's total number of faces.
+ */
+- (LDNInteger)totalFaceCount;
 
 /// Enumerate the geometry's vertices using a given vertex enumeration block.
 ///

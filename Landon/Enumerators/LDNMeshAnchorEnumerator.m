@@ -32,6 +32,26 @@
     return self;
 }
 
+- (LDNInteger)totalVertexCount {
+    LDNInteger totalVertexCount = 0;
+
+    for (ARMeshAnchor *meshAnchor in self.meshAnchors) {
+        totalVertexCount += meshAnchor.geometry.vertices.count;
+    }
+
+    return totalVertexCount;
+}
+
+- (LDNInteger)totalFaceCount {
+    LDNInteger totalFaceCount = 0;
+
+    for (ARMeshAnchor *meshAnchor in self.meshAnchors) {
+        totalFaceCount += meshAnchor.geometry.faces.count;
+    }
+
+    return totalFaceCount;
+}
+
 - (void)enumerateVerticesUsingBlock:(LDNVertexEnumerationBlock)block {
     if (!block) {
         return;

@@ -20,7 +20,8 @@
 
 - (LDNGeometryEnumeration)supportedEnumerations {
     return (LDNGeometryEnumerationVertex |
-            LDNGeometryEnumerationFace);
+            LDNGeometryEnumerationFace |
+            LDNGeometryEnumerationClassification);
 }
 
 - (instancetype)initWithPlaneAnchors:(NSArray<ARPlaneAnchor *> *)planeAnchors {
@@ -125,6 +126,31 @@
 
         faceIndexOffset += planeGeometry.triangleCount;
         vertexIndexOffset += planeGeometry.vertexCount;
+    }
+}
+
+- (void)enumerateClassificationsUsingBlock:(LDNClassificationEnumerationBlock)block {
+    if (!block) {
+        return;
+    }
+
+    LDNClassificationIndex classificationIndex;
+    LDNClassification classification;
+
+    LDNFaceIndex faceIndexOffset = 0;
+
+    for (ARPlaneAnchor *planeAnchor in self.planeAnchors) {
+        ARPlaneGeometry *planeGeometry = planeAnchor.geometry;
+        classification = planeAnchor.classification;
+
+        for (LDNFaceIndex faceInstanceIndex = 0;
+             faceInstanceIndex < planeGeometry.triangleCount;
+             faceInstanceIndex++) {
+            classificationIndex = faceIndexOffset + faceInstanceIndex;
+            block(&classificationIndex, &classification);
+        }
+
+        faceIndexOffset += planeGeometry.triangleCount;
     }
 }
 

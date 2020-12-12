@@ -20,11 +20,13 @@ typedef uint32_t LDNInteger;
 /// - LDNGeometryEnumerationVertex: Vertex enumeration.
 /// - LDNGeometryEnumerationFace: Face enumeration.
 /// - LDNGeometryEnumerationNormal: Normal enumeration.
+/// - LDNGeometryEnumerationClassification: Classification enumeration.
 typedef NS_OPTIONS(NSUInteger, LDNGeometryEnumeration) {
     LDNGeometryEnumerationNone = (0 << 0),
     LDNGeometryEnumerationVertex = (1 << 0),
     LDNGeometryEnumerationFace = (1 << 1),
     LDNGeometryEnumerationNormal = (1 << 2),
+    LDNGeometryEnumerationClassification = (1 << 3)
 };
 
 // MARK: - Vertex
@@ -82,6 +84,21 @@ typedef simd_float3 LDNNormal;
 typedef void (^LDNNormalEnumerationBlock)(LDNNormalIndex * _Nonnull normalIndex,
                                           LDNNormal * _Nonnull normal);
 
+// MARK: - Classification
+
+/// A classification index.
+typedef LDNInteger LDNClassificationIndex;
+
+/// A classification.
+typedef uint8_t LDNClassification;
+
+/// A classification enumeration block.
+///
+/// @param classificationIndex A pointer to the current classification index.
+/// @param classification A pointer to the current classification.
+typedef void (^LDNClassificationEnumerationBlock)(LDNClassificationIndex * _Nonnull classificationIndex,
+                                                  LDNClassification * _Nonnull classification);
+
 // MARK: - Enumerator
 
 /// A geometry enumerator.
@@ -132,5 +149,11 @@ typedef void (^LDNNormalEnumerationBlock)(LDNNormalIndex * _Nonnull normalIndex,
 ///
 /// @param block The normal enumeration block.
 - (void)enumerateNormalsUsingBlock:(nonnull LDNNormalEnumerationBlock)block;
+
+/// Enumerate the geometry's classifications using a given classificaiton
+/// enumeration block.
+///
+/// @param block The classification enumeration block.
+- (void)enumerateClassificationsUsingBlock:(nonnull LDNClassificationEnumerationBlock)block;
 
 @end

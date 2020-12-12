@@ -45,20 +45,26 @@
 }
 
 - (void)enumerateVerticesUsingBlock:(LDNVertexEnumerationBlock)block {
-    if (~[self supportedEnumerations] & LDNGeometryEnumerationVertex) {
+    if (~self.supportedEnumerations & LDNGeometryEnumerationVertex) {
         LDNAssertUnsupportedEnumeration(@"vertex");
     }
 }
 
 - (void)enumerateFacesUsingBlock:(LDNFaceEnumerationBlock)block {
-    if (~[self supportedEnumerations] & LDNGeometryEnumerationFace) {
+    if (~self.supportedEnumerations & LDNGeometryEnumerationFace) {
         LDNAssertUnsupportedEnumeration(@"face");
     }
 }
 
 - (void)enumerateNormalsUsingBlock:(LDNNormalEnumerationBlock)block {
-    if (~[self supportedEnumerations] & LDNGeometryEnumerationNormal) {
+    if (~self.supportedEnumerations & LDNGeometryEnumerationNormal) {
         LDNAssertUnsupportedEnumeration(@"normal");
+    }
+}
+
+- (void)enumerateClassificationsUsingBlock:(LDNClassificationEnumerationBlock)block {
+    if (~self.supportedEnumerations & LDNGeometryEnumerationClassification) {
+        LDNAssertUnsupportedEnumeration(@"classification");
     }
 }
 

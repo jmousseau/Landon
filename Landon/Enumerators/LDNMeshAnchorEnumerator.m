@@ -22,7 +22,8 @@
 - (LDNGeometryEnumeration)supportedEnumerations {
     return (LDNGeometryEnumerationVertex |
             LDNGeometryEnumerationFace |
-            LDNGeometryEnumerationNormal);
+            LDNGeometryEnumerationNormal |
+            LDNGeometryEnumerationClassification);
 }
 
 - (instancetype)initWithMeshAnchors:(NSArray<ARMeshAnchor *> *)meshAnchors {
@@ -159,6 +160,40 @@
         }
 
         normalIndexOffset += normals.count;
+    }
+}
+
+- (void)enumerateClassificationsUsingBlock:(LDNClassificationEnumerationBlock)block {
+    if (!block) {
+        return;
+    }
+
+    LDNClassificationIndex classificationIndex;
+    LDNClassification classification;
+
+    LDNClassificationIndex classificationIndexOffset = 0;
+
+    for (ARMeshAnchor *meshAnchor in self.meshAnchors) {
+        ARMeshGeometry *meshGeometry = meshAnchor.geometry;
+        ARGeometrySource *classifications = meshGeometry.classification;
+        NSData *classificationData = [NSData dataWithBytesNoCopy:classifications.buffer.contents
+                                                          length:classifications.buffer.length
+                                                    freeWhenDone:NO];
+
+        for (LDNClassificationIndex classificationInstanceIndex = 0;
+             classificationInstanceIndex < classifications.count;
+             classificationInstanceIndex++) {
+            [classificationData getBytes:&classification
+                                   range:NSMakeRange(classificationInstanceIndex *
+                                                     classifications.stride +
+                                                     classifications.offset,
+                                                     classifications.stride)];
+
+            classificationIndex = classificationIndexOffset + classificationInstanceIndex;
+            block(&classificationIndex, &classification);
+        }
+
+        classificationIndexOffset += classifications.count;
     }
 }
 
